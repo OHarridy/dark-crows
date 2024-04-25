@@ -1,15 +1,23 @@
 import Button from "./GeneralButton";
 import { useState } from 'react';
-
+import { Link, useNavigate } from "react-router-dom";
+import {Input} from "@nextui-org/react";
+import {EyeFilledIcon} from "./EyeFilledIcon";
+import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
 
 //TODO ADD TYPEWRITING CSS ANIMATION TO TEXT / ADD SOME SORT OF MOVING BACKGROUND
-
+//TODO add warning when wrong pw is entered
 function LoginPage(){
-
-    const[clickCounter, setClockCounter] = useState(0);
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
+
+    
+  const [isVisible, setIsVisible] =useState(false);
+  const toggleVisibility = () => setIsVisible(!isVisible);
+
 
     function handleUsernameChange(e){
       setUsername(e.target.value);
@@ -21,14 +29,36 @@ function LoginPage(){
 
     function handleSubmit(e){
       e.preventDefault();
-      console.log("username: " + username);
-      console.log("password: "+ password);
+     if(login(username,password)){
+      navigate('/dummy');
+     }
+     else{
+      console.log("INCORRECT DATA!");
+     }
+    }
+
+    function login(username, password) {
+      // Load users from localStorage
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+    
+      // Find user with matching username
+      const user = users.find(user => user.username === username);
+    
+      // If user exists and password is correct, return true
+      if (user && user.password === password) {
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
+        console.log(localStorage.getItem("loggedInUser"));
+        return true;
+      }
+    
+      // Otherwise, return false
+      return false;
     }
 
     return (  
        <div className="loginContainer">
 
-<div className="login-non-form-container">
+    <div className="login-non-form-container">
         <div className="login-image">
 
         <img
@@ -96,17 +126,25 @@ function LoginPage(){
                 </div>
               </div>
               <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  placeholder=" Enter your password"
-                  value={password}
-                  onChange={handlePasswordChange}
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
+              <Input
+              name="password"
+      variant="bordered"
+      placeholder="Enter your password"
+      value={password}
+      onChange={handlePasswordChange}
+      endContent={
+        <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
+          {isVisible ? (
+            <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+          ) : (
+            <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+          )}
+        </button>
+      }
+      required
+      type={isVisible ? "text" : "password"}
+      className="max-w-xs"
+    />
               </div>
             </div>
 
@@ -120,7 +158,7 @@ function LoginPage(){
 
           <p className="mt-10 text-center text-sm text-gray-500">
              {' '}
-            <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+            <a href="/Register" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
               Create an Account
             </a>
           </p>
@@ -129,11 +167,6 @@ function LoginPage(){
 
       </div>
 
-
-
-        {/* <h1>LOGIN PAGE</h1>
-        <h2>click counter: {clickCounter}</h2>
-        <Button text="Login" onClick={handleClick}/> */}
 
 
 
