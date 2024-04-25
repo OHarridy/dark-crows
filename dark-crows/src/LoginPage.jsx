@@ -8,6 +8,12 @@ import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
 //TODO ADD TYPEWRITING CSS ANIMATION TO TEXT / ADD SOME SORT OF MOVING BACKGROUND
 //TODO add warning when wrong pw is entered
 //TODO Add forgot password page
+const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+function showAllData(){
+  console.log( "LOGGED IN USERNAME" , loggedInUser.username);
+  console.log( "LOGGED IN USER DATA" , loggedInUser);
+}
 function LoginPage(){
 
     const [username, setUsername] = useState('');
@@ -33,7 +39,7 @@ function LoginPage(){
     function handleSubmit(e){
       e.preventDefault();
      if(login(username,password)){
-      navigate('/dummy');
+      navigate('/');
      }
      else{
       console.log("INCORRECT DATA!");
@@ -167,6 +173,8 @@ function LoginPage(){
           </p>
         </div>
       </div>
+{/* 
+      <Button text="show all data" onClick={showAllData}/> */}
 
       </div>
 

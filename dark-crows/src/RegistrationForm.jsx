@@ -2,7 +2,7 @@
 // import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Button from "./GeneralButton";
 import { Link } from 'react-router-dom';
-import {Select, SelectItem, Avatar, select} from "@nextui-org/react";
+import {Select, SelectItem, Avatar} from "@nextui-org/react";
 import {RadioGroup, Radio} from "@nextui-org/react";
 import { useState } from 'react';
 import {Input} from "@nextui-org/react";

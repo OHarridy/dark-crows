@@ -4,7 +4,7 @@ import LoginPage from './LoginPage';
 import './index.css';
 import {NextUIProvider} from "@nextui-org/react";
 import RegisterPage from './RegisterPage';
-import DummyFile from './DummyFile';
+
 
 
 
@@ -17,7 +17,6 @@ function App() {
           <Routes>
             <Route path='/' element={<LoginPage />} /> 
             <Route path='/Register' element={<RegisterPage />} /> 
-            <Route path='/dummy' element={<DummyFile />} /> 
           </Routes>
         </div>
       </Router>
