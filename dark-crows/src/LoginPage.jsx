@@ -7,10 +7,13 @@ import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
 
 //TODO ADD TYPEWRITING CSS ANIMATION TO TEXT / ADD SOME SORT OF MOVING BACKGROUND
 //TODO add warning when wrong pw is entered
+//TODO Add forgot password page
 function LoginPage(){
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    
 
     const navigate = useNavigate();
 

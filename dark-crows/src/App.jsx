@@ -4,7 +4,6 @@ import LoginPage from './LoginPage';
 import './index.css';
 import {NextUIProvider} from "@nextui-org/react";
 import RegisterPage from './RegisterPage';
-import DonorRegistrationForm from './DonorRegistrationForm';
 import DummyFile from './DummyFile';
 
 

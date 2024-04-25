@@ -8,9 +8,11 @@ import { useState } from 'react';
 import {Input} from "@nextui-org/react";
 import {EyeFilledIcon} from "./EyeFilledIcon";
 import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
+import {Tabs, Tab} from "@nextui-org/react";
 
 
-const DonorRegistrationForm = () => {
+
+const RegistrationForm = () => {
 
   const [isVisible, setIsVisible] =useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -19,6 +21,8 @@ const DonorRegistrationForm = () => {
     username: '',
     first_name: '',
     last_name: '',
+    org_name:'',
+    org_type:'',
     gender:'',
     about:'',
     email: '',
@@ -31,13 +35,17 @@ const DonorRegistrationForm = () => {
     state:'',
   });
 
+
+
   function handleInputChange(e){
       const value = e.target ? e.target.value : e;
       const name = e.target ? e.target.name : 'gender';
-      setFormData({
-        ...formData,
-        [name]: value
-      });
+        setFormData({
+          ...formData,
+          [name]: value
+        });
+
+  
     }
   
 
@@ -52,6 +60,8 @@ const DonorRegistrationForm = () => {
     username: '',
     first_name: '',
     last_name: '',
+    org_name:'',
+    org_type:'',
     gender:'',
     about:'',
     email: '',
@@ -64,7 +74,15 @@ const DonorRegistrationForm = () => {
     state:'',
   });
 
-  console.log("ALL REGISTERED USERS", localStorage.getItem("users"));
+console.log("ALL REGISTERED USERS", localStorage.getItem("users"));
+
+  }
+
+
+const [selectedTab, setSelectedTab] = useState(0);
+
+function handleTabChange() {
+  setSelectedTab(selectedTab+1);
 }
 
 // TODO check that pw and confirm pw are the same
@@ -73,6 +91,16 @@ const DonorRegistrationForm = () => {
 
   return (  
     <div  >
+
+<div className="register-page-slider-container">
+  <div className="flex flex-wrap gap-4">
+        <Tabs key="success" color="success" aria-label="Tabs colors" radius="full" onClick={handleTabChange}>
+          <Tab key="Donor" title="Donor" value="DonorRegistrationForm"  />
+          <Tab key="Org" title="Organization" value="OrgRegistrationForm"/>
+        </Tabs>
+
+        </div>
+        </div>
     <form onSubmit={handleSubmit}>
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
@@ -180,6 +208,47 @@ const DonorRegistrationForm = () => {
                 />
               </div>
             </div>
+
+            {selectedTab%2 !=0 ? (
+<>
+            <div className="sm:col-span-3">
+              <label htmlFor="org-name" className="block text-sm font-medium leading-6 text-gray-900">
+                Organization name
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="org_name"
+                  id="org-name"
+                  value={formData.org_name}
+                  onChange={handleInputChange}
+                  required
+                  autoComplete="family-name"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-3">
+              <label htmlFor="org-type" className="block text-sm font-medium leading-6 text-gray-900">
+                Organization Type
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="org_type"
+                  id="org-type"
+                  value={formData.org_type}
+                  onChange={handleInputChange}
+                  required
+                  autoComplete="family-name"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            </>
+
+): null}
 
             <div className="sm:col-span-4">
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
@@ -438,4 +507,4 @@ const DonorRegistrationForm = () => {
   );
 }
  
-export default DonorRegistrationForm;
+export default RegistrationForm;
