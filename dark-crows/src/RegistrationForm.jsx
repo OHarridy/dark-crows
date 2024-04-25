@@ -79,16 +79,14 @@ console.log("ALL REGISTERED USERS", localStorage.getItem("users"));
   }
 
 
-const [selectedTab, setSelectedTab] = useState(0);
+const [selectedTab, setSelectedTab] = useState('Donor');
 
 function handleTabChange() {
-  setSelectedTab(selectedTab+1);
   console.log(selectedTab);
 }
 
 // TODO check that pw and confirm pw are the same
 //TODO change behaviour of hide/show pw to be exclusive to each input
-//TODO switching registration bug (clicking on same tab twice)
 
 
   return (  
@@ -96,7 +94,7 @@ function handleTabChange() {
 
 <div className="register-page-slider-container">
   <div className="flex flex-wrap gap-4">
-        <Tabs key="success" color="success" aria-label="Tabs colors" radius="full" onSelectionChange={handleTabChange}>
+        <Tabs key="success" color="success" aria-label="Tabs colors" radius="full" selectedKey={selectedTab}  onSelectionChange={setSelectedTab} onClick={handleTabChange}>
           <Tab key="Donor" title="Donor" id= "donor" value="DonorRegistrationForm"/>
           <Tab key="Org" title="Organization" id="org" value="OrgRegistrationForm"/>
         </Tabs>
@@ -211,7 +209,7 @@ function handleTabChange() {
               </div>
             </div>
 
-            { (selectedTab%2 ===0 )? (
+            { (selectedTab === "Org"  )? (
 <>
             <div className="sm:col-span-3">
               <label htmlFor="org-name" className="block text-sm font-medium leading-6 text-gray-900">
@@ -249,7 +247,6 @@ function handleTabChange() {
               </div>
             </div>
             </>
-
 ): null}
 
             <div className="sm:col-span-4">
