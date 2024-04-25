@@ -17,7 +17,7 @@ function LoginPage(){
 
         <h1>LOGIN PAGE</h1>
         <h2>click counter: {clickCounter}</h2>
-        <Button text="TEST" onClick={handleClick}/>
+        <Button text="Login" onClick={handleClick}/>
 
 
 
