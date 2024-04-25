@@ -24,6 +24,7 @@
 }
 
 
+
 body {
   margin: 0;
   display: flex;
@@ -35,10 +36,10 @@ body {
 
 }
 
-h1 {
+/* h1 {
   font-size: 3.2em;
   line-height: 1.1;
-} 
+}  */
 
 .generalButton {
   border-radius: 8px;
@@ -56,6 +57,64 @@ h1 {
 }
 .generalButton:hover {
   border-color: #33b1c7;
+}
+
+.loginContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+
+}
+
+.login-form-container {
+  position: fixed; /* or absolute */
+  right: 0;
+  margin:50px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 0.5rem;
+}
+
+.login-image{
+  width: 250px;
+  object-fit: contain;
+}
+
+
+.login-non-form-container{
+  position: fixed; /* or absolute */
+  left: 0;
+  margin:200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: fit-content;
+}
+
+.login-text {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.5;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.login-subtext {
+  font-size: 1.5em;
+  font-style:italic ;
+  color: #333;
+  line-height: 1.5;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: auto;
+  white-space: wrap;
 }
 
 
