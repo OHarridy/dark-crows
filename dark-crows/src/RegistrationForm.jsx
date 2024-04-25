@@ -2,7 +2,7 @@
 // import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Button from "./GeneralButton";
 import { Link } from 'react-router-dom';
-import {Select, SelectItem, Avatar} from "@nextui-org/react";
+import {Select, SelectItem, Avatar, select} from "@nextui-org/react";
 import {RadioGroup, Radio} from "@nextui-org/react";
 import { useState } from 'react';
 import {Input} from "@nextui-org/react";
@@ -83,10 +83,12 @@ const [selectedTab, setSelectedTab] = useState(0);
 
 function handleTabChange() {
   setSelectedTab(selectedTab+1);
+  console.log(selectedTab);
 }
 
 // TODO check that pw and confirm pw are the same
 //TODO change behaviour of hide/show pw to be exclusive to each input
+//TODO switching registration bug (clicking on same tab twice)
 
 
   return (  
@@ -94,9 +96,9 @@ function handleTabChange() {
 
 <div className="register-page-slider-container">
   <div className="flex flex-wrap gap-4">
-        <Tabs key="success" color="success" aria-label="Tabs colors" radius="full" onClick={handleTabChange}>
-          <Tab key="Donor" title="Donor" value="DonorRegistrationForm"  />
-          <Tab key="Org" title="Organization" value="OrgRegistrationForm"/>
+        <Tabs key="success" color="success" aria-label="Tabs colors" radius="full" onSelectionChange={handleTabChange}>
+          <Tab key="Donor" title="Donor" id= "donor" value="DonorRegistrationForm"/>
+          <Tab key="Org" title="Organization" id="org" value="OrgRegistrationForm"/>
         </Tabs>
 
         </div>
@@ -209,7 +211,7 @@ function handleTabChange() {
               </div>
             </div>
 
-            {selectedTab%2 !=0 ? (
+            { (selectedTab%2 ===0 )? (
 <>
             <div className="sm:col-span-3">
               <label htmlFor="org-name" className="block text-sm font-medium leading-6 text-gray-900">
