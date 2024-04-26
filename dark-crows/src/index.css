@@ -1,3 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.no-rounded-corners .next-progress .next-progress-inner {
+    border-radius: 0 !important;
+}
