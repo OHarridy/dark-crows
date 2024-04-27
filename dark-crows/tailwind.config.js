@@ -9,9 +9,6 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        'honestToGodGreen': '#00FF00', // replace '#00FF00' with your desired hex color code
-      },
     },
   },
   variants: {},
