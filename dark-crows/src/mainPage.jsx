@@ -1,5 +1,6 @@
 import ThisThing from "./singleThing.jsx";
 const Home = () => {
+
     return (
         <div className="home min-h-screen flex items-end mx-auto" style={{width:1400}}>
 
