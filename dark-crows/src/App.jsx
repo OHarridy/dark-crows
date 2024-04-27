@@ -2,23 +2,19 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPage from './LoginPage'; 
 import './index.css';
-import {NextUIProvider} from "@nextui-org/react";
+import Home from './mainPage.jsx';
 
 
 function App() {
   return (
-    <NextUIProvider>
-    <div className='App'>
-      <Router>
-        <div className='content'>
-          <Routes>
-            <Route path='/' element={<mainPage />} /> 
-          </Routes>
-        </div>
-      </Router>
-    </div>
-    </NextUIProvider>
-
+<div>
+    <Router>
+        <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/Login' element={<LoginPage />} />
+        </Routes>
+    </Router>
+</div>
   );
 }
 

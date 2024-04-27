@@ -1,4 +1,3 @@
-import React from "react";
 import Record from "./Record.jsx";
 import orgs from "./orgs.js";
 
