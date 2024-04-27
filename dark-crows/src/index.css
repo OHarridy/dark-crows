@@ -1,3 +1,61 @@
+@import 'tailwindcss/base';
+
+@import 'tailwindcss/components';
+
+@import 'tailwindcss/utilities';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+ :root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+} 
+
+.generalButton {
+  border-radius: 8px;
+  border:none;
+  outline:none;
+  /* padding: 0.6em 1.2em; */
+  font-size: 1em;
+  font-weight: 620;
+  font-family: inherit;
+  color:white;
+  background-color: #28c95a;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+.generalButton:hover {
+  border-color: #33b1c7;
+}
+
+
