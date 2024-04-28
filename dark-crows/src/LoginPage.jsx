@@ -1,4 +1,4 @@
-import Button from "./generalButton";
+//import Button from "./generalButton";
 import { useState } from 'react';
 
 
@@ -17,7 +17,7 @@ function LoginPage(){
 
         <h1>LOGIN PAGE</h1>
         <h2>click counter: {clickCounter}</h2>
-        <Button text="Login" onClick={handleClick}/>
+       // <Button text="Login" onClick={handleClick}/>
 
 
 
