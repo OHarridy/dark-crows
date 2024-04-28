@@ -28,6 +28,11 @@ const RegistrationForm = () => {
     org_type:'',
     gender:'male',
     role:'regular',
+    no_appointments:'',
+    clinic_address:'',
+    subjects:'',
+    no_students:'',
+    no_sessions:'',
     about:'',
     email: '',
     contact_number: '',
@@ -68,6 +73,11 @@ const RegistrationForm = () => {
     org_type:'',
     gender:'male',
     role:'regular',
+    no_appointments:'',
+    clinic_address:'',
+    subjects:'',
+    no_students:'',
+    no_sessions:'',
     about:'',
     email: '',
     contact_number: '',
@@ -220,6 +230,105 @@ const [uploadText, setUploadtext] = useState('');
             </div>
             </>
 ): null}
+
+{ (formData.role === "doctor"  )? (
+<>
+            <div className="sm:col-span-4">
+              <label htmlFor="no_appointments" className="block text-sm font-medium leading-6 text-gray-900">
+                Number of Appointments
+              </label>
+              <div className="mt-2">
+                <input
+                  id="no_appointments"
+                  name="no_appointments"
+                  type="number"
+                  placeholder=" Enter number of Appointments"
+                  value={formData.no_appointments}
+                  onChange={handleInputChange}
+                  autoComplete="email"
+                  required
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-4">
+              <label htmlFor="clinic_address" className="block text-sm font-medium leading-6 text-gray-900">
+                Clinic Address
+              </label>
+              <div className="mt-2">
+                <input
+                  id="clinic_address"
+                  name="clinic_address"
+                  placeholder=" Enter Clinic Address"
+                  value={formData.clinic_address}
+                  onChange={handleInputChange}
+                  required
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            </>
+            ): null}
+
+{ (formData.role === "teacher"  )? (
+<>
+            <div className="sm:col-span-4">
+              <label htmlFor="subjects" className="block text-sm font-medium leading-6 text-gray-900">
+                Subjects
+              </label>
+              <div className="mt-2">
+                <input
+                  id="subjects"
+                  name="subjects"
+                  placeholder="List Subject(s) you teach"
+                  value={formData.subjects}
+                  onChange={handleInputChange}
+                  required
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-4">
+              <label htmlFor="no_students" className="block text-sm font-medium leading-6 text-gray-900">
+                Number of Students
+              </label>
+              <div className="mt-2">
+                <input
+                  id="no_students"
+                  name="no_students"
+                  placeholder=" Enter Number of Students"
+                  type="number"
+                  value={formData.no_students}
+                  onChange={handleInputChange}
+                  required
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-4">
+              <label htmlFor="no_sessions" className="block text-sm font-medium leading-6 text-gray-900">
+                Number of Sessions Per Week
+              </label>
+              <div className="mt-2">
+                <input
+                  id="no_sessions"
+                  name="no_sessions"
+                  placeholder=" Enter Number of Sessions Per Week"
+                  type="number"
+                  value={formData.no_sessions}
+                  onChange={handleInputChange}
+                  required
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            </>
+            ): null}
+
+
              { (formData.role !== "regular" ||  selectedTab === "Org" )? (
 <>
             <div className="col-span-full">
@@ -365,6 +474,7 @@ const [uploadText, setUploadtext] = useState('');
                   value={formData.email}
                   onChange={handleInputChange}
                   autoComplete="email"
+                  required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
