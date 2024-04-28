@@ -1,3 +1,148 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    color-scheme: light;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #ffffff;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  
+  
+  body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  
+  }
+
+
+
+form {
+    overflow: auto; 
+  }
+  
+  /* h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+  }  */
+  
+  .generalButton {
+    border-radius: 8px;
+    border:none;
+    outline:none;
+    /* padding: 0.6em 1.2em; */
+    font-size: 1em;
+    font-weight: 620;
+    font-family: inherit;
+    color:white;
+    background-color: #28c95a;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+  .generalButton:hover {
+    border-color: #33b1c7;
+  }
+  
+  .loginContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+  
+  }
+  
+  .login-form-container {
+    position: fixed; 
+    right: 0;
+    margin:50px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 0.5rem;
+  }
+  
+  .login-image{
+    width: 250px;
+    object-fit: contain;
+  }
+  
+  
+  .login-non-form-container{
+    position: fixed; 
+    left: 0;
+    margin:200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: fit-content;
+  }
+  
+  .login-text {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.5;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .login-subtext {
+    font-size: 1.5em;
+    font-style:italic ;
+    color: #333;
+    line-height: 1.5;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: auto;
+    white-space: wrap;
+  }
+  
+  .register-form-container{
+    height: 100vh;
+  }
+  
+  .register-page-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin:40px;
+    padding:30px;
+    height: 100vh;
+  }
+  
+  .register-form-container {
+    height:100vh;
+    margin:50px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 0.5rem;
+  }
+  
+  .password-input-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }

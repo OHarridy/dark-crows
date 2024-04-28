@@ -1,5 +1,4 @@
-
-import OrgMainPage from './OrgMainPage.jsx';
+import OrgPage from './OrgPage';
 import './card.css';
 
 
@@ -9,7 +8,7 @@ const App2 = () => {
 
 
 <div>
-    <OrgMainPage/>
+    <OrgPage/>
 </div>
 
 
