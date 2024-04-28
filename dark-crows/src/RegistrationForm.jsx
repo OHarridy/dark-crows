@@ -1,6 +1,6 @@
 
 // import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-import Button from "./GeneralButton";
+import Button from "./generalButton";
 import { Link } from 'react-router-dom';
 import {Select, SelectItem, Avatar} from "@nextui-org/react";
 import {RadioGroup, Radio} from "@nextui-org/react";
@@ -9,6 +9,9 @@ import {Input} from "@nextui-org/react";
 import {EyeFilledIcon} from "./EyeFilledIcon";
 import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
 import {Tabs, Tab} from "@nextui-org/react";
+import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -23,7 +26,8 @@ const RegistrationForm = () => {
     last_name: '',
     org_name:'',
     org_type:'',
-    gender:'',
+    gender:'male',
+    role:'regular',
     about:'',
     email: '',
     contact_number: '',
@@ -62,7 +66,8 @@ const RegistrationForm = () => {
     last_name: '',
     org_name:'',
     org_type:'',
-    gender:'',
+    gender:'male',
+    role:'regular',
     about:'',
     email: '',
     contact_number: '',
@@ -73,6 +78,10 @@ const RegistrationForm = () => {
     city:'',
     state:'',
   });
+
+  setUploadtext('');
+  toast.success('Registration successful! 🎉');
+
 
 console.log("ALL REGISTERED USERS", localStorage.getItem("users"));
 
@@ -85,14 +94,56 @@ function handleTabChange() {
   console.log(selectedTab);
 }
 
+function handleFileChange(event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  reader.onloadend = function() {
+    localStorage.setItem('file', reader.result);
+    console.log('Selected file:', file);
+  }
+  reader.readAsDataURL(file);
+
+  
+  setUploadtext('Document uploaded successfully! ✔');
+}
+
+const fileInputRef = React.useRef();
+
+function downloadFile() {
+  const fileDataUrl = localStorage.getItem('file');
+  if (!fileDataUrl) {
+    console.log('No file to download');
+    return;
+  }
+
+  const link = document.createElement('a');
+  link.href = fileDataUrl;
+  link.download = 'document'; 
+
+
+  document.body.appendChild(link);
+
+
+  link.click();
+
+
+  setTimeout(() => document.body.removeChild(link), 0);
+
+}
+
+const [uploadText, setUploadtext] = useState('');
+
+
+
 // TODO check that pw and confirm pw are the same
 //TODO change behaviour of hide/show pw to be exclusive to each input
 
 
   return (  
-    <div  >
+    <div >
 
 <div className="register-page-slider-container">
+<ToastContainer />
   <div className="flex flex-wrap gap-4">
         <Tabs key="success" color="success" aria-label="Tabs colors" radius="full" selectedKey={selectedTab}  onSelectionChange={setSelectedTab} onClick={handleTabChange}>
           <Tab key="Donor" title="Donor" id= "donor" value="DonorRegistrationForm"/>
@@ -124,8 +175,6 @@ function handleTabChange() {
                   onChange={handleInputChange}
                   autoComplete="username"
                   placeholder=" Enter your Username"
-                  // value={username}
-                  // onChange={handleUsernameChange}
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -144,30 +193,78 @@ function handleTabChange() {
                   value={formData.about}
                   onChange={handleInputChange}
                   rows={3}
+                  placeholder=" Tell us a bit about yourself!"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   defaultValue={''}
                 />
               </div>
-              <p className="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about yourself.</p>
             </div>
 
-            {/* TODO - Add a photo upload feature */}
-            <div className="col-span-full">
-              <label htmlFor="photo" className="block text-sm font-medium leading-6 text-gray-900">
-                Photo
+            { (selectedTab === "Donor"  )? (
+<>
+            <div className="sm:col-span-4">
+              <label htmlFor="role" className="block text-sm font-medium leading-6 text-gray-900">
+              Volunteer Role Selection
               </label>
+              <div className="mt-2">
+              <RadioGroup  
+                  name="role"
+                  value={formData.role}
+                  onChange={handleInputChange}
+                  required >
+              <Radio value="regular">Regular Donor</Radio>
+              <Radio value="doctor">Pro-bono Doctor</Radio>
+              <Radio value="teacher">Pro-bono Teacher</Radio>
+            </RadioGroup>
+              </div>
+            </div>
+            </>
+): null}
+             { (formData.role !== "regular" ||  selectedTab === "Org" )? (
+<>
+            <div className="col-span-full">
+              <label htmlFor="document" className="block text-sm font-medium leading-6 text-gray-900">
+                Document
+              </label>
+              { (selectedTab === "Donor"  )? (
+                <>
+              <p className="mt-1 text-sm leading-6 text-gray-600">Upload relevant documents proving your legitimacy as a Doctor/Teacher</p>
+              </>
+            ):  <>
+            <p className="mt-1 text-sm leading-6 text-gray-600">Upload relevant documents proving your legitimacy as an Organization</p>
+            </>}
               <div className="mt-2 flex items-center gap-x-3">
-                {/* <UserCircleIcon className="h-12 w-12 text-gray-300" aria-hidden="true" /> */}
+           
+
+                <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileChange} required />
                 <button
                   type="button"
                   className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                  onClick={() => fileInputRef.current.click()}
                 >
-                  Change
+                  Upload Document
                 </button>
+
+               <div className="uploaded-text">
+                <p className="mt-1 text-sm leading-6 ">{uploadText}</p>
+                </div>
+
+                {/* <button
+                  type="button"
+                  className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                  onClick={downloadFile}
+                >
+                  Download Document
+                </button> */}
               </div>
             </div>
+            </>
+          ): null}
 
           </div>
+
+
+
         </div>
 
         <div className="border-b border-gray-900/10 pb-12">
@@ -184,6 +281,8 @@ function handleTabChange() {
                   type="text"
                   name="first_name"
                   id="first-name"
+                  placeholder=" Enter your first name"
+                  required
                   value={formData.first_name}
                   onChange={handleInputChange}
                   autoComplete="given-name"
@@ -201,6 +300,8 @@ function handleTabChange() {
                   type="text"
                   name="last_name"
                   id="last-name"
+                  placeholder=" Enter your last name"
+                  required
                   value={formData.last_name}
                   onChange={handleInputChange}
                   autoComplete="family-name"
@@ -220,6 +321,7 @@ function handleTabChange() {
                   type="text"
                   name="org_name"
                   id="org-name"
+                  placeholder=" Enter your Organization name"
                   value={formData.org_name}
                   onChange={handleInputChange}
                   required
@@ -238,6 +340,7 @@ function handleTabChange() {
                   type="text"
                   name="org_type"
                   id="org-type"
+                  placeholder=" Enter your Organization Type"
                   value={formData.org_type}
                   onChange={handleInputChange}
                   required
@@ -258,6 +361,7 @@ function handleTabChange() {
                   id="email"
                   name="email"
                   type="email"
+                  placeholder=" Enter your email address"
                   value={formData.email}
                   onChange={handleInputChange}
                   autoComplete="email"
@@ -328,7 +432,9 @@ function handleTabChange() {
               <RadioGroup  
                   name="gender"
                   value={formData.gender}
-                  onChange={handleInputChange}>
+                  onChange={handleInputChange} 
+                  required
+                  defaultValue="male">
               <Radio value="male">Male</Radio>
               <Radio value="female">Female</Radio>
             </RadioGroup>
@@ -346,6 +452,7 @@ function handleTabChange() {
       label="Select country"
     value={formData.country}
        onChange={handleInputChange}
+       defaultValue=""
     >
       <SelectItem
         key="argentina"
@@ -422,6 +529,7 @@ function handleTabChange() {
                   type="tel"
                   name="contact_number"
                   id="contact-number"
+                  placeholder=" Enter your Contact Number"
                   value={formData.contact_number}
                   onChange={handleInputChange}
                   autoComplete="street-address"
@@ -439,6 +547,7 @@ function handleTabChange() {
                   type="text"
                   name="address"
                   id="street-address"
+                  placeholder=" Enter your street address"
                   value={formData.address}
                   onChange={handleInputChange}
                   autoComplete="street-address"
@@ -456,6 +565,7 @@ function handleTabChange() {
                   type="text"
                   name="city"
                   id="city"
+                  placeholder=" Enter your City"
                   value={formData.city}
                   onChange={handleInputChange}
                   autoComplete="address-level2"
@@ -473,6 +583,7 @@ function handleTabChange() {
                   type="text"
                   name="state"
                   id="state"
+                  placeholder=" Enter your State"
                   value={formData.state}
                   onChange={handleInputChange}
                   autoComplete="address-level1"

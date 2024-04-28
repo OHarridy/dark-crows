@@ -1,4 +1,4 @@
-import Button from "./GeneralButton";
+import Button from "./generalButton";
 import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import {Input} from "@nextui-org/react";
@@ -6,7 +6,6 @@ import {EyeFilledIcon} from "./EyeFilledIcon";
 import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
 
 //TODO ADD TYPEWRITING CSS ANIMATION TO TEXT / ADD SOME SORT OF MOVING BACKGROUND
-//TODO add warning when wrong pw is entered
 //TODO Add forgot password page
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -42,6 +41,7 @@ function LoginPage(){
       navigate('/');
      }
      else{
+      //TODO add warning when wrong pw is entered
       console.log("INCORRECT DATA!");
      }
     }

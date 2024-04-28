@@ -10,18 +10,16 @@ import RegisterPage from './RegisterPage';
 
 function App() {
   return (
-    <NextUIProvider>
+    // <NextUIProvider>
     <div className='App'>
       <Router>
-        <div className='content'>
           <Routes>
             <Route path='/' element={<LoginPage />} /> 
             <Route path='/Register' element={<RegisterPage />} /> 
           </Routes>
-        </div>
       </Router>
     </div>
-    </NextUIProvider>
+    // </NextUIProvider>
 
   );
 }

@@ -40,10 +40,18 @@ form {
   overflow: auto; 
 }
 
-/* h1 {
+h1 {
   font-size: 3.2em;
-  line-height: 1.1;
-}  */
+  /* line-height: 1.1; */
+  font-weight: bolder;
+} 
+
+
+h2{
+  font-size: 1.8em;
+  /* line-height: 1.1; */
+  font-style: italic;
+} 
 
 .generalButton {
   border-radius: 8px;
@@ -84,6 +92,11 @@ form {
 
 .login-image{
   width: 250px;
+  object-fit: contain;
+}
+
+.register-image{
+  width: 180px;
   object-fit: contain;
 }
 
@@ -157,6 +170,12 @@ form {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+.uploaded-text{
+  text-align: center;
+  font-size: 1.5em;
+  color: #28c95a;
 }
 
 
