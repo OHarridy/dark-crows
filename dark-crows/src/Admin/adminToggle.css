@@ -133,7 +133,7 @@
     content: "";
     width: 10px;
     height: 10px;
-    background-color: rgb(12, 12, 12);
+    background-color: green;
     background-size: 1000%;
     background-position: center;
     transform: rotate(45deg);

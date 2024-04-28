@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Records from "./Records";
-import { autocomplete } from "@nextui-org/theme";
+import setIsOpen from "./Record.jsx";
+import SideBar from "./SideBar.jsx";
 
 function AdminSubmission(){
     const[isToggled,setToggle] = useState(false);
@@ -8,12 +9,26 @@ function AdminSubmission(){
     function handleToggle(){
         setToggle(!isToggled);
         setWhere(where === "Organizations" ? "Donors" : "Organizations");
+        setIsOrg(!isOrg);
+    }
+
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const [isOpen, setIsOpen] = useState(false);
+    
+    const [isOrg, setIsOrg] = useState(true);
+    function setOrg(){
+        setIsOrg(!isOrg);
     }
 
     return (
-        <div className="w-full border-red-500 border-2 flex flex-col items-center">
+        <div className="w-full flex flex-col">
             
-            <div className="toggle-container mt-3"  onClick={handleToggle}>
+
+            <div className="text-4xl text-center p-5">{where} Submissions</div>
+            <div className="toggle-container m-3 justify-items-stretch"  onClick={handleToggle}>
                 <input type="checkbox" className="toggle-input"/>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292 142" className="toggle">
                     <path d="M71 142C31.7878 142 0 110.212 0 71C0 31.7878 31.7878 0 71 0C110.212 0 119 30 146 30C173 30 182 0 221 0C260 0 292 31.7878 292 71C292 110.212 260.212 142 221 142C181.788 142 173 112 146 112C119 112 110.212 142 71 142Z" className="toggle-background"></path>
@@ -30,10 +45,12 @@ function AdminSubmission(){
                     </filter>
                 </svg>
             </div>
-
-            <div className="text-4xl text-center p-5">{where} Submissions</div>
-            <Records hid={isToggled}/>
-            <div className="bg-green-500 text-white text-center p-4 bottom-0 w-screen">
+            
+            <div className='flex flex-row justify-between'>
+                <SideBar />
+                <Records hid={isToggled} isOrg={isOrg}/>
+            </div>
+            <div className="bg-green-500 text-white text-center p-4 absolute left-0 bottom-0 w-screen">
                 <p>Contact Us: 123-456-7890</p>
                 <p>Email: example@example.com</p>
                     <div className="flex justify-center space-x-4">
@@ -41,6 +58,9 @@ function AdminSubmission(){
                         <a href="https://www.instagram.com/yourpage" target="_blank" rel="noopener noreferrer">Instagram</a>
                     </div>
             </div>
+
+            
+        {/**/}
         </div>
     );
 }
