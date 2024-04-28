@@ -1,15 +1,13 @@
 import {Button} from "@nextui-org/react";
 
-function generalButton ({text ,onClick}) {
+function GeneralButton ({text ,onClick ,className, type}) {
     return (  
-    // <div className="buttonContainer">
-  <Button onClick={onClick} className="generalButton">
+  <Button onClick={onClick} className={className} style={{backgroundColor: "#28c95a" , color:"white "}} type={type}>
     {text}
   </Button>
 
-  // </div>
   
 );
 }
  
-export default generalButton;
+export default GeneralButton;
