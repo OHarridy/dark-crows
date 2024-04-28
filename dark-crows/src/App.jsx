@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import App2 from './App2';
 import CardPage from './CardPage';
 import CardProfile from './CardProfile';
-import DonorRegistrationForm from './DonorRegistrationForm';
+import OrgDonationPost from "./OrgDonationPost";
 import RegisterPage from './RegisterPage';
 // import MainPage from 'src/App.jsx'; // Import the component you want to navigate to
 
@@ -19,7 +19,7 @@ function App() {
     
       <Route path='/CardPage' element={<CardPage/>}/>
       <Route path='/CardProfile' element={<CardProfile/>}/>
-      <Route path='/DonorRegistrationForm' element={<DonorRegistrationForm/>}/>
+      <Route path='/OrgDonationPost' element={<OrgDonationPost/>}/>
       <Route path='/RegisterPage' element={<RegisterPage/>} /> 
         <Route path='/' element={<App2/>} />
       </Routes>

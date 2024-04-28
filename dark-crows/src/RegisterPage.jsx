@@ -1,5 +1,5 @@
 import {Tabs, Tab} from "@nextui-org/react";
-import DonorRegistrationForm from "./DonorRegistrationForm";
+
 
 const RegisterPage = () => {
     return ( 
