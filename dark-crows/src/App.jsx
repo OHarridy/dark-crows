@@ -10,8 +10,6 @@ import RegisterPage from './RegisterPage';
 // import MainPage from 'src/App.jsx'; // Import the component you want to navigate to
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
    
     <div className='Main'>
@@ -36,4 +34,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
