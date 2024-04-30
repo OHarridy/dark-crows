@@ -85,7 +85,7 @@ function handleFileChange(event) {
   reader.readAsDataURL(file);
 
   
-  setUploadtext('Document uploaded successfully! ✔');
+  setUploadtext('Photo uploaded successfully! ✔');
 }
 
 const fileInputRef = React.useRef();
