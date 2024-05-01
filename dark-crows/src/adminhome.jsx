@@ -1,21 +1,13 @@
 
-import React, { useState } from 'react';
-import './button.css';
-import './settings.jsx';
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input} from "@nextui-org/react"
 function AdminHome() {
-    const [isOpen, setIsOpen] = useState(false);
-
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  };
+  const {isOpen, onOpen, onOpenChange} = useDisclosure()
     return (
       <div style={{ textAlign: 'center' }}>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <button
+          <Button
             className="button"
-            onClick={() => {
-              togglePopup();
-            }}
+            onPress={onOpen}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +27,7 @@ function AdminHome() {
               </g>
             </svg>
             <span className="lable">Settings</span>
-          </button>
+          </Button>
         </div>
         <h1>Welcome to the Admin Home Page</h1>
         <div style={{ padding: 30 }}>
@@ -75,80 +67,48 @@ function AdminHome() {
             Button 5
           </button>
         </div>
-
-     
-
-        {isOpen && (
-          <div
-            style={{
-              position: 'fixed',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              backgroundColor: '#fff',
-              padding: '50px',
-              zIndex: 1000,
-            }}
-          >
-            <button onClick={togglePopup}>Close</button>
-            <h1>Change Password</h1>
-            <div>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  marginBottom: '10px',
-                }}
-              >
-                <div style={{ width: '150px' }}>
-                  <label>Old Password:</label>
-                  <input type="password" placeholder="password123" />
-                </div>
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  marginBottom: '10px',
-                }}
-              >
-                <div style={{ width: '150px', alignContent: 'left' }}>
-                  <label>New Password:</label>
-                  <input type="password" placeholder="password123" />
-                </div>
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  marginBottom: '10px',
-                }}
-              >
-                <div style={{ width: '150px' }}>
-                  <label>Repeat New Password:</label>
-                  <input type="password" placeholder="password123" />
-                </div>
-              </div>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <button>Change</button>
-            </div>
-          </div>
-        )}
-
-        {isOpen && (
-          <div
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              backgroundColor: 'rgba(0, 0, 0, 0.7)',
-              zIndex: 500,
-            }}
-          />
-        )}
+        <Modal 
+          isOpen={isOpen} 
+          onOpenChange={onOpenChange}
+          placement="top"
+          backdrop="blur"
+        >
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalHeader className="flex flex-col gap-1">Log in</ModalHeader>
+                <ModalBody>
+                  <Input
+                    label="Old Password"
+                    placeholder="Enter old password"
+                    type="password"
+                    variant="bordered"
+                  />
+                  <Input
+                    label="New Password"
+                    placeholder="Enter new password"
+                    type="password"
+                    variant="bordered"
+                  />
+                  <Input
+                    label="Repeat new Password"
+                    placeholder="Repeat new password"
+                    type="password"
+                    variant="bordered"
+                  />
+                </ModalBody>
+                <ModalFooter>
+                  <Button color="danger" variant="flat" onPress={onClose}>
+                    Close
+                  </Button>
+                  <Button color="primary" onPress={onClose}>
+                    Sign in
+                  </Button>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
       </div>
     );
 }

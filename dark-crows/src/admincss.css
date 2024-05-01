@@ -79,16 +79,13 @@
   .bin-button:hover {
     background-color: rgb(255, 0, 0);
   }
-  .info-button:hover {
+  .info-button:hover{
     background-color: rgb(0, 255, 0);
   } 
+  
   .bin-button:active {
     transform: scale(0.9);
   }
   .split-div {
     display: flex;
-}
-
-.left-div, .right-div {
-    flex: 1;
 }
