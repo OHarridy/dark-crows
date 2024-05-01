@@ -28,7 +28,7 @@ const Donor = () => {
                         <DateInput  defaultValue={parseAbsoluteToLocal(drivernigga.ETA)}/>
                     </div>
                     ))}
-</div>
+                    </div>
                 </div>
                 <div className="w-[1000px] ml-20">
                     <div className="grid grid-cols-3 gap-4 items-center" >   
@@ -40,7 +40,8 @@ const Donor = () => {
                     <p className={thisp}>{nigga.donorType}</p>
                     <p className={thisp}>{nigga.address}</p>
                 </div>
-                <div className="flex flex-row">
+
+                {nigga.donorType.includes("Doctor") ? <div className="flex flex-row">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d431.855933447735!2d31.321447549598684!3d30.012535899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583f7e406772f5%3A0x4bfd4ca20c13262a!2sYour%20clinic!5e0!3m2!1sen!2seg!4v1714583676383!5m2!1sen!2seg" 
                     width="400" height="300"></iframe>
                     <div className="flex flex-col gap-12 my-auto">
@@ -54,7 +55,24 @@ const Donor = () => {
                             No. of free appointments per week: 69
                         </p>
                     </div>
-                </div>
+                </div> : <div className="flex flex-col gap-12 my-auto">
+                        <p className="w-54 text-3xl">
+                            Subjects: History, Humanities
+                        </p>
+                        <p className="w-54 text-3xl">
+                             No. of pro bono classes: 77
+                        </p>
+                        <p className="w-54 text-3xl">
+                            No. of private students: 69
+
+                        </p>
+                    </div>}
+
+
+                   
+
+
+
             </div>
             </div>
         </div>
