@@ -1,8 +1,9 @@
-
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LoginPage from './LoginPage'; 
-import './index.css';
+import LoginPage from './LoginPage.jsx';
+import Donor from './donorAccount.jsx';
 import Home from './mainPage.jsx';
+import './index.css';
+
 
 
 function App() {
@@ -10,8 +11,9 @@ function App() {
 <div>
     <Router>
         <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/Login' element={<LoginPage />} />
+            <Route path='/Donor' element={<Donor />} />
+            <Route path='/Home' element={<Home />} />
+            <Route path='/' element={<LoginPage />} />
         </Routes>
     </Router>
 </div>

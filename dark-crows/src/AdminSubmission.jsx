@@ -1,6 +1,4 @@
-import React from "react";
 import Records from "./Records";
-import { autocomplete } from "@nextui-org/theme";
 
 function AdminSubmission(){
     return (

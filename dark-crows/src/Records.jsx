@@ -5,33 +5,33 @@ function Records(){
     return (
         <div className=" h-auto">
             <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
-      <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
+            <Record name="name" description="desc"/>
         </div>
     );
 }
