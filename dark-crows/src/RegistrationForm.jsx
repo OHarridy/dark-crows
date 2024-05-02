@@ -62,20 +62,13 @@ const RegistrationForm = () => {
   
     }
   
-
+    // JSON.parse(localStorage.getItem('users'))
   const [users, setUsers] = useState([]);
 
   function handleSubmit(e){
   e.preventDefault();
-let submitSuccess = false;
-if((formData.role !== "regular" ||  selectedTab === "Org" )){
-  if(formData.document===''){
-    toast.error('Please upload a document');
-    return;
-  }
-}
-
-  const newUsers = [...users, formData];
+  const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+  const newUsers = [...storedUsers, formData];
   setUsers(newUsers);
   localStorage.setItem('users', JSON.stringify(newUsers));
   setFormData({
@@ -110,9 +103,9 @@ if((formData.role !== "regular" ||  selectedTab === "Org" )){
     navigate('/');
   }, 1000);
 
-
-console.log("ALL REGISTERED USERS", localStorage.getItem("users"));
-
+const registeredUsers = JSON.parse(localStorage.getItem('users'));
+// console.log("ALL REGISTERED USERS", localStorage.getItem("users"));
+console.log("ALL REGISTERED USERS", registeredUsers);
   }
 
 

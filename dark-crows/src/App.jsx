@@ -6,6 +6,7 @@ import DonationPage from './DonationPage.jsx';
 import './index.css';
 import {NextUIProvider} from "@nextui-org/react";
 import RegisterPage from './RegisterPage';
+import ResetPwPage from './ResetPwPage.jsx';
 
 
 
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path='/' element={<LoginPage />} /> 
             <Route path='/Register' element={<RegisterPage />} /> 
+            <Route path='/ResetPassword' element={<ResetPwPage />} /> 
           </Routes>
       </Router>
     </div>

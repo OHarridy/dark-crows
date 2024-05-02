@@ -9,10 +9,11 @@ import { ToastContainer, toast } from 'react-toastify';
 //TODO ADD TYPEWRITING CSS ANIMATION TO TEXT / ADD SOME SORT OF MOVING BACKGROUND
 //TODO Add forgot password page
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
+const allusers= JSON.parse(localStorage.getItem("users"));
 function showAllData(){
   console.log( "LOGGED IN USERNAME" , loggedInUser.username);
   console.log( "LOGGED IN USER DATA" , loggedInUser);
+  console.log("ALL USERS:" ,allusers);
 }
 function LoginPage(){
 
@@ -130,7 +131,7 @@ function LoginPage(){
                   Password
                 </label>
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                  <a href="/ResetPassword" className="font-semibold text-indigo-600 hover:text-indigo-500">
                     Forgot password?
                   </a>
                 </div>
@@ -171,12 +172,11 @@ function LoginPage(){
             <a href="/Register" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
               Create an Account
             </a>
+
+            {/* <Button text="show all data" onClick={showAllData}/> */}
           </p>
         </div>
       </div>
-{/* 
-      <Button text="show all data" onClick={showAllData}/> */}
-
       </div>
 
 
