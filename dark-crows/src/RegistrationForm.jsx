@@ -9,6 +9,7 @@ import {Input} from "@nextui-org/react";
 import {EyeFilledIcon} from "./EyeFilledIcon";
 import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
 import {Tabs, Tab} from "@nextui-org/react";
+import {useNavigate } from "react-router-dom";
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,6 +20,9 @@ const RegistrationForm = () => {
 
   const [isVisible, setIsVisible] =useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
+  
+  const navigate = useNavigate();
+
 
   const [formData, setFormData] = useState({
     username: '',
@@ -92,6 +96,9 @@ const RegistrationForm = () => {
   setUploadtext('');
   setUploadPhototext('');
   toast.success('Registration successful! 🎉');
+  // setTimeout(() => {
+  //   navigate('/');
+  // }, 1000);
 
 
 console.log("ALL REGISTERED USERS", localStorage.getItem("users"));
@@ -166,7 +173,7 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
 
 
   return (  
-    <div >
+    <div className="reg-parent">
 
 <div className="register-page-slider-container">
 <ToastContainer />
@@ -178,7 +185,10 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
 
         </div>
         </div>
+
+    <div >
     <form onSubmit={handleSubmit}>
+    <div className="reg-form-container shadow-lg">
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">Profile</h2>
@@ -200,9 +210,9 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   value={formData.username}
                   onChange={handleInputChange}
                   autoComplete="username"
-                  placeholder=" Enter your Username"
+                  placeholder="Enter your Username"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 </div>
               </div>
@@ -219,8 +229,8 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   value={formData.about}
                   onChange={handleInputChange}
                   rows={3}
-                  placeholder=" Tell us a bit about yourself!"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder="Tell us a bit about yourself!"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   defaultValue={''}
                 />
               </div>
@@ -282,19 +292,19 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
 <>
             <div className="sm:col-span-4">
               <label htmlFor="no_appointments" className="block text-sm font-medium leading-6 text-gray-900">
-                Number of Appointments
+                Number of Appointments Per Week
               </label>
               <div className="mt-2">
                 <input
                   id="no_appointments"
                   name="no_appointments"
                   type="number"
-                  placeholder=" Enter number of Appointments"
+                  placeholder="Enter number of Appointments"
                   value={formData.no_appointments}
                   onChange={handleInputChange}
                   autoComplete="email"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -307,11 +317,11 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                 <input
                   id="clinic_address"
                   name="clinic_address"
-                  placeholder=" Enter Clinic Address"
+                  placeholder="Enter Clinic Address"
                   value={formData.clinic_address}
                   onChange={handleInputChange}
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -332,7 +342,7 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   value={formData.subjects}
                   onChange={handleInputChange}
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -345,12 +355,12 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                 <input
                   id="no_students"
                   name="no_students"
-                  placeholder=" Enter Number of Students"
+                  placeholder="Enter Number of Students"
                   type="number"
                   value={formData.no_students}
                   onChange={handleInputChange}
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -363,12 +373,12 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                 <input
                   id="no_sessions"
                   name="no_sessions"
-                  placeholder=" Enter Number of Sessions Per Week"
+                  placeholder="Enter Number of Sessions Per Week"
                   type="number"
                   value={formData.no_sessions}
                   onChange={handleInputChange}
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -437,12 +447,12 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   type="text"
                   name="first_name"
                   id="first-name"
-                  placeholder=" Enter your first name"
+                  placeholder="Enter your first name"
                   required
                   value={formData.first_name}
                   onChange={handleInputChange}
                   autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -456,12 +466,12 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   type="text"
                   name="last_name"
                   id="last-name"
-                  placeholder=" Enter your last name"
+                  placeholder="Enter your last name"
                   required
                   value={formData.last_name}
                   onChange={handleInputChange}
                   autoComplete="family-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -477,12 +487,12 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   type="text"
                   name="org_name"
                   id="org-name"
-                  placeholder=" Enter your Organization name"
+                  placeholder="Enter your Organization name"
                   value={formData.org_name}
                   onChange={handleInputChange}
                   required
                   autoComplete="family-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -496,12 +506,12 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   type="text"
                   name="org_type"
                   id="org-type"
-                  placeholder=" Enter your Organization Type"
+                  placeholder="Enter your Organization Type"
                   value={formData.org_type}
                   onChange={handleInputChange}
                   required
                   autoComplete="family-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -517,12 +527,12 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   id="email"
                   name="email"
                   type="email"
-                  placeholder=" Enter your email address"
+                  placeholder="Enter your email address"
                   value={formData.email}
                   onChange={handleInputChange}
                   autoComplete="email"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -686,11 +696,11 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   type="tel"
                   name="contact_number"
                   id="contact-number"
-                  placeholder=" Enter your Contact Number"
+                  placeholder="Enter your Contact Number"
                   value={formData.contact_number}
                   onChange={handleInputChange}
                   autoComplete="street-address"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -704,11 +714,11 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   type="text"
                   name="address"
                   id="street-address"
-                  placeholder=" Enter your street address"
+                  placeholder="Enter your street address"
                   value={formData.address}
                   onChange={handleInputChange}
                   autoComplete="street-address"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -722,11 +732,11 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   type="text"
                   name="city"
                   id="city"
-                  placeholder=" Enter your City"
+                  placeholder="Enter your City"
                   value={formData.city}
                   onChange={handleInputChange}
                   autoComplete="address-level2"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -740,11 +750,11 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   type="text"
                   name="state"
                   id="state"
-                  placeholder=" Enter your State"
+                  placeholder="Enter your State"
                   value={formData.state}
                   onChange={handleInputChange}
                   autoComplete="address-level1"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -754,7 +764,7 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
         </div>
 
       </div>
-
+      </div>
       <div className="mt-6 flex items-center justify-end gap-x-6">
         <Link to="/" className="text-sm font-semibold leading-6 text-gray-900"> 
         <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
@@ -770,6 +780,7 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
       </div>
     </form>
 
+    </div>
     </div>
   );
 }

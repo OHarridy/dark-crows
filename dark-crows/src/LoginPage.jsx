@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {Input} from "@nextui-org/react";
 import {EyeFilledIcon} from "./EyeFilledIcon";
 import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
+import { ToastContainer, toast } from 'react-toastify';
 
 //TODO ADD TYPEWRITING CSS ANIMATION TO TEXT / ADD SOME SORT OF MOVING BACKGROUND
 //TODO Add forgot password page
@@ -41,8 +42,7 @@ function LoginPage(){
       navigate('/');
      }
      else{
-      //TODO add warning when wrong pw is entered
-      console.log("INCORRECT DATA!");
+      toast.error('Incorrect Username or Password');
      }
     }
 
@@ -66,6 +66,7 @@ function LoginPage(){
 
     return (  
        <div className="loginContainer">
+        <ToastContainer/>
 
     <div className="login-non-form-container">
         <div className="login-image">
@@ -114,11 +115,11 @@ function LoginPage(){
                   name="username"
                   type="username"
                   autoComplete="username"
-                  placeholder=" Enter your Username"
+                  placeholder="Enter your Username"
                   value={username}
                   onChange={handleUsernameChange}
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
