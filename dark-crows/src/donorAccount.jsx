@@ -7,7 +7,7 @@ import {parseAbsoluteToLocal} from "@internationalized/date";
 var thisp = "text-3xl w-[290px]";
 const Donor = () => {
     var [nigga] = useState(
-        {name: 'Ahmed Ibrahim', email: "ahmoslamy@hotmail.com", phone: "01092408287", address: "Al Thawra, El Mokattam, Cairo Governorate 4414540", donorType: "Doctor", donorGender: "Male", id: 1}
+        {name: 'Ahmed Ibrahim', email: "ahmoslamy@hotmail.com", phone: "01092408287", address: "Al Thawra, El Mokattam, Cairo Governorate 4414540", donorType: "Teacher", donorGender: "Male", id: 1}
 );
     var [drivernigga] = useState(
         [{ETA: '2024-11-07T07:45:00Z', driverName: "Ahmed 3andaleeb", driver: "01092408287"},
