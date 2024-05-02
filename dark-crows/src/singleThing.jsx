@@ -27,7 +27,7 @@ export default function ThisThing() {
         <ul className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
             {fa2erniggaalert.map(fa2ernigga => (
                 <div id={"fa2ernigga" + fa2ernigga.id} className="fa2ernigga-preview " key={fa2ernigga.id}>
-                    <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+                    <a href="/DonationPage" rel="noopener noreferrer">
                         <Card
                             className="w-[300px] h-[500px] hover:shadow-lg hover:scale-105 transform transition-all duration-200 ease-in-out"
                             style={{borderRadius: 0}} isHoverable={true}>
@@ -37,7 +37,7 @@ export default function ThisThing() {
                                 src={fa2ernigga.source}
                                 style={{width: 300, height: 278, borderRadius: 0}}/>
                             <CardHeader className="justify-between pb-0">
-                                <Avatar className="mr-3 mb-1" showFallback
+                                <Avatar className="mr-3" showFallback
                                         src='https://ucarecdn.com/a79eb9e5-7dc3-4f37-aeee-6bbab322c28c/-/format/auto/-/preview/3000x3000/-/quality/lighter/1200634207984820-Lael%20Group-1x1-MCC-1.07.png'></Avatar>
                                 <h1 className="text-medium font-semibold leading-none text-default-900 mr-auto">{fa2ernigga.author}</h1>
                             </CardHeader>

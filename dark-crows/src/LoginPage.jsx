@@ -38,7 +38,7 @@ function LoginPage(){
     function handleSubmit(e){
       e.preventDefault();
      if(login(username,password)){
-      navigate('/');
+      navigate('/Home');
      }
      else{
       //TODO add warning when wrong pw is entered
