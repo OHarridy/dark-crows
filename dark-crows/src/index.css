@@ -24,6 +24,7 @@
 }
 
 
+
 body {
   margin: 0;
   display: flex;
@@ -35,9 +36,21 @@ body {
 
 }
 
+form {
+  overflow: auto; 
+}
+
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  /* line-height: 1.1; */
+  font-weight: bolder;
+} 
+
+
+h2{
+  font-size: 1.8em;
+  /* line-height: 1.1; */
+  font-style: italic;
 } 
 
 .generalButton {
@@ -57,5 +70,113 @@ h1 {
 .generalButton:hover {
   border-color: #33b1c7;
 }
+
+.loginContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+
+}
+
+.login-form-container {
+  position: fixed; 
+  right: 0;
+  margin:50px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 0.5rem;
+}
+
+.login-image{
+  width: 250px;
+  object-fit: contain;
+}
+
+.register-image{
+  width: 180px;
+  object-fit: contain;
+}
+
+
+.login-non-form-container{
+  position: fixed; 
+  left: 0;
+  margin:200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: fit-content;
+}
+
+.login-text {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.5;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.login-subtext {
+  font-size: 1.5em;
+  font-style:italic ;
+  color: #333;
+  line-height: 1.5;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: auto;
+  white-space: wrap;
+}
+
+.register-form-container{
+  height: 100vh;
+}
+
+.register-page-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin:40px;
+  padding:30px;
+  height: 100vh;
+}
+
+.register-form-container {
+  height:100vh;
+  margin:50px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 0.5rem;
+}
+
+.password-input-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.register-page-slider-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.uploaded-text{
+  text-align: center;
+  font-size: 1.5em;
+  color: #28c95a;
+}
+
 
 

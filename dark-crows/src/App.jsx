@@ -4,21 +4,25 @@ import Donor from './donorAccount.jsx';
 import Home from './mainPage.jsx';
 import DonationPage from './DonationPage.jsx';
 import './index.css';
+import {NextUIProvider} from "@nextui-org/react";
+import RegisterPage from './RegisterPage';
+
 
 
 
 function App() {
   return (
-<div>
-    <Router>
-        <Routes>
-            <Route path='/Donor' element={<Donor />} />
-            <Route path='/Home' element={<Home />} />
-            <Route path='/DonationPage' element={<DonationPage />} />
-            <Route path='/' element={<LoginPage />} />
-        </Routes>
-    </Router>
-</div>
+    // <NextUIProvider>
+    <div className='App'>
+      <Router>
+          <Routes>
+            <Route path='/' element={<LoginPage />} /> 
+            <Route path='/Register' element={<RegisterPage />} /> 
+          </Routes>
+      </Router>
+    </div>
+    // </NextUIProvider>
+
   );
 }
 
