@@ -90,6 +90,7 @@ const RegistrationForm = () => {
   });
 
   setUploadtext('');
+  setUploadPhototext('');
   toast.success('Registration successful! 🎉');
 
 
@@ -117,6 +118,19 @@ function handleFileChange(event) {
   setUploadtext('Document uploaded successfully! ✔');
 }
 
+function handlePhotoChange(event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  reader.onloadend = function() {
+    localStorage.setItem('file', reader.result);
+    console.log('Selected photo:', file);
+  }
+  reader.readAsDataURL(file);
+
+  
+  setUploadPhototext('Photo uploaded successfully! ✔');
+}
+
 const fileInputRef = React.useRef();
 
 function downloadFile() {
@@ -142,6 +156,8 @@ function downloadFile() {
 }
 
 const [uploadText, setUploadtext] = useState('');
+
+const [uploadPhotoText, setUploadPhototext] = useState('');
 
 
 
@@ -207,6 +223,37 @@ const [uploadText, setUploadtext] = useState('');
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   defaultValue={''}
                 />
+              </div>
+            </div>
+
+            <div className="col-span-full">
+              <label htmlFor="picture" className="block text-sm font-medium leading-6 text-gray-900">
+                Profile Picture
+              </label>
+              <p className="mt-1 text-sm leading-6 text-gray-600">Upload you profile picture</p>
+              <div className="mt-2 flex items-center gap-x-3">
+           
+
+                <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handlePhotoChange} />
+                <button
+                  type="button"
+                  className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                  onClick={() => fileInputRef.current.click()}
+                >
+                  Upload Photo
+                </button>
+
+               <div className="uploaded-text">
+                <p className="mt-1 text-sm leading-6 ">{uploadPhotoText}</p>
+                </div>
+
+                {/* <button
+                  type="button"
+                  className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                  onClick={downloadFile}
+                >
+                  Download Document
+                </button> */}
               </div>
             </div>
 
