@@ -37,6 +37,7 @@ const RegistrationForm = () => {
     subjects:'',
     no_students:'',
     no_sessions:'',
+    document:'',
     about:'',
     email: '',
     contact_number: '',
@@ -66,6 +67,14 @@ const RegistrationForm = () => {
 
   function handleSubmit(e){
   e.preventDefault();
+let submitSuccess = false;
+if((formData.role !== "regular" ||  selectedTab === "Org" )){
+  if(formData.document===''){
+    toast.error('Please upload a document');
+    return;
+  }
+}
+
   const newUsers = [...users, formData];
   setUsers(newUsers);
   localStorage.setItem('users', JSON.stringify(newUsers));
@@ -82,6 +91,7 @@ const RegistrationForm = () => {
     subjects:'',
     no_students:'',
     no_sessions:'',
+    document:'',
     about:'',
     email: '',
     contact_number: '',
@@ -96,9 +106,9 @@ const RegistrationForm = () => {
   setUploadtext('');
   setUploadPhototext('');
   toast.success('Registration successful! 🎉');
-  // setTimeout(() => {
-  //   navigate('/');
-  // }, 1000);
+  setTimeout(() => {
+    navigate('/');
+  }, 1000);
 
 
 console.log("ALL REGISTERED USERS", localStorage.getItem("users"));
@@ -117,6 +127,8 @@ function handleFileChange(event) {
   const reader = new FileReader();
   reader.onloadend = function() {
     localStorage.setItem('file', reader.result);
+    formData.document = file.name;
+    console.log("DOCUMENT FROM FORM DATA" ,formData.document);
     console.log('Selected file:', file);
   }
   reader.readAsDataURL(file);
@@ -402,14 +414,15 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
               <div className="mt-2 flex items-center gap-x-3">
            
 
-                <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handleFileChange} required />
-                <button
+                <input type="file" ref={fileInputRef}
+                className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" onChange={handleFileChange} required />
+                {/* <button
                   type="button"
-                  className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                
                   onClick={() => fileInputRef.current.click()}
                 >
                   Upload Document
-                </button>
+                </button> */}
 
                <div className="uploaded-text">
                 <p className="mt-1 text-sm leading-6 ">{uploadText}</p>
