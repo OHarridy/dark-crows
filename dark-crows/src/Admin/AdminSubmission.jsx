@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Records from "./Records";
+import Records from "./Records.jsx";
 import setIsOpen from "./Record.jsx";
 import SideBar from "./SideBar.jsx";
 import AdminPicture from './AdminPicture.jsx';
