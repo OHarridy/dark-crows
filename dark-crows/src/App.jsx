@@ -19,7 +19,7 @@ function App() {
     <div className='App'>
       <Router>
           <Routes>
-            <Route path='/' element={<DropDownTest />} /> 
+            <Route path='/' element={<LandingPage />} /> 
             <Route path='/Login' element={<LoginPage />} /> 
             <Route path='/Register' element={<RegisterPage />} /> 
             <Route path='/ResetPassword' element={<ResetPwPage />} /> 

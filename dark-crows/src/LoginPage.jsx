@@ -19,6 +19,7 @@ function LoginPage(){
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [org_name, setOrg_name] = useState('');
 
     
 
@@ -37,16 +38,6 @@ function LoginPage(){
       setPassword(e.target.value);
     }
 
-    function handleSubmit(e){
-      e.preventDefault();
-     if(login(username,password)){
-      navigate('/DonorMainpage');
-     }
-     else{
-      toast.error('Incorrect Username or Password');
-     }
-    }
-
     function login(username, password) {
  
       const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -57,13 +48,31 @@ function LoginPage(){
 
       if (user && user.password === password) {
         localStorage.setItem("loggedInUser", JSON.stringify(user));
+        setOrg_name(user.org_name);
         console.log(localStorage.getItem("loggedInUser"));
         return true;
       }
-    
 
       return false;
     }
+
+    function handleSubmit(e){
+      e.preventDefault();
+    if(username === "admin" && password === "admin"){
+        navigate('/AdminMainpage');
+      }
+     else if(login(username,password) && org_name===''){
+      navigate('/DonorMainpage');
+     }
+     else if(login(username,password) && org_name!==''){
+      navigate('/OrgMainpage')
+     }
+     else{
+      toast.error('Incorrect Username or Password');
+     }
+    }
+
+
 
     return (  
        <div className="loginContainer">
