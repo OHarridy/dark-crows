@@ -1,5 +1,12 @@
 
-import { useEffect, useState} from "react";   // import useState function from react library
+import { useEffect, useState} from "react";  
+import {
+    Dropdown,
+    DropdownTrigger,
+    DropdownMenu,
+    DropdownItem,
+  } from "@nextui-org/react";
+  import { Button } from "@nextui-org/react"; // import useState function from react library
 import './admincss.css';
 import './button.css';
 const Regorg = () => {  
@@ -7,35 +14,51 @@ const [blogs, setBlogs] = useState([
     {type:'Refugees & Improverished',number:'01017315557',title: 'Thawra street, 5th', body: 'lorem ipsum...', author: 'Masr El Kheir', id: 1, profilePic: 'https://www.globalgiving.org/pfil/organ/81861/orglogo.jpg', clicked: false},
     {type:'Refugees & Improverished',number:'01017315557',title: 'Gesr El Suez', body: 'lorem ipsum...', author: 'Orman', id: 2, profilePic: 'https://wagadtoha.com/images/logos/xOrmanCharityAssociation.jpg.pagespeed.ic.4Z1azpfjsj.jpg', clicked: false},
     {type:'Refugees & Improverished',number:'01017315557',title: 'Al Thawra, El Mokattam, Cairo Governorate 4414540', body: 'lorem ipsum...', author: 'Ibra fundraiser', id: 3, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
-    {type:'orphanage',number:'01207921760',title: '50th george street', body: 'lorem ipsum...', author: 'Ma3 el e5wa', id: 4, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
+    {type:'Orphanage',number:'01207921760',title: 'Al Haram, Giza Governorate 3512201', body: 'lorem ipsum...', author: 'Ma3 el e5wa', id: 4, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
     {type:'Refugees & Improverished',number:'01143777537',title: 'Mivida, greens 6', body: 'lorem ipsum...', author: 'Mivida fundraising', id: 5, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
     {type:'School supplies',number:'01017315557',title: 'El-Nozha, El Nozha, Cairo Governorate 4470038', body: 'lorem ipsum...', author: 'Joe windows actvity', id: 6, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
-    {type:'School supplies',number:'01017315557',title: 'Al Abageyah، قسم الخليفة, Cairo Governorate 4413430', body: 'lorem ipsum...', author: 'Ibra fel watchlist', id: 7, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
+    {type:'Hospital',number:'01017315557' ,title: 'Al Abageyah، قسم الخليفة, Cairo Governorate 4413430', body: 'lorem ipsum...', author: 'Ibra fel watchlist', id: 7, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
     {type:'Hospital',number:'01017315557',title: 'Anwar El-Sadat, Ismailia 2, Ismailia Governorate 8363541', body: 'lorem ipsum...', author: 'Sadik', id: 8, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false}
 ]);
 
     const [searchTerm, setSearchTerm] = useState(""); // state to store the search term
     const [selectedBlog, setSelectedBlog] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [showSubcategories, setShowSubcategories] = useState(false);
 
   const categories = {
-    'Category 1': ['Subcategory 1', 'Subcategory 2'],
-    'Category 2': ['Subcategory 3', 'Subcategory 4'],
+    'Type': ['Hospital', 'Orphanage', 'Refugees & Improverished'  ],
+    'Governorate': ['Ismailia Governorate', 'Cairo Governorate', 'Giza Governorate'],
     // Add more categories and subcategories as needed
   };
 
-  const handleCategoryChange = (e) => {
-    setSelectedCategory(e.target.value);
-    setShowSubcategories(true);
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    setSelectedSubcategory(null);
+    console.log(selectedCategory);
   };
-
+  const filterbegad = (() => {
+    if (selectedCategory === 'Governorate' && selectedSubcategory !== null ) {
+      return blogs.filter((blog) => blog.title.toLowerCase().includes(selectedSubcategory.toLowerCase()));
+    } else {
+      return blogs;
+    }
+  })();
     const deleteblogs = (id)=>{
         const newlist = blogs.filter(blog => blog.id !== id)
         setBlogs(newlist)
     };
-    const filteredBlogs = blogs.filter((blog) =>
-        blog.author.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredBlogs = blogs.filter((blog) =>{if (selectedCategory === 'Governorate' && selectedSubcategory !== null ) {
+        console.log(selectedSubcategory);
+        return blog.title.toLowerCase().includes(selectedSubcategory.toLowerCase());
+      }
+      else if(selectedCategory === 'Type' && selectedSubcategory !== null){
+        return  blog.type.toLowerCase().includes(selectedSubcategory.toLowerCase());
+      }
+      else {
+        return  blog.author.toLowerCase().includes(searchTerm.toLowerCase());
+      }}
     );
 
 
@@ -59,10 +82,47 @@ const [blogs, setBlogs] = useState([
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
          </div>
-        
+         <div className="flex flex-row ">
+        <Dropdown>
+        <DropdownTrigger>
+          <Button 
+            variant="bordered" 
+          >
+           {selectedCategory || "Category"}  
+          </Button>
+        </DropdownTrigger>
+        <DropdownMenu 
+          aria-label="Action event example" 
+          onAction={(key) => handleCategoryClick(key)}
+        >
+        {Object.keys(categories).map((item) => (
+            <DropdownItem key={item}>{item}</DropdownItem>
+          ))}
+
+        </DropdownMenu>
+      </Dropdown>
+      {selectedCategory && (
+      <Dropdown>
+        <DropdownTrigger>
+          <Button variant="bordered">
+          {selectedSubcategory || "Filtered Category"}  
+          </Button>
+        </DropdownTrigger>
+        <DropdownMenu 
+          aria-label="Action event example" 
+          onAction={(key) => setSelectedSubcategory(key)}
+        >
+          {categories[selectedCategory].map((item) => (
+            <DropdownItem key={item}>{item}</DropdownItem>
+          ))}
+        </DropdownMenu>
+      </Dropdown>
+    )}
+      </div>
+
             <div
                 className="blogs "
-                style={{ overflowY: "scroll", maxHeight: "700px", maxWidth:"300px", display: "flex", flexDirection: "column" }}
+                style={{ overflowY: "scroll", maxHeight: "500px", maxWidth:"300px", display: "flex", flexDirection: "column" }}
             >
                 {filteredBlogs.map((blog) => (
                     <div
@@ -149,10 +209,11 @@ const [blogs, setBlogs] = useState([
                 ))}
             </div>
             </div>
+            
             <div className="right-div shadow-2xl flex-1  mr-20" >
             {selectedBlog && (
                     <div>
-                        <div className="split-div " style={{backgroundColor:"#5d62f5 "}}>
+                        <div className="split-div " style={{backgroundColor:"#5d62f5"}}>
                         <div className="left-div mr-0" >
                         <img className="blog-image w-24 h-24 "style={{borderRadius:"50%"}}  src={selectedBlog.profilePic} />          
                          </div>
@@ -203,9 +264,9 @@ const [blogs, setBlogs] = useState([
                     </div>
                 )}
             </div>
-         
             </div>
-        </div>
+            </div>
+      
     );
 }
  
