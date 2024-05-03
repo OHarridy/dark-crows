@@ -27,8 +27,8 @@ const features = [
   ]
 
   const stats = [
-    { id: 1, name: 'Transactions every 24 hours', value: '44 million' },
-    { id: 2, name: 'Assets under holding', value: '$119 trillion' },
+    { id: 1, name: 'Donations every 24 hours', value: '44 million' },
+    { id: 2, name: 'Recepients Reached', value: '100 million' },
     { id: 3, name: 'New users annually', value: '46,000' },
   ]
 const LandingPage = () => {
@@ -43,14 +43,14 @@ const LandingPage = () => {
   <Button text="Login" className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline "/>
   </Link>
 </div>
-<div style={{height: "100vh"}}>
+<div>
 
 <div className="overflow-hidden bg-white mt-20">
   <div className="mx-auto max-w-7xl px-6 lg:px-8">
     <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 ">
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
-              <h2 className="text-base font-semibold leading-7 text-green-600">Revolutionizing the donation process</h2>
+              <h2 className="text-base font-semibold leading-7 text-green-500">Revolutionizing the donation process</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Introducing "ShareLelKheir"</p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 A Worldwide Platform that connects Donors to People in Need from across the globe. With your help we can make a difference. "ShareLelKheir" Aims to Streamline the Donation process it, making it more efficient and responsive for both donors and recipients alike. 
@@ -83,8 +83,8 @@ const LandingPage = () => {
 
 <div className="bg-white mt-20 ">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="text-center text-lg font-semibold leading-8 text-green-600">
-          Trusted by the world’s most Reputable Organizations
+        <h2 className="text-center text-lg font-semibold leading-8 text-green-500">
+          Trusted by the world’s most Reputable Humanitarian Organizations
         </h2>
         <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
           <img
@@ -126,19 +126,51 @@ const LandingPage = () => {
       </div>
     </div>
 
-    <div className="bg-white mt-20">
+    <div className="bg-white mt-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
           {stats.map((stat) => (
             <div key={stat.id} className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <dt className="text-base leading-7 text-gray-600">{stat.name}</dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+              <dt className="text-base leading-7 font-semibold text-grey-600">{stat.name}</dt>
+              <dd className="order-first text-3xl font-bold tracking-tight text-green-500 sm:text-5xl">
                 {stat.value}
               </dd>
             </div>
           ))}
         </dl>
       </div>
+    </div>
+
+
+    <div className="bg-white mt-10">
+    <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
+      <div  />
+      <div />
+      <div className="mx-auto max-w-2xl lg:max-w-4xl">
+        <img className="mx-auto h-20" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/UN_emblem_blue.svg" alt="" />
+        <figure className="mt-10">
+          <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-3xl sm:leading-9">
+            <p>
+              “Humanity is strongest when we stand together”
+            </p>
+          </blockquote>
+          <figcaption className="mt-10">
+            <img
+              className="mx-auto h-20 w-20 rounded-full"
+              src="https://www.onthisday.com/images/people/antonio-guterres.jpg?w=360"
+              alt=""
+            />
+            <div className="mt-4 flex items-center justify-center space-x-3 text-base">
+              <div className="font-semibold text-gray-900">António Guterres</div>
+              <svg viewBox="0 0 2 2" width={3} height={3} aria-hidden="true" className="fill-gray-900">
+                <circle cx={1} cy={1} r={1} />
+              </svg>
+              <div className="text-gray-600">United Nations Secretary-General</div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
     </div>
 
 
