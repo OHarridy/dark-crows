@@ -195,4 +195,32 @@ h2{
 }
 
 
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.text-focus-in{-webkit-animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both;animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both}
+
+
+ @-webkit-keyframes puff-in-center{0%{-webkit-transform:scale(2);transform:scale(2);-webkit-filter:blur(4px);filter:blur(4px);opacity:0}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes puff-in-center{0%{-webkit-transform:scale(2);transform:scale(2);-webkit-filter:blur(4px);filter:blur(4px);opacity:0}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-filter:blur(0);filter:blur(0);opacity:1}}
+
+
+ .landing-page-container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  /* padding:20px; */
+  gap: 10px;
+  height: 100vh;
+ }
+
+
+
 
