@@ -17,8 +17,11 @@ import React, { useState } from 'react';
 
     const filters = {
         Clothes: ['Age', 'Gender', 'Season'],
-        Toys: ['Board', 'Stuffed', 'Dolls', 'Sports', 'Cars', 'Outdoor'],
-        Food: ['Type', 'Brand', 'Expiration Date'],
+        Toys: ['Board Games', 'Stuffed', 'Dolls', 'Sports', 'Cars', 'Outdoor'],
+        Food: ['Fresh', 'Canned', 'Baked' , 'Fruits & Vegetables'],
+        Blood: ['Hospital', 'Governorate', 'Area'],
+        Medical: ['Medical Devices' , 'Medical Equipment', 'Medication'],
+        School: ['Books', 'Stationery']
       };
     return ( 
 
