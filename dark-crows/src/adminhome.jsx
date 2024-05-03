@@ -1,9 +1,11 @@
 
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input} from "@nextui-org/react"
+import ThePole from "./Admin/adminNav";
 function AdminHome() {
   const {isOpen, onOpen, onOpenChange} = useDisclosure()
     return (
       <div style={{ textAlign: 'center' }}>
+        <ThePole/>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
           <Button
             className="button"

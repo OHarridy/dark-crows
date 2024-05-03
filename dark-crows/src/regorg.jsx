@@ -64,6 +64,7 @@ const [blogs, setBlogs] = useState([
 
     return (
         <div className="regorg flex flex-col  h-screen">
+          <ThePole/>
             <h2 className="font-bold text-4xl">All Registered Organizations</h2>
             
            <div className="split-div flex ">
