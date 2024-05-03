@@ -1,29 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Navbar from './Navbar'
-function App() {
-  const [count, setCount] = useState(0)
-  const title= "shazly";
-  var lk = Math.random()*10+1;
-  var link = "App";
-  if(lk> 5){
-    link = "App dark";
-  }   
-  return (
-    <>
-      <div className={link}>
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LoginPage from './LoginPage.jsx';
+import Donor from './donorAccount.jsx';
+import Home from './mainPage.jsx';
+import DonationPage from './DonationPage.jsx';
+import './index.css';
+import {NextUIProvider} from "@nextui-org/react";
+import RegisterPage from './RegisterPage';
+import TheMAP from '../TheMAP.jsx';
+import DropDown from './DropDownskillissue.jsx';
 
-      <Navbar></Navbar>
-        <div className="content">
-          <h1>App Component</h1>
-          <p>{title}</p>
-          <p>{lk}</p>
-        </div>  
-      </div>
-    </>
-  )
+function App() {
+  return (
+    <NextUIProvider>
+    <div className='App'>
+      <Router>
+          <Routes>
+            <Route path='/' element={<LoginPage />} /> 
+            <Route path='/Register' element={<RegisterPage />} /> 
+            <Route path='/Home' element={<Home />} />
+            <Route path='/Donor' element={<Donor />} />
+            <Route path='/DonationPage' element={<DonationPage />} />
+            <Route path='/MAP' element={<TheMAP/>}/>
+            <Route path='/DropDown' element={<DropDown/>}/>
+          </Routes>
+      </Router>
+    </div>
+    </NextUIProvider>
+
+  );
 }
 
-export default App
+export default App;
