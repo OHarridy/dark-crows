@@ -34,29 +34,97 @@ const features = [
   
 const LandingPage = () => {
 
-    const [isVisible1, setVisible1] = useState(false);
-    const domRef1 = useRef();
+    // const [isVisible1, setVisible1] = useState(false);
+    // const domRef1 = useRef();
   
-    useEffect(() => {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => setVisible1(entry.isIntersecting));
-      });
+    // useEffect(() => {
+    //   const observer = new IntersectionObserver(entries => {
+    //     entries.forEach(entry => setVisible1(entry.isIntersecting));
+    //   });
   
-      observer.observe(domRef1.current);
-      return () => observer.unobserve(domRef1.current);
-    }, []);
+    //   observer.observe(domRef1.current);
+    //   return () => observer.unobserve(domRef1.current);
+    // }, []);
 
-    const [isVisible2, setVisible2] = useState(false);
-    const domRef2 = useRef();
+
+const [isVisible1, setVisible1] = useState(false);
+const domRef1 = useRef();
+
+useEffect(() => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!isVisible1) {
+        setVisible1(entry.isIntersecting);
+      }
+    });
+  });
+
+  observer.observe(domRef1.current);
+  return () => observer.unobserve(domRef1.current);
+}, [isVisible1]);
+
+const [isVisible2, setVisible2] = useState(false);
+const domRef2 = useRef();
+
+useEffect(() => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!isVisible2) {
+        setVisible2(entry.isIntersecting);
+      }
+    });
+  });
+
+  observer.observe(domRef2.current);
+  return () => observer.unobserve(domRef2.current);
+}, [isVisible2]);
+
+
+const [isVisible3, setVisible3] = useState(false);
+const domRef3 = useRef();
+
+useEffect(() => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!isVisible3) {
+        setVisible3(entry.isIntersecting);
+      }
+    });
+  });
+
+  observer.observe(domRef3.current);
+  return () => observer.unobserve(domRef3.current);
+}, [isVisible3]);
+
+
+const [isVisible4, setVisible4] = useState(false);
+const domRef4 = useRef();
+
+useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!isVisible4) {
+                setVisible4(entry.isIntersecting);
+            }
+        });
+    });
+
+    observer.observe(domRef4.current);
+    return () => observer.unobserve(domRef4.current);
+}, [isVisible4]);
+
+
+    // const [isVisible2, setVisible2] = useState(false);
+    // const domRef2 = useRef();
   
-    useEffect(() => {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => setVisible2(entry.isIntersecting));
-      });
+    // useEffect(() => {
+    //   const observer = new IntersectionObserver(entries => {
+    //     entries.forEach(entry => setVisible2(entry.isIntersecting));
+    //   });
   
-      observer.observe(domRef2.current);
-      return () => observer.unobserve(domRef2.current);
-    }, []);
+    //   observer.observe(domRef2.current);
+    //   return () => observer.unobserve(domRef2.current);
+    // }, []);
 
 
 
@@ -171,7 +239,7 @@ const LandingPage = () => {
     </div>
 
 
-    <div className="bg-white mt-20 fade-in">
+    <div className={`bg-white mt-20 ${isVisible3 ? 'fade-in' : ''}`} ref={domRef3}>
     <section className="relative isolate overflow-hidden bg-white px-6 lg:px-8">
       <div  />
       <div />
@@ -202,7 +270,7 @@ const LandingPage = () => {
     </section>
     </div>
     
-    <div className="mt-20 flex flex-col gap-2 mb-20">
+    <div className={`bg-white mt-20 flex flex-col gap-2 mb-50 ${isVisible4 ? 'fade-in' : ''}`} ref={domRef4}>
     <h2 className="order-first text-3xl font-bold tracking-tight text-green-500 sm:text-5xl text-center">
           Join us!
         </h2>
