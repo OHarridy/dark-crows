@@ -1,5 +1,5 @@
 import Button from "./generalButton";
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import {Input} from "@nextui-org/react";
 import {EyeFilledIcon} from "./EyeFilledIcon";
@@ -31,7 +31,36 @@ const features = [
     { id: 2, name: 'Recepients Reached', value: '100 million' },
     { id: 3, name: 'New users annually', value: '46,000' },
   ]
+  
 const LandingPage = () => {
+
+    const [isVisible1, setVisible1] = useState(false);
+    const domRef1 = useRef();
+  
+    useEffect(() => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => setVisible1(entry.isIntersecting));
+      });
+  
+      observer.observe(domRef1.current);
+      return () => observer.unobserve(domRef1.current);
+    }, []);
+
+    const [isVisible2, setVisible2] = useState(false);
+    const domRef2 = useRef();
+  
+    useEffect(() => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => setVisible2(entry.isIntersecting));
+      });
+  
+      observer.observe(domRef2.current);
+      return () => observer.unobserve(domRef2.current);
+    }, []);
+
+
+
+
     return (
 <div className="landing-page-container">
             <div className="fixed top-0 left-0">
@@ -81,7 +110,7 @@ const LandingPage = () => {
     </div>
 </div>
 
-<div className="bg-white mt-20 ">
+<div className={`bg-white mt-20 ${isVisible1 ? 'fade-in' : ''}`} ref={domRef1}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <h2 className="text-center text-lg font-semibold leading-8 text-green-500">
           Trusted by the world’s most Reputable Humanitarian Organizations
@@ -126,7 +155,7 @@ const LandingPage = () => {
       </div>
     </div>
 
-    <div className="bg-white mt-32">
+    <div className={`bg-white mt-32 ${isVisible2 ? 'fade-in' : ''}`} ref={domRef2}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
           {stats.map((stat) => (
@@ -142,8 +171,8 @@ const LandingPage = () => {
     </div>
 
 
-    <div className="bg-white mt-10">
-    <section className="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <div className="bg-white mt-20 fade-in">
+    <section className="relative isolate overflow-hidden bg-white px-6 lg:px-8">
       <div  />
       <div />
       <div className="mx-auto max-w-2xl lg:max-w-4xl">
@@ -171,6 +200,25 @@ const LandingPage = () => {
         </figure>
       </div>
     </section>
+    </div>
+    
+    <div className="mt-20 flex flex-col gap-2 mb-20">
+    <h2 className="order-first text-3xl font-bold tracking-tight text-green-500 sm:text-5xl text-center">
+          Join us!
+        </h2>
+        <h2 className="text-center text-lg font-semibold leading-8 text-green-500">
+          Join us and the millions of others who have helped make a difference in the world!
+        </h2>
+        <h2 className="text-center text-lg font-semibold leading-8 text-green-500">
+        Whether youre a donor or an organization, ShareLelKheir is designed for you!
+        </h2>
+
+        <div className=" text-white font-bold py-2 px-4 rounded flex justify-center">
+            <Link to="/Register">
+        <Button text="Register Now!" className="w-auto rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline "/>
+        </Link>
+        </div>
+
     </div>
 
 
