@@ -4,11 +4,13 @@ import RegistrationForm from "./RegistrationForm";
 const RegisterPage = () => {
     return ( 
 
+        <div className="reg-parent">
+
         <div className="flex justify-center items-center min-h-screen">
         <div className="register-page-container">
 
 
-        <div className="register-image">
+        <div className="register-image mt-6">
 
         <img
             className=""
@@ -28,12 +30,9 @@ const RegisterPage = () => {
     <RegistrationForm/>
     </div>
     
-
-
-
-
-
         </div>
+        </div>
+
         </div>
 
 
