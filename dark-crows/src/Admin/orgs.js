@@ -1,4 +1,3 @@
-import Soora from "./Soora.jpg";
 
 const orgs = [
     {

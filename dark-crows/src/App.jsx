@@ -6,8 +6,9 @@ import DonationPage from './DonationPage.jsx';
 import './index.css';
 import {NextUIProvider} from "@nextui-org/react";
 import RegisterPage from './RegisterPage';
-import TheMAP from '../TheMAP.jsx';
+import TheMAP from './TheMAP.jsx';
 import DropDown from './DropDownskillissue.jsx';
+import AdminSubmission from './Admin/AdminSubmission.jsx';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path='/DonationPage' element={<DonationPage />} />
             <Route path='/MAP' element={<TheMAP/>}/>
             <Route path='/DropDown' element={<DropDown/>}/>
+            <Route path='/AdminSubmission' element={<AdminSubmission />} />
           </Routes>
       </Router>
     </div>
