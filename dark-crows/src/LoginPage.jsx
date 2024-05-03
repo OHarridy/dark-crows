@@ -4,19 +4,22 @@ import { Link, useNavigate } from "react-router-dom";
 import {Input} from "@nextui-org/react";
 import {EyeFilledIcon} from "./EyeFilledIcon";
 import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
+import { ToastContainer, toast } from 'react-toastify';
 
 //TODO ADD TYPEWRITING CSS ANIMATION TO TEXT / ADD SOME SORT OF MOVING BACKGROUND
 //TODO Add forgot password page
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
+const allusers= JSON.parse(localStorage.getItem("users"));
 function showAllData(){
   console.log( "LOGGED IN USERNAME" , loggedInUser.username);
   console.log( "LOGGED IN USER DATA" , loggedInUser);
+  console.log("ALL USERS:" ,allusers);
 }
 function LoginPage(){
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [org_name, setOrg_name] = useState('');
 
     
 
@@ -35,40 +38,55 @@ function LoginPage(){
       setPassword(e.target.value);
     }
 
-    function handleSubmit(e){
-      e.preventDefault();
-     if(login(username,password)){
-      navigate('/Home');
-     }
-     else{
-      //TODO add warning when wrong pw is entered
-      console.log("INCORRECT DATA!");
-     }
-    }
-
     function login(username, password) {
-      // Load users from localStorage
+ 
       const users = JSON.parse(localStorage.getItem('users')) || [];
     
-      // Find user with matching username
+  
       const user = users.find(user => user.username === username);
     
-      // If user exists and password is correct, return true
+
       if (user && user.password === password) {
         localStorage.setItem("loggedInUser", JSON.stringify(user));
+        setOrg_name(user.org_name);
         console.log(localStorage.getItem("loggedInUser"));
         return true;
       }
-    
-      // Otherwise, return false
+
       return false;
     }
 
+    function handleSubmit(e){
+      e.preventDefault();
+    if(username === "admin" && password === "admin"){
+        navigate('/AdminMainpage');
+      }
+     else if(login(username,password) && org_name===''){
+      navigate('/DonorMainpage');
+     }
+     else if(login(username,password) && org_name!==''){
+      navigate('/OrgMainpage')
+     }
+     else{
+      toast.error('Incorrect Username or Password');
+     }
+    }
+
+
+
     return (  
        <div className="loginContainer">
+        <ToastContainer/>
 
     <div className="login-non-form-container">
         <div className="login-image">
+
+          
+<div className="fixed top-0 left-0 mt-4 text-white font-bold py-2 px-4 rounded">
+  <Link to="/">
+  <Button text="Back" className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline "/>
+  </Link>
+</div>
 
         <img
             className=""
@@ -114,11 +132,11 @@ function LoginPage(){
                   name="username"
                   type="username"
                   autoComplete="username"
-                  placeholder=" Enter your Username"
+                  placeholder="Enter your Username"
                   value={username}
                   onChange={handleUsernameChange}
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -129,7 +147,7 @@ function LoginPage(){
                   Password
                 </label>
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                  <a href="/ResetPassword" className="font-semibold text-indigo-600 hover:text-indigo-500">
                     Forgot password?
                   </a>
                 </div>
@@ -170,12 +188,11 @@ function LoginPage(){
             <a href="/Register" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
               Create an Account
             </a>
+
+            {/* <Button text="show all data" onClick={showAllData}/> */}
           </p>
         </div>
       </div>
-{/* 
-      <Button text="show all data" onClick={showAllData}/> */}
-
       </div>
 
 
