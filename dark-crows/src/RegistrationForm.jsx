@@ -100,7 +100,7 @@ const RegistrationForm = () => {
   setUploadPhototext('');
   toast.success('Registration successful! 🎉');
   setTimeout(() => {
-    navigate('/');
+    navigate('/Login');
   }, 1000);
 
 const registeredUsers = JSON.parse(localStorage.getItem('users'));

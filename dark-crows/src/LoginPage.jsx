@@ -40,7 +40,7 @@ function LoginPage(){
     function handleSubmit(e){
       e.preventDefault();
      if(login(username,password)){
-      navigate('/');
+      navigate('/DonorMainpage');
      }
      else{
       toast.error('Incorrect Username or Password');
@@ -48,20 +48,20 @@ function LoginPage(){
     }
 
     function login(username, password) {
-      // Load users from localStorage
+ 
       const users = JSON.parse(localStorage.getItem('users')) || [];
     
-      // Find user with matching username
+  
       const user = users.find(user => user.username === username);
     
-      // If user exists and password is correct, return true
+
       if (user && user.password === password) {
         localStorage.setItem("loggedInUser", JSON.stringify(user));
         console.log(localStorage.getItem("loggedInUser"));
         return true;
       }
     
-      // Otherwise, return false
+
       return false;
     }
 
@@ -71,6 +71,13 @@ function LoginPage(){
 
     <div className="login-non-form-container">
         <div className="login-image">
+
+          
+<div className="fixed top-0 left-0 mt-4 text-white font-bold py-2 px-4 rounded">
+  <Link to="/">
+  <Button text="Back" className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline "/>
+  </Link>
+</div>
 
         <img
             className=""
