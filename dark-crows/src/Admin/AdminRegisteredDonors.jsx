@@ -6,7 +6,8 @@ import Search from "./Search.jsx";
 import AdminPicture from "./AdminPicture.jsx";
 
 
-function AdminRegisteredOrgs(){
+
+function AdminRegisteredDonors(){
     return (
         <div className="flex flex-col justify-center items-center">
             <div className="flex flex-row justify-between">
@@ -29,4 +30,4 @@ function AdminRegisteredOrgs(){
     );
 }
 
-export default AdminRegisteredOrgs;
+export default AdminRegisteredDonors;

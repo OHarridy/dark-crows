@@ -3,20 +3,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPage from './LoginPage'; 
 import './index.css';
 import {NextUIProvider} from "@nextui-org/react";
-
+import AdminRegisteredDonors from './Admin/AdminRegisteredDonors.jsx';
+import AdminSubmission from './Admin/AdminSubmission.jsx';
 
 function App() {
   return (
     <NextUIProvider>
-    <div className='App'>
-      <Router>
-        <div className='content'>
-          <Routes>
-            <Route path='/' element={<LoginPage />} /> 
-          </Routes>
-        </div>
-      </Router>
-    </div>
+    <AdminRegisteredDonors />
     </NextUIProvider>
 
   );

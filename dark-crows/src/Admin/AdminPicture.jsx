@@ -2,9 +2,9 @@ import React from "react";
 
 function AdminPicture(){
     return(
-        <div className="flex flex-col w-1/6 bg-gray-800 text-white">
+        <div className="flex flex-col w-1/6 bg-gray-800 text-white absolute left-0 top-0 m-2">
             <div className="flex flex-col justify-center items-center p-5">
-                <img className="rounded-full" src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" />
+                <img className="rounded-full h-36" src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" />
                 <p className="text-2xl">Admin</p>
             </div>
             <div className="flex flex-col">

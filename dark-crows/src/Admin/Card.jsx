@@ -5,7 +5,12 @@ import "./adminToggle.css";
 function Card(donor){
     const[hidden, setHidden] = useState("flex")
     function setHide(){
-        setHidden("none")
+        
+        if (window.confirm("Are you sure you want to Delete?")) {
+            setHidden("none")
+        } else {}
+        
+        
     }
 
     return (

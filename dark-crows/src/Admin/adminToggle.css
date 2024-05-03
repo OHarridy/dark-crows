@@ -1,7 +1,7 @@
 .toggle-container {
     --active-color: #1868e3;
     --inactive-color: #d3d3d6;
-    position: relative;
+    position: sticky;
     aspect-ratio: 292 / 142;
     height: 1.875em;
   }

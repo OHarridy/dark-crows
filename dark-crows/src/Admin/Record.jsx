@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 
 
-function Record(org){
+function Record(org,{setUnseenSubmissions}){
     const [hideVariable, sethideVariable] = React.useState("");
     const [bold, setNotBold] = React.useState("font-bold");
     const handleAcceptClick = () => {
@@ -18,6 +18,12 @@ function Record(org){
     function openProfile(){
         setNotBold("");
         togglePopup();
+        org.setTotalSubmissions(org.totalSubmissions - 1);
+        console.log(org.unseenSubmissions);
+        setUnseenSubmissions(org.unseenSubmissions - 1);
+        console.log(org.unseenSubmissions);
+        
+        setSeen();
     }
 
     const [isOpen, setIsOpen] = useState(false);
