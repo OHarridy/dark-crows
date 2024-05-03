@@ -7,7 +7,7 @@ import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
 import { ToastContainer, toast } from 'react-toastify';
 
 //TODO ADD TYPEWRITING CSS ANIMATION TO TEXT / ADD SOME SORT OF MOVING BACKGROUND
-//TODO Add forgot password page
+
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 const allusers= JSON.parse(localStorage.getItem("users"));
 function showAllData(){

@@ -13,6 +13,7 @@ import {useNavigate } from "react-router-dom";
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import TheMAP from "./TheMAP";
 
 
 
@@ -67,6 +68,10 @@ const RegistrationForm = () => {
 
   function handleSubmit(e){
   e.preventDefault();
+  if(formData.password !== formData.confirmPassword){
+    toast.error('Passwords do not match');
+    return;
+  }
   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
   const newUsers = [...storedUsers, formData];
   setUsers(newUsers);
@@ -171,10 +176,6 @@ const [uploadText, setUploadtext] = useState('');
 
 const [uploadPhotoText, setUploadPhototext] = useState('');
 
-
-
-// TODO check that pw and confirm pw are the same
-//TODO change behaviour of hide/show pw to be exclusive to each input
 
 
   return (  
@@ -764,6 +765,11 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                 />
               </div>
             </div>
+
+        {/* TODO Adjust size of Map */}
+            {/* <div className="sm:col-span-2">
+             <TheMAP/>
+            </div> */}
 
             
           </div>
