@@ -294,7 +294,7 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
             </>
 ): null}
 
-{ (formData.role === "doctor"  )? (
+{ (formData.role === "doctor" && selectedTab==="Donor" )? (
 <>
             <div className="sm:col-span-4">
               <label htmlFor="no_appointments" className="block text-sm font-medium leading-6 text-gray-900">
@@ -334,7 +334,7 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
             </>
             ): null}
 
-{ (formData.role === "teacher"  )? (
+{ (formData.role === "teacher" && selectedTab==="Donor" )? (
 <>
             <div className="sm:col-span-4">
               <label htmlFor="subjects" className="block text-sm font-medium leading-6 text-gray-900">
