@@ -262,7 +262,7 @@ useEffect(() => {
           Join us!
         </h2>
         <h2 className="text-center text-lg font-semibold leading-8 text-green-500">
-          Join us and the millions of others who have helped make a difference in the world!
+          Join us and the millions of other users who have helped make a difference in the world!
         </h2>
         <h2 className="text-center text-lg font-semibold leading-8 text-green-500">
         Whether youre a donor or an organization, ShareLelKheir is designed for you!
