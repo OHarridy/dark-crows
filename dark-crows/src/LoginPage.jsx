@@ -19,7 +19,7 @@ function LoginPage(){
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [org_name, setOrg_name] = useState('');
+
 
     const [isVisible1, setVisible1] = useState(false);
 const domRef1 = useRef();
@@ -63,7 +63,8 @@ useEffect(() => {
 
       if (user && user.password === password) {
         localStorage.setItem("loggedInUser", JSON.stringify(user));
-        setOrg_name(user.org_name);
+        localStorage.setItem("org_name", JSON.stringify(user.org_name));
+        console.log("NAMEEE" , user.org_name);
         console.log(localStorage.getItem("loggedInUser"));
         return true;
       }
@@ -73,6 +74,7 @@ useEffect(() => {
 
     function handleSubmit(e){
       e.preventDefault();
+      let org_name = localStorage.getItem("org_name");
     if(username === "admin" && password === "admin"){
         navigate('/AdminMainpage');
       }
