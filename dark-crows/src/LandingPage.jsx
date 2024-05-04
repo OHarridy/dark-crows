@@ -276,9 +276,9 @@ useEffect(() => {
 
     </div>
 
-
-
-    <div className="mt-20 text-white text-xs">filler div</div>
+<br/>
+<br/>
+<br/>
 
 
 </div>
