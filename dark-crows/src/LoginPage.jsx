@@ -1,5 +1,5 @@
 import Button from "./generalButton";
-import { useState } from 'react';
+import { useState, useEffect, useRef} from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import {Input} from "@nextui-org/react";
 import {EyeFilledIcon} from "./EyeFilledIcon";
@@ -21,7 +21,22 @@ function LoginPage(){
     const [password, setPassword] = useState('');
     const [org_name, setOrg_name] = useState('');
 
-    
+    const [isVisible1, setVisible1] = useState(false);
+const domRef1 = useRef();
+
+useEffect(() => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!isVisible1) {
+        setVisible1(entry.isIntersecting);
+      }
+    });
+  });
+
+  observer.observe(domRef1.current);
+  return () => observer.unobserve(domRef1.current);
+}, [isVisible1]);
+
 
     const navigate = useNavigate();
 
@@ -77,16 +92,17 @@ function LoginPage(){
     return (  
        <div className="loginContainer">
         <ToastContainer/>
-
-    <div className="login-non-form-container">
-        <div className="login-image">
-
-          
-<div className="fixed top-0 left-0 mt-4 text-white font-bold py-2 px-4 rounded">
+        <div className="fixed top-0 left-0 mt-4 text-white font-bold py-2 px-4 rounded">
   <Link to="/">
   <Button text="Back" className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline "/>
   </Link>
 </div>
+
+    <div className={`login-non-form-container ${isVisible1 ? 'fade-in' : ''}`} ref={domRef1}>
+        <div className="login-image">
+
+          
+
 
         <img
             className=""
