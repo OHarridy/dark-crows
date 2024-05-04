@@ -226,7 +226,7 @@ useEffect(() => {
     </div>
 
 
-    <div className={`bg-white mt-20 ${isVisible3 ? 'fade-in' : ''}`} ref={domRef3}>
+    <div className={`bg-white mt-28 ${isVisible3 ? 'fade-in' : ''}`} ref={domRef3}>
     <section className="relative isolate overflow-hidden bg-white px-6 lg:px-8">
       <div  />
       <div />
@@ -275,6 +275,10 @@ useEffect(() => {
         </div>
 
     </div>
+
+
+
+    <div className="mt-20 text-white text-xs">filler div</div>
 
 
 </div>
