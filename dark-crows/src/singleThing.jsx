@@ -70,7 +70,7 @@ export default function ThisThing() {
                                 </div>
                             </CardFooter>
                         </Card>
-                        </Link>
+                      </a>  
                 </div>
             ))}
         </ul>
