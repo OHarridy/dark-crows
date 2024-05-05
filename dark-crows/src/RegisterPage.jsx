@@ -1,24 +1,37 @@
-import {Tabs, Tab} from "@nextui-org/react";
 
+import RegistrationForm from "./RegistrationForm";
 
 const RegisterPage = () => {
     return ( 
-        <div className="register-page-container">
-        <div className="flex flex-wrap gap-4">
-        <Tabs key="success" color="success" aria-label="Tabs colors" radius="full">
-          <Tab key="Donor" title="Donor"/>
-          <Tab key="Org" title="Organization"/>
-        </Tabs>
-        </div>
 
-<div className="">
-    <DonorRegistrationForm/>
+        <div className="reg-parent">
+
+        <div className="flex justify-center items-center min-h-screen">
+        <div className="register-page-container">
+
+
+        <div className="register-image mt-6">
+
+        <img
+            className=""
+            src="Logo.JPG"
+            alt="ShareLelKheir"
+        />
+    </div>
+
+        <div className="flex flex-col items-center justify-center" >
+            <h1>Create an Account</h1>
+            <h2>It Wont take a minute!</h2>
+        </div>
+        
+        
+
+    <div className="">
+    <RegistrationForm/>
     </div>
     
-
-
-
-
+        </div>
+        </div>
 
         </div>
 
