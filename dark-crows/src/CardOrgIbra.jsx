@@ -59,10 +59,10 @@ const CardOrgIbra = () => {
 
         </div>
 
-        {blogs.map(fa2ernigga => (
-            <div id={"blog" + fa2ernigga.id} className="blog-preview relative " key={fa2ernigga.id}>
+        {blogs.map(blog=> (
+            <div id={"blog" + blog.id} className="blog-preview relative " key={blog.id}>
                 
-                {/* <Link to={fa2ernigga.link}> */}
+                {/* <Link to={blog.link}> */}
 
                 <Nyet
                                 onClick={
@@ -85,7 +85,7 @@ const CardOrgIbra = () => {
                             <Image
                                 radius="none"
                                 isZoomed={true}
-                                src={fa2ernigga.source}
+                                src={blog.source}
                                 style={{width: 300, height: 278, borderRadius: 0,
                                     zIndex: 2}}>
                                 </Image>
@@ -95,16 +95,16 @@ const CardOrgIbra = () => {
                             <CardHeader className="justify-between pb-0">
                                 <Avatar className="mr-3 mb-1" showFallback
                                         src='https://ucarecdn.com/a79eb9e5-7dc3-4f37-aeee-6bbab322c28c/-/format/auto/-/preview/3000x3000/-/quality/lighter/1200634207984820-Lael%20Group-1x1-MCC-1.07.png'></Avatar>
-                                <h1 className="text-medium font-semibold leading-none text-default-900 mr-auto">{fa2ernigga.author}</h1>
+                                <h1 className="text-medium font-semibold leading-none text-default-900 mr-auto">{blog.author}</h1>
                             </CardHeader>
                             <CardBody className="px-3 py-0 text-small h-[69px]">
-                                <p>{fa2ernigga.body}</p>
+                                <p>{blog.body}</p>
                             </CardBody>
                             <Progress
                                 style={{fontFamily: 'Roboto Condensed, sans-serif'}}
                                 className="max-w-md gap-0 p-1"
-                                label={fa2ernigga.maximumAmount + " requested"}
-                                valueLabel={fa2ernigga.donatedAmount / fa2ernigga.maximumAmount * 100 + "%"}
+                                label={blog.maximumAmount + " requested"}
+                                valueLabel={blog.donatedAmount / blog.maximumAmount * 100 + "%"}
                                 showValueLabel={true}
                                 aria-label="Donation progress" color="success"
                                 classNames={{
@@ -113,12 +113,12 @@ const CardOrgIbra = () => {
                                     label: "text-xl text-green-700 p-0",
                                     value: "text-default-600",
                                 }}
-                                maxValue={fa2ernigga.maximumAmount} value={fa2ernigga.donatedAmount}/>
+                                maxValue={blog.maximumAmount} value={blog.donatedAmount}/>
                             <CardFooter className="py-0 mx-0 px-1.5">
                                 <div className="flex gap-1 p-0 my-auto mx-0">
                                     <img className="w-5 h-5 my-1 p-0 mx-0"
                                          src="https://i.pinimg.com/236x/a5/2b/88/a52b8861e57c7ba5fd593c6f2fa61e11.jpg"></img>
-                                    <h1 className="font-semibold p-0 mx-0 my-1 text-default-400 text-small">{fa2ernigga.donatorCount}</h1>
+                                    <h1 className="font-semibold p-0 mx-0 my-1 text-default-400 text-small">{blog.donatorCount}</h1>
                                     <h1 className=" text-default-400 p-0 my-1 text-small">Donated</h1>
                                 </div>
                             </CardFooter>
