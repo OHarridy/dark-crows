@@ -5,6 +5,8 @@ import OrgDonationPost from "./OrgDonationPost";
 import CardPage from "./CardPage";
 import Nyet from "./Nyet";
 import Edit from "./Edit";
+import View from "./ViewAsDonor";
+import { toast, ToastContainer } from "react-toastify";
 
 const CardOrgIbra = () => {
     const Navigate = useNavigate();
@@ -34,12 +36,17 @@ const CardOrgIbra = () => {
                 setBlogs(newlist);
                 console.log("NEW LIST", newlist);
             }
+
+            function donorNotif(){
+                toast.info("A Donor Has responded to one of your posts! ")
+            }
  
     return (
         <ul className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
         {/* card to add new post */}
         <div id='0'>
-        <Link to="/CardPage">
+            <ToastContainer/>
+        <Link to="/OrgDonationPost">
         <Card 
                         className="w-[300px] h-[500px] hover:shadow-lg hover:scale-105 transform transition-all duration-200 ease-in-out"
                         style={{borderRadius: 0}} isHoverable={true}>
@@ -83,6 +90,11 @@ const CardOrgIbra = () => {
                                 className=""
                                 onClick={redirect}>
                                 </Edit>
+
+                                <View
+                                className=""
+                                onClick={donorNotif}>
+                                </View>
                 <Card onPress={redirect2}
                 isPressable
                             className="w-[300px] h-[500px] hover:shadow-lg

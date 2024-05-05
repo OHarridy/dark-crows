@@ -3,7 +3,6 @@
 import Button from "./generalButton";
 import { Link } from 'react-router-dom';
 import {Select, SelectItem, Avatar} from "@nextui-org/react";
-import {RadioGroup, Radio} from "@nextui-org/react";
 import { useState } from 'react';
 import {Input} from "@nextui-org/react";
 import {EyeFilledIcon} from "./EyeFilledIcon";
@@ -12,6 +11,9 @@ import {Tabs, Tab} from "@nextui-org/react";
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, RadioGroup, Radio} from "@nextui-org/react";
+
+
 
 
 
@@ -47,6 +49,7 @@ const RegistrationForm = () => {
   
 
   const [posts, setPosts] = useState([]);
+
 
   function handleSubmit(e){
   e.preventDefault();
@@ -319,9 +322,8 @@ const [uploadText, setUploadtext] = useState('');
                   Download Document
                 </button> */}
               </div>
-            </div>
 
-            <div className="col-span-full">
+              <div className="col-span-full">
               <label htmlFor="maxDonateAmount" className="block text-sm font-medium leading-6 text-gray-900">
                Donation Goal
               </label>
@@ -338,6 +340,12 @@ const [uploadText, setUploadtext] = useState('');
                   />
               </div>
             </div>
+
+
+
+            </div>
+
+            
 
             
 
@@ -365,6 +373,9 @@ const [uploadText, setUploadtext] = useState('');
        
       </div>
     </form>
+
+
+    
 
     </div>
   );

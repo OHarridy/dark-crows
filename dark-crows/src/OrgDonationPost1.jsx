@@ -3,7 +3,7 @@
 import Button from "./generalButton";
 import { Link } from 'react-router-dom';
 import {Select, SelectItem, Avatar} from "@nextui-org/react";
-import {RadioGroup, Radio} from "@nextui-org/react";
+import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, RadioGroup, Radio} from "@nextui-org/react";
 import { useState } from 'react';
 import {Input} from "@nextui-org/react";
 
@@ -30,6 +30,8 @@ const RegistrationForm = () => {
   });
 
   const [category, setCategory] = useState('Food');
+  const colors = ["default", "primary", "secondary", "success", "warning", "danger"];
+  const [selectedColor, setSelectedColor] = React.useState("success");
 
 
 
@@ -260,6 +262,43 @@ const [uploadText, setUploadtext] = useState('');
        
       </div>
     </form>
+
+    <div className="flex flex-col gap-3">
+      <Table 
+        color={selectedColor}
+        selectionMode="single" 
+        defaultSelectedKeys={["2"]} 
+        aria-label="Example static collection table"
+      >
+        <TableHeader>
+          <TableColumn>NAME</TableColumn>
+          <TableColumn>Donor Type</TableColumn>
+          <TableColumn>DonatedAmount</TableColumn>
+        </TableHeader>
+        <TableBody>
+          <TableRow key="1">
+            <TableCell>Tony Reichert</TableCell>
+            <TableCell>CEO</TableCell>
+            <TableCell>Active</TableCell>
+          </TableRow>
+          <TableRow key="2">
+            <TableCell>Zoey Lang</TableCell>
+            <TableCell>Technical Lead</TableCell>
+            <TableCell>Paused</TableCell>
+          </TableRow>
+          <TableRow key="3">
+            <TableCell>Jane Fisher</TableCell>
+            <TableCell>Senior Developer</TableCell>
+            <TableCell>Active</TableCell>
+          </TableRow>
+          <TableRow key="4">
+            <TableCell>William Howard</TableCell>
+            <TableCell>Community Manager</TableCell>
+            <TableCell>Vacation</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </div>
 
     </div>
   );
