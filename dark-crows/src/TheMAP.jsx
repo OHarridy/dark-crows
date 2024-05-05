@@ -35,9 +35,9 @@ const TheMAP = () => {
         return ( 
             <div>
           <div id="map"  className="z-1" style={{height:"600px", width:"600px"}}></div>
-          <iframe className="z-1" src={"https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1514.652430116504!2d"+longitude+"!3d"+latitude+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2seg!4v1714772641910!5m2!1sen!2seg"} style={{border:"0"}} loading="lazy">
+          {/* <iframe className="z-1" src={"https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1514.652430116504!2d"+longitude+"!3d"+latitude+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2seg!4v1714772641910!5m2!1sen!2seg"} style={{border:"0"}} loading="lazy">
             <button className="absolute w-32 h-32 top-0 right-0 z-10">Click me</button>
-          </iframe>
+          </iframe> */}
             </div>
          );
     }
