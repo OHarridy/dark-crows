@@ -9,6 +9,7 @@ import RegisterPage from './RegisterPage';
 import OrgDonationPost1 from './OrgDonationPost1'
 import OrgDonationPost2 from './OrgDonationPost2'
 import ViewPost from './viewPost'
+import Home from './mainPage';
 
 
 // import MainPage from 'src/App.jsx'; // Import the component you want to navigate to
@@ -28,6 +29,7 @@ function App() {
       <Route path='/OrgDonationPost1' element={<OrgDonationPost1/>}/>
       <Route path='/OrgDonationPost2' element={<OrgDonationPost2/>}/>
       <Route path='/RegisterPage' element={<RegisterPage/>} /> 
+      <Route path='/Home' element={<Home/>} /> 
         <Route path='/' element={<App2/>} />
       </Routes>
         

@@ -60,7 +60,8 @@ export default function ThisThing() {
                                     label: "text-xl text-green-700 p-0",
                                     value: "text-default-600",
                                 }}
-                                maxValue={fa2ernigga.maximumAmount} value={fa2ernigga.donatedAmount}/>
+                                maxValue={fa2ernigga.maximumAmount} 
+                                value={fa2ernigga.donatedAmount}/>
                             <CardFooter className="py-0 mx-0 px-1.5">
                                 <div className="flex gap-1 p-0 my-auto mx-0">
                                     <img className="w-5 h-5 my-1 p-0 mx-0"

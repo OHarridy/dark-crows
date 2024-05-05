@@ -94,8 +94,8 @@ const [uploadText, setUploadtext] = useState('');
 
 
   return (  
-    <div className="register-form-container"  >
-
+    <div className="reg-parent flex flex-col">
+<div className="h-[500px]"></div>
 <div className="register-image flex justify-center items-center">
 
         <img
@@ -104,12 +104,7 @@ const [uploadText, setUploadtext] = useState('');
             alt="ShareLelKheir"
         />
     </div>
-<div className="register-page-slider-container">
-<ToastContainer />
-  <div className="flex flex-wrap gap-4">
-       
-        </div>
-        </div>
+    <div className="reg-form-container shadow-lg ">
     <form onSubmit={handleSubmit}>
       <div className="space-y-12">
         
@@ -260,6 +255,7 @@ const [uploadText, setUploadtext] = useState('');
        
       </div>
     </form>
+    </div>
 
     </div>
   );

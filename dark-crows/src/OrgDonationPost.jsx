@@ -15,7 +15,7 @@ import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, RadioGr
 
 
 
-
+// TODO ADJUST STYLING
 
 const RegistrationForm = () => {
 
