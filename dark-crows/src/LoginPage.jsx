@@ -1,6 +1,6 @@
 import Button from "./generalButton";
 import { useState, useEffect, useRef} from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import {Input} from "@nextui-org/react";
 import {EyeFilledIcon} from "./EyeFilledIcon";
 import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
@@ -24,18 +24,6 @@ function LoginPage(){
     const [isVisible1, setVisible1] = useState(false);
 const domRef1 = useRef();
 
-useEffect(() => {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!isVisible1) {
-        setVisible1(entry.isIntersecting);
-      }
-    });
-  });
-
-  observer.observe(domRef1.current);
-  return () => observer.unobserve(domRef1.current);
-}, [isVisible1]);
 
 
     const navigate = useNavigate();
@@ -74,20 +62,29 @@ useEffect(() => {
 
     function handleSubmit(e){
       e.preventDefault();
-      let org_name = localStorage.getItem("org_name");
+    // let org_name = localStorage.getItem("org_name");
+    // let history = useHistory();
+
     if(username === "admin" && password === "admin"){
-        navigate('/AdminMainpage');
-      }
-     else if(login(username,password) && org_name===''){
-      navigate('/DonorMainpage');
-     }
-     else if(login(username,password) && org_name!==''){
-      navigate('/OrgMainpage')
-     }
-     else{
-      toast.error('Incorrect Username or Password');
-     }
+     navigate('/AdminPage');
     }
+    if(login(username,password)){
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+
+      const user = users.find(user => user.username === username);
+
+      if(user.org_name===''){
+        navigate('/Home');
+      }
+      else{
+        navigate('/OrgMainpage');
+      }
+    }
+   else{
+    toast.error('Incorrect Username or Password');
+   }
+
+  }
 
 
 
@@ -100,7 +97,7 @@ useEffect(() => {
   </Link>
 </div>
 
-    <div className={`login-non-form-container ${isVisible1 ? 'fade-in' : ''}`} ref={domRef1}>
+    <div className={`login-non-form-container fade-in ${isVisible1 ? 'fade-in' : ''}`} ref={domRef1}>
         <div className="login-image">
 
           
@@ -139,7 +136,7 @@ useEffect(() => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST" onSubmit={handleSubmit}>
+          <form className="space-y-6"  onSubmit={handleSubmit}>
             <div>
               <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
                 Username

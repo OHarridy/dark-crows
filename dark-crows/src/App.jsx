@@ -8,7 +8,6 @@ import {NextUIProvider} from "@nextui-org/react";
 import RegisterPage from './RegisterPage';
 import ResetPwPage from './ResetPwPage.jsx';
 import LandingPage from './LandingPage.jsx';
-import DropDownTest from './DropDownTest.jsx';
 import TheMAP from './TheMAP.jsx';
 import DropDown from './DropDownskillissue.jsx';
 import AdminSubmission from './Admin/AdminSubmission.jsx';
@@ -22,7 +21,7 @@ function App() {
             <Route path='/' element={<LandingPage />} /> 
             <Route path='/Login' element={<LoginPage />} /> 
             <Route path='/Register' element={<RegisterPage />} /> 
-            <Route path='/Home' element={<Home />} />
+            <Route path="/Home" element={<Home />} />
             <Route path='/Donor' element={<Donor />} />
             <Route path='/DonationPage' element={<DonationPage />} />
             <Route path='/MAP' element={<TheMAP/>}/>
