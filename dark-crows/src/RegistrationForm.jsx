@@ -24,6 +24,8 @@ const RegistrationForm = () => {
   
   const navigate = useNavigate();
 
+  
+
 
   const [formData, setFormData] = useState({
     username: '',
@@ -39,12 +41,15 @@ const RegistrationForm = () => {
     no_students:'',
     no_sessions:'',
     document:'',
+    longitude:'',
+    latitude:'',
     about:'',
     email: '',
     contact_number: '',
     password: '',
     confirmPassword: '',
     country: '',
+    address_selection:'text',
     address:'',
     city:'',
     state:'',
@@ -58,9 +63,7 @@ const RegistrationForm = () => {
         setFormData({
           ...formData,
           [name]: value
-        });
-
-  
+        });  
     }
   
     // JSON.parse(localStorage.getItem('users'))
@@ -71,6 +74,15 @@ const RegistrationForm = () => {
   if(formData.password !== formData.confirmPassword){
     toast.error('Passwords do not match');
     return;
+  }
+
+  if(formData.address_selection=="both" || formData.address_selection=="map"){
+  formData.latitude = localStorage.getItem("latitude");
+  formData.longitude = localStorage.getItem("longitude");
+  }
+  else{
+    formData.latitude = '';
+    formData.longitude = '';
   }
   const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
   const newUsers = [...storedUsers, formData];
@@ -90,6 +102,8 @@ const RegistrationForm = () => {
     no_students:'',
     no_sessions:'',
     document:'',
+    longitude:'',
+    latitude:'',
     about:'',
     email: '',
     contact_number: '',
@@ -97,6 +111,7 @@ const RegistrationForm = () => {
     confirmPassword: '',
     country: '',
     address:'',
+    address_selection:'text',
     city:'',
     state:'',
   });
@@ -202,7 +217,7 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
             This information will be displayed publicly so be careful what you share.
           </p>
 
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div className="sm:col-span-4">
               <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
                 Username
@@ -712,6 +727,25 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
               </div>
             </div>
 
+            <div className="sm:col-span-4">
+              <label htmlFor="address_selection" className="block text-sm font-medium leading-6 text-gray-900">
+              Address Input Selection
+              </label>
+              <div className="mt-2">
+              <RadioGroup  
+                  name="address_selection"
+                  value={formData.address_selection}
+                  onChange={handleInputChange}
+                 >
+              <Radio value="text">Text-based Input</Radio>
+              <Radio value="map">Google Map Marker</Radio>
+              <Radio value="both">Both</Radio>
+            </RadioGroup>
+              </div>
+            </div>
+
+            { (formData.address_selection === "text" || formData.address_selection === "both"   )? (
+<>
             <div className="col-span-full">
               <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
                 Street address
@@ -765,11 +799,24 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                 />
               </div>
             </div>
+</>
+): null}
 
-        {/* TODO Adjust size of Map */}
-            {/* <div className="sm:col-span-2">
-             <TheMAP/>
-            </div> */}
+{ (formData.address_selection === "map" || formData.address_selection === "both"   )? (
+<>
+
+            <div className="col-span-full">
+              <label htmlFor="map" className="block text-sm font-medium leading-6 text-gray-900">
+                Choose your Address from the map
+              </label>
+              <div className="mt-2">
+              <TheMAP/> 
+              </div>
+            </div>
+
+            </>
+
+): null}
 
             
           </div>
