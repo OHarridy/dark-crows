@@ -8,6 +8,7 @@ import {NextUIProvider} from "@nextui-org/react";
 import RegisterPage from './RegisterPage';
 import ResetPwPage from './ResetPwPage.jsx';
 import LandingPage from './LandingPage.jsx';
+import DropDownTest from './DropDownTest.jsx';
 import TheMAP from './TheMAP.jsx';
 import DropDown from './DropDownskillissue.jsx';
 import AdminSubmission from './Admin/AdminSubmission.jsx';

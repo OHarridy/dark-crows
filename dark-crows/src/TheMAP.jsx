@@ -2,6 +2,18 @@ import { useState } from "react";
 const TheMAP = () => {
   const [latitude, setLatitude] = useState(30.019092345135768);
   const [longitude, setLongitude] = useState(31.322912398067018);
+
+  function changeLatitude(input){
+    setLatitude(input);
+    localStorage.setItem("latitude", latitude);
+    console.log("LAT", localStorage.getItem("latitude"));
+  }
+
+  function changeLongitude(input){
+    setLongitude(input);
+    localStorage.setItem("longitude", longitude);
+    console.log("LONG", localStorage.getItem("longitude"));
+  }
         
     async function initMap() {
             const { Map, InfoWindow } = await window.google.maps.importLibrary("maps");
@@ -22,8 +34,8 @@ const TheMAP = () => {
             
             draggableMarker.addListener("dragend", (event) => {
               const position = draggableMarker.position;
-              setLatitude(position.lat);
-              setLongitude(position.lng);
+              changeLatitude(position.lat);
+              changeLongitude(position.lng);
               infoWindow.close();
               infoWindow.setContent(`Pin dropped at: ${position.lat}, ${position.lng}`);
               infoWindow.open(draggableMarker.map, draggableMarker);
