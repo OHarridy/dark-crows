@@ -1,5 +1,6 @@
 import CardProfile from "./CardProfile";
 import MyButton from "./generalButton";
+import CardOrgIbra from "./CardOrgIbra";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 import ThisThing from "./singleThing";
@@ -18,7 +19,14 @@ const OrgPage = () => {
             
         </div>
 
-        <div><ThisThing/></div>
+        <div className="pt-10">
+            <h1>Fulfilled Posts</h1>
+            <div className="pb-10 ">
+            <hr className="myHr"/>
+            </div>
+            
+            <CardOrgIbra/>
+            </div>
 
         </div>
     );

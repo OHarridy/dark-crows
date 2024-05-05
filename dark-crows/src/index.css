@@ -170,3 +170,9 @@ h1 {
   width: 180px;
   object-fit: contain;
 }
+.myHr {
+  color: #000000;
+  background-color: #000000;
+  height: 1px;
+  
+}

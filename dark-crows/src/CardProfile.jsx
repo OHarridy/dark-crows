@@ -1,7 +1,7 @@
 const CardProfile = () => {
     return (  
 
-<div class=" bg-gray-200 h-auto flex items-center justify-center pb-4">
+<div class=" h-auto flex items-left justify-center pb-4">
   
   <div class="w-3/4 grid grid-cols-5">
     

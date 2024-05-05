@@ -40,8 +40,7 @@ function classNames(...classes) {
 }
 
 export default function CardPage() {
-  const [selectedColor, setSelectedColor] = useState(Organization.colors[0])
-  const [selectedSize, setSelectedSize] = useState(Organization.sizes[2])
+
 
   return (
     <div className="bg-white">
