@@ -66,7 +66,7 @@ const domRef1 = useRef();
     // let history = useHistory();
 
     if(username === "admin" && password === "admin"){
-     navigate('/AdminPage');
+     navigate('/Regorg');
     }
     if(login(username,password)){
       const users = JSON.parse(localStorage.getItem('users')) || [];

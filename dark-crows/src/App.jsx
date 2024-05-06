@@ -30,9 +30,7 @@ function App() {
             <Route path='/ResetPassword' element={<ResetPwPage />} /> 
             <Route path='/DonorMainPage' element={<Home />} /> 
             <Route path='/DropDown' element={<DropDown/>}/>
-            
             <Route path='/Regorg' element={<Regorg/>}/>
-            <Route path='/Helpme' element={<DropDownniiga/>}/>
           </Routes>
       </Router>
     </div>

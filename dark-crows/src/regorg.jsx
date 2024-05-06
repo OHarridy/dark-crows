@@ -14,14 +14,14 @@ import './button.css';
 import { EyeFilledIcon } from "./EyeFilledIcon";
 const Regorg = () => {  
 const [blogs, setBlogs] = useState([
-    {type:'Refugees & Improverished',number:'01017315557',title: 'Thawra street, 5th', body: 'lorem ipsum...', author: 'Masr El Kheir', id: 1, profilePic: 'https://www.globalgiving.org/pfil/organ/81861/orglogo.jpg', clicked: false},
-    {type:'Refugees & Improverished',number:'01017315557',title: 'Gesr El Suez', body: 'lorem ipsum...', author: 'Orman', id: 2, profilePic: 'https://wagadtoha.com/images/logos/xOrmanCharityAssociation.jpg.pagespeed.ic.4Z1azpfjsj.jpg', clicked: false},
-    {type:'Refugees & Improverished',number:'01017315557',title: 'Al Thawra, El Mokattam, Cairo Governorate 4414540', body: 'lorem ipsum...', author: 'Ibra fundraiser', id: 3, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
-    {type:'Orphanage',number:'01207921760',title: 'Al Haram, Giza Governorate 3512201', body: 'lorem ipsum...', author: 'Ma3 el e5wa', id: 4, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
-    {type:'Refugees & Improverished',number:'01143777537',title: 'Mivida, greens 6', body: 'lorem ipsum...', author: 'Mivida fundraising', id: 5, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
-    {type:'School supplies',number:'01017315557',title: 'El-Nozha, El Nozha, Cairo Governorate 4470038', body: 'lorem ipsum...', author: 'Joe windows actvity', id: 6, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
-    {type:'Hospital',number:'01017315557' ,title: 'Al Abageyah، قسم الخليفة, Cairo Governorate 4413430', body: 'lorem ipsum...', author: 'Ibra fel watchlist', id: 7, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
-    {type:'Hospital',number:'01017315557',title: 'Anwar El-Sadat, Ismailia 2, Ismailia Governorate 8363541', body: 'lorem ipsum...', author: 'Sadik', id: 8, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false}
+    {email: 'hamada@gmail.com', type:'Refugees & Improverished',number:'01017315557',title: 'El-Nozha, El Nozha, Cairo Governorate 4470038', body: 'lorem ipsum...', author: 'Masr El Kheir', id: 1, profilePic: 'https://www.globalgiving.org/pfil/organ/81861/orglogo.jpg', clicked: false},
+    {email: '3andaleeb@gmail.com',type:'Refugees & Improverished',number:'01017315557',title: 'El-Nozha, El Nozha, Cairo Governorate 4470038', body: 'lorem ipsum...', author: 'Orman', id: 2, profilePic: 'https://wagadtoha.com/images/logos/xOrmanCharityAssociation.jpg.pagespeed.ic.4Z1azpfjsj.jpg', clicked: false},
+    {email: 'asmar@gmail.com',type:'Refugees & Improverished',number:'01017315557',title: 'Al Thawra, El Mokattam, Cairo Governorate 4414540', body: 'lorem ipsum...', author: 'Ibra fundraiser', id: 3, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
+    {email: 'volleyball@gmail.com',type:'Orphanage',number:'01207921760',title: 'Al Haram, Giza Governorate 3512201', body: 'lorem ipsum...', author: 'Ma3 el e5wa', id: 4, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
+    {email: 'ahmedgas@gmail.com',type:'Refugees & Improverished',number:'01143777537',title: 'El-Nozha, El Nozha, Cairo Governorate 4470038', body: 'lorem ipsum...', author: 'Mivida fundraising', id: 5, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
+    {email: 'halawa@gmail.com',type:'School supplies',number:'01017315557',title: 'El-Nozha, El Nozha, Cairo Governorate 4470038', body: 'lorem ipsum...', author: 'Joe windows actvity', id: 6, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
+    {email: 'joemagdy@gmail.com',type:'Hospital',number:'01017315557' ,title: 'Al Abageyah، قسم الخليفة, Cairo Governorate 4413430', body: 'lorem ipsum...', author: 'Ibra fel watchlist', id: 7, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false},
+    {email: 'outofideas@gmail.com',type:'Hospital',number:'01017315557',title: 'Anwar El-Sadat, Ismailia Governorate 8363541', body: 'lorem ipsum...', author: 'Sadik', id: 8, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false}
 ]);
 
   const [searchTerm, setSearchTerm] = useState(""); // state to store the search term
@@ -253,7 +253,7 @@ const [blogs, setBlogs] = useState([
                                 <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"></path>
                                 </svg>
-                                    Email: contact@mail.com
+                                    Email: {selectedBlog.email}
                             </li>            
                         </div>
                         </div>
