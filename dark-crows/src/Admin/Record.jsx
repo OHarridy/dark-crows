@@ -1,29 +1,35 @@
 import React,{useState} from "react";
 
-
-function Record(org,{setUnseenSubmissions}){
+function Record(org){
+    const [flag,setFlag] = useState(false);
     const [hideVariable, sethideVariable] = React.useState("");
     const [bold, setNotBold] = React.useState("font-bold");
     const handleAcceptClick = () => {
-    if (window.confirm("Are you sure you want to Accept?")) {
-        sethideVariable("hidden");
-    } else {}
+        if (window.confirm("Are you sure you want to Accept?")) {
+            sethideVariable("hidden");
+            org.setTotalWhenAccept();
+            if(!flag)
+                org.setUnseen();
+        } else {}
+        
     };
     const handleRejectClick = () => {
         if (window.confirm("Are you sure you want to Reject?")) {
             sethideVariable("hidden");
+            org.setTotalWhenAccept();
+            if(!flag)
+                org.setUnseen();
         } else {}
     };
     
     function openProfile(){
         setNotBold("");
         togglePopup();
-        org.setTotalSubmissions(org.totalSubmissions - 1);
-        console.log(org.unseenSubmissions);
-        setUnseenSubmissions(org.unseenSubmissions - 1);
-        console.log(org.unseenSubmissions);
         
-        setSeen();
+        if(!flag){
+            org.setUnseen();
+            setFlag(true);
+        }
     }
 
     const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +38,7 @@ function Record(org,{setUnseenSubmissions}){
     }
     
     return (
-        <div className={`flex flex-row ${hideVariable} justify-between border-2 border-green-500 text-black hover:shadow-xl transition duration-200 ease-in-out py-2 px-4 rounded`}>
+        <div className={`flex flex-row ${hideVariable} justify-between border-2 border-green-500 text-black hover:shadow-green-900 hover:shadow-lg transition duration-200 ease-in-out py-2 px-4 rounded`}>
             <div className="flex flex-row hover:cursor-pointer hover:shadow-md w-3/4"  onClick={openProfile} >
                 <img className={`{org.isOrg === "true" ? "hidden" : ""} h-16 rounded-full mr-3`}  src={org.img}></img>
                 <div className="flex flex-col">

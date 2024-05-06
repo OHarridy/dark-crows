@@ -3,13 +3,21 @@ import Records from "./Records.jsx";
 import setIsOpen from "./Record.jsx";
 import SideBar from "./SideBar.jsx";
 import AdminPicture from './AdminPicture.jsx';
+import orgs from "./orgs.js";
+import donors from './donors.jsx';
 
 const screenHeight = window.screen.height;
 const screenWidth = window.screen.width;
 
 function AdminSubmission(){
-    const[totalSubmissions,setTotalSubmissions] = useState(0);
-    const[unseenSubmissions,setUnseenSubmissions] = useState(0);
+    const[totalSubmissions,setTotalSubmissions] = useState(orgs.length);
+    const[unseenSubmissions,setUnseenSubmissions] = useState(orgs.length);
+
+    const[totalOrgs,setTotalOrgs] = useState(orgs.length);
+    const[totalDonors,setTotalDonors] = useState(donors.length);
+    
+    const[unseenOrgs,setUnseenOrgs] = useState(orgs.length);
+    const[unseenDonors,setUnseenDonors] = useState(donors.length);
     
 
     const[isToggled,setToggle] = useState(false);
@@ -18,12 +26,27 @@ function AdminSubmission(){
         setToggle(!isToggled);
         setWhere(where === "Organizations" ? "Donors" : "Organizations");
         setIsOrg(!isOrg);
+        if(!isToggled){
+            setTotalSubmissions(totalDonors);
+            setUnseenSubmissions(unseenDonors);
+        }else{
+            setTotalSubmissions(totalOrgs);
+            setUnseenSubmissions(unseenOrgs);
+        }
     }
 
     const togglePopup = () => {
         setIsOpen(!isOpen);
     };
-    
+    const setUnseen = () => {
+        if(isToggled){
+            setUnseenSubmissions(unseenDonors-1);
+            setUnseenDonors(unseenDonors-1);
+        }else{
+            setUnseenSubmissions(unseenOrgs-1);
+            setUnseenOrgs(unseenOrgs-1);
+        }
+    };
 
     const [isOpen, setIsOpen] = useState(false);
     
@@ -31,12 +54,27 @@ function AdminSubmission(){
     function setOrg(){
         setIsOrg(!isOrg);
     }
-    var tmp = screenHeight/4 ;
-    console.log(tmp);
+
+    const setTotalWhenAccept = () => {
+        if(isToggled){
+            setTotalSubmissions(totalDonors-1);
+            setTotalDonors(totalDonors-1);
+        }else{
+            setTotalSubmissions(totalOrgs-1);
+            setTotalOrgs(totalOrgs-1);
+        }
+    }
+
+    const setTotal = (x) => {
+        setTotalSubmissions(x);
+    }
+
+    var tmp = screenHeight/15 ;
+    
     return (
-        <div className="w-full flex flex-col">
+        <div className="w-full flex flex-col text-center justify-center border-2">
             <div className='flex flex-row w-full'>
-                <AdminPicture />
+                
                 <div className='w-full'>
                     
                     <div className="text-4xl text-center p-5">{where} Submissions</div>
@@ -45,11 +83,11 @@ function AdminSubmission(){
             
             </div>
 
-            <div className='flex flex-row justify-between' style={{marginTop:`${tmp}px`}}>
-                <SideBar />
-                <div>
-                    <div className='flex flex-row justify-end w-full'>
-                       <div className='flex flex-col -space-x-4 space-y-3 mb-2'>
+            <div className='flex flex-row justify-between mb-5' style={{marginTop:``}}>
+                
+                <div className='w-full'>
+                    <div className='flex flex-row justify-end w-5/6'>
+                       <div className='flex flex-col -space-x-20 space-y-3 mb-2'>
                             <span className=' mb-2'><span className='border-2 rounded-full py-1 px-2'>{totalSubmissions}</span> Submissions</span>
                             <div className='flex flex-col space-x-4'>
                                 <span className='font-bold text-black mb-4'>
@@ -60,7 +98,7 @@ function AdminSubmission(){
             
                             </div>
                        </div>
-                        <div className="toggle-container m-3 mt-10"  onClick={handleToggle}>
+                        <div className="toggle-container m-3 mt-10 border-10 border-red-500"  onClick={handleToggle}>
                             <input type="checkbox" className="toggle-input"/>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292 142" className="toggle">
                                 <path d="M71 142C31.7878 142 0 110.212 0 71C0 31.7878 31.7878 0 71 0C110.212 0 119 30 146 30C173 30 182 0 221 0C260 0 292 31.7878 292 71C292 110.212 260.212 142 221 142C181.788 142 173 112 146 112C119 112 110.212 142 71 142Z" className="toggle-background"></path>
@@ -72,13 +110,13 @@ function AdminSubmission(){
                                 <rect fill="#fff" rx="58" height="114" width="114" y="14" x="164" className="toggle-circle right"></rect>
                                 </g>
                                 <filter id="goo">
-                                <feGaussianBlur stdDeviation="10" result="blur" in="SourceGraphic"></feGaussianBlur>
+                                <feGaussianBlur stdDeviation="10" result="blur" in="SourceGraphic"></feGaussianBlur>    
                                 <feColorMatrix result="goo" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" mode="matrix" in="blur"></feColorMatrix>
                                 </filter>
                             </svg>
                         </div>
                     </div>
-                    <Records hid={isToggled} isOrg={isOrg} setTotalSubmissions={setTotalSubmissions} setUnseenSubmissions={setUnseenSubmissions} totalSubmissions={totalSubmissions} unseenSubmissions={unseenSubmissions}/>
+                    <div className='flex flex-row justify-center w-full'><Records hid={isToggled} isOrg={isOrg} unseen={unseenSubmissions} setTotalWhenAccept={setTotalWhenAccept} setUnseen={setUnseen} setTotal={setTotal}/></div>
                 </div>
             </div>
            
