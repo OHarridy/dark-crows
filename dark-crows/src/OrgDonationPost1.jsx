@@ -94,9 +94,15 @@ function redirectToEdit(){
   navigate("/OrgDonationPost2");
 }
 
+function redirectToDonor(){
+  navigate("/DonorProfile");
+}
+
+
+
   return ( 
     <div className="flex flex-col">
-      <div className="h-[700px]"></div>
+      <div className="h-[600px]"></div>
       
 
     <div className="reg-parent ">
@@ -178,51 +184,32 @@ function redirectToEdit(){
 
             <div className="col-span-6">
               <label htmlFor="maxDonateAmount" className="block text-sm font-medium leading-6 text-gray-900">
-               Donors
+              Donor Contributions
               </label>
               <div className="mt-2 ml-2 mr-2">
 
       <Table 
         color={selectedColor}
         selectionMode="single" 
+
       >
         <TableHeader>
-          <TableColumn>Name</TableColumn>
+          <TableColumn >Name</TableColumn>
           <TableColumn>Donor Role</TableColumn>
           <TableColumn >Donated Amount</TableColumn>
+          <TableColumn align="end">Status</TableColumn>
         </TableHeader>
         <TableBody>
           <TableRow key="1">
-            <TableCell>Tony Reichert</TableCell>
-            <TableCell>Regular</TableCell>
-            <TableCell >200</TableCell>
-          </TableRow>
-          <TableRow key="2" textValue="hello">
-            <TableCell>Zoey Lang</TableCell>
-            <TableCell>Regular</TableCell>
-            <TableCell >200</TableCell>
-          </TableRow>
-          <TableRow key="3">
-            <TableCell>Jane Fisher</TableCell>
-            <TableCell>Regular</TableCell>
-            <TableCell>50</TableCell>
-          </TableRow>
-          <TableRow key="4">
-            <TableCell>William Howard</TableCell>
-            <TableCell>Regular</TableCell>
-            <TableCell>550</TableCell>
+            <TableCell onClick={redirectToDonor}>Tony Reichert</TableCell>
+            <TableCell>Pro-bono Doctor</TableCell>
+            <TableCell>-</TableCell>
+            <TableCell>Pending</TableCell>
           </TableRow>
         </TableBody>
       </Table>
               </div>
             </div>
-
-            
-
-            
-
-            
-
             
           </div>
         </div>
@@ -244,44 +231,6 @@ function redirectToEdit(){
       </div>
     </form>
     </div>
-{/* 
-TODO: Adjust styling of table + alignment of text in table */}
-    {/* <div className="flex flex-col gap-3">
-      <Table 
-        color={selectedColor}
-        selectionMode="single" 
-        defaultSelectedKeys={["2"]} 
-        aria-label="Example static collection table"
-      >
-        <TableHeader>
-          <TableColumn>Name</TableColumn>
-          <TableColumn>Donor Role</TableColumn>
-          <TableColumn width="150px"align="center">Donated Amount</TableColumn>
-        </TableHeader>
-        <TableBody>
-          <TableRow key="1">
-            <TableCell>Tony Reichert</TableCell>
-            <TableCell>Regular</TableCell>
-            <TableCell align="center">200</TableCell>
-          </TableRow>
-          <TableRow key="2" textValue="hello">
-            <TableCell>Zoey Lang</TableCell>
-            <TableCell>Regular</TableCell>
-            <TableCell textValue="200">200</TableCell>
-          </TableRow>
-          <TableRow key="3">
-            <TableCell>Jane Fisher</TableCell>
-            <TableCell>Regular</TableCell>
-            <TableCell>50</TableCell>
-          </TableRow>
-          <TableRow key="4">
-            <TableCell>William Howard</TableCell>
-            <TableCell>Regular</TableCell>
-            <TableCell>550</TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-    </div> */}
 
     </div>
     </div> 

@@ -190,7 +190,7 @@ function redirectBack(){
 
              <div className="col-span-6">
               <label htmlFor="maxDonateAmount" className="block text-sm font-medium leading-6 text-gray-900">
-               Donors
+               Donor Contributions
               </label>
               <div className="mt-2 ml-2 mr-2">
 
@@ -201,28 +201,33 @@ function redirectBack(){
         <TableHeader>
           <TableColumn>Name</TableColumn>
           <TableColumn>Donor Role</TableColumn>
-          <TableColumn >Donated Amount</TableColumn>
+          <TableColumn align="center">Donated Amount</TableColumn>
+          <TableColumn align="end">Status</TableColumn>
         </TableHeader>
         <TableBody>
           <TableRow key="1">
             <TableCell>Tony Reichert</TableCell>
             <TableCell>Regular</TableCell>
-            <TableCell >200</TableCell>
+            <TableCell>200</TableCell>
+            <TableCell >Completed</TableCell>
           </TableRow>
           <TableRow key="2" textValue="hello">
             <TableCell>Zoey Lang</TableCell>
             <TableCell>Regular</TableCell>
             <TableCell >200</TableCell>
+            <TableCell >Completed</TableCell>
           </TableRow>
           <TableRow key="3">
             <TableCell>Jane Fisher</TableCell>
             <TableCell>Regular</TableCell>
             <TableCell>50</TableCell>
+            <TableCell >Completed</TableCell>
           </TableRow>
           <TableRow key="4">
             <TableCell>William Howard</TableCell>
             <TableCell>Regular</TableCell>
             <TableCell>550</TableCell>
+            <TableCell >Completed</TableCell>
           </TableRow>
         </TableBody>
       </Table>
