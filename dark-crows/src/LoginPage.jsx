@@ -1,13 +1,13 @@
 import Button from "./generalButton";
-import { useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect, useRef} from 'react';
+import { Link, useNavigate} from "react-router-dom";
 import {Input} from "@nextui-org/react";
 import {EyeFilledIcon} from "./EyeFilledIcon";
 import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
 import { ToastContainer, toast } from 'react-toastify';
 
 //TODO ADD TYPEWRITING CSS ANIMATION TO TEXT / ADD SOME SORT OF MOVING BACKGROUND
-//TODO Add forgot password page
+
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 const allusers= JSON.parse(localStorage.getItem("users"));
 function showAllData(){
@@ -19,9 +19,12 @@ function LoginPage(){
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [org_name, setOrg_name] = useState('');
 
-    
+
+    const [isVisible1, setVisible1] = useState(false);
+const domRef1 = useRef();
+
+
 
     const navigate = useNavigate();
 
@@ -48,7 +51,8 @@ function LoginPage(){
 
       if (user && user.password === password) {
         localStorage.setItem("loggedInUser", JSON.stringify(user));
-        setOrg_name(user.org_name);
+        localStorage.setItem("org_name", JSON.stringify(user.org_name));
+        console.log("NAMEEE" , user.org_name);
         console.log(localStorage.getItem("loggedInUser"));
         return true;
       }
@@ -58,35 +62,46 @@ function LoginPage(){
 
     function handleSubmit(e){
       e.preventDefault();
+    // let org_name = localStorage.getItem("org_name");
+    // let history = useHistory();
+
     if(username === "admin" && password === "admin"){
-        navigate('/Regorg');
-      }
-     else if(login(username,password) && org_name===''){
-      navigate('/DonorMainpage');
-     }
-     else if(login(username,password) && org_name!==''){
-      navigate('/OrgMainpage')
-     }
-     else{
-      toast.error('Incorrect Username or Password');
-     }
+     navigate('/AdminPage');
     }
+    if(login(username,password)){
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+
+      const user = users.find(user => user.username === username);
+
+      if(user.org_name===''){
+        navigate('/Home');
+      }
+      else{
+        navigate('/OrgMainpage');
+      }
+    }
+   else{
+    toast.error('Incorrect Username or Password');
+   }
+
+  }
 
 
 
     return (  
        <div className="loginContainer">
         <ToastContainer/>
-
-    <div className="login-non-form-container">
-        <div className="login-image">
-
-          
-<div className="fixed top-0 left-0 mt-4 text-white font-bold py-2 px-4 rounded">
+        <div className="fixed top-0 left-0 mt-4 text-white font-bold py-2 px-4 rounded">
   <Link to="/">
   <Button text="Back" className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline "/>
   </Link>
 </div>
+
+    <div className={`login-non-form-container fade-in ${isVisible1 ? 'fade-in' : ''}`} ref={domRef1}>
+        <div className="login-image">
+
+          
+
 
         <img
             className=""
@@ -121,7 +136,7 @@ function LoginPage(){
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST" onSubmit={handleSubmit}>
+          <form className="space-y-6"  onSubmit={handleSubmit}>
             <div>
               <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
                 Username

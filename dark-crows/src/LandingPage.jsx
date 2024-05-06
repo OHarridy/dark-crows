@@ -5,24 +5,24 @@ import {Input} from "@nextui-org/react";
 import {EyeFilledIcon} from "./EyeFilledIcon";
 import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
 import { ToastContainer, toast } from 'react-toastify';
-import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
+import { CloudArrowUpIcon, LockClosedIcon, ServerIcon , WifiIcon, SignalIcon, GlobeAltIcon , BoltIcon } from '@heroicons/react/20/solid'
 
 const features = [
     {
       name: 'Seamless Communication.',
       description:
-        'ShareLelkheir utilizes the most modern networking technologies to ensure smooth, easy , and fast communication between Donors and Organizations.',
-      icon: CloudArrowUpIcon,
+        'ShareLelkheir utilizes the most modern networking technologies to ensure smooth, easy, and fast communication between Donors and Organizations.',
+      icon: SignalIcon,
     },
     {
       name: 'Speed.',
-      description: 'Through ShareLelkheir you can reach those in need in speeds never before thought possible.',
-      icon: LockClosedIcon,
+      description: 'Through ShareLelkheir you can reach those in need in speeds never before possible.',
+      icon: BoltIcon,
     },
     {
       name: 'Global Reach.',
       description: 'Using SharelelKheir you are able to reach a wide net of Donors/Reciepients, so whether you are a donor or an organization, Sharelelkheir is designed for you!',
-      icon: ServerIcon,
+      icon: GlobeAltIcon,
     },
   ]
 
@@ -34,29 +34,84 @@ const features = [
   
 const LandingPage = () => {
 
-    const [isVisible1, setVisible1] = useState(false);
-    const domRef1 = useRef();
-  
-    useEffect(() => {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => setVisible1(entry.isIntersecting));
-      });
-  
-      observer.observe(domRef1.current);
-      return () => observer.unobserve(domRef1.current);
-    }, []);
+const [isVisible1, setVisible1] = useState(false);
+const domRef1 = useRef();
 
-    const [isVisible2, setVisible2] = useState(false);
-    const domRef2 = useRef();
+useEffect(() => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!isVisible1) {
+        setVisible1(entry.isIntersecting);
+      }
+    });
+  });
+
+  observer.observe(domRef1.current);
+  return () => observer.unobserve(domRef1.current);
+}, [isVisible1]);
+
+const [isVisible2, setVisible2] = useState(false);
+const domRef2 = useRef();
+
+useEffect(() => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!isVisible2) {
+        setVisible2(entry.isIntersecting);
+      }
+    });
+  });
+
+  observer.observe(domRef2.current);
+  return () => observer.unobserve(domRef2.current);
+}, [isVisible2]);
+
+
+const [isVisible3, setVisible3] = useState(false);
+const domRef3 = useRef();
+
+useEffect(() => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!isVisible3) {
+        setVisible3(entry.isIntersecting);
+      }
+    });
+  });
+
+  observer.observe(domRef3.current);
+  return () => observer.unobserve(domRef3.current);
+}, [isVisible3]);
+
+
+const [isVisible4, setVisible4] = useState(false);
+const domRef4 = useRef();
+
+useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!isVisible4) {
+                setVisible4(entry.isIntersecting);
+            }
+        });
+    });
+
+    observer.observe(domRef4.current);
+    return () => observer.unobserve(domRef4.current);
+}, [isVisible4]);
+
+
+    // const [isVisible2, setVisible2] = useState(false);
+    // const domRef2 = useRef();
   
-    useEffect(() => {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => setVisible2(entry.isIntersecting));
-      });
+    // useEffect(() => {
+    //   const observer = new IntersectionObserver(entries => {
+    //     entries.forEach(entry => setVisible2(entry.isIntersecting));
+    //   });
   
-      observer.observe(domRef2.current);
-      return () => observer.unobserve(domRef2.current);
-    }, []);
+    //   observer.observe(domRef2.current);
+    //   return () => observer.unobserve(domRef2.current);
+    // }, []);
 
 
 
@@ -82,13 +137,13 @@ const LandingPage = () => {
               <h2 className="text-base font-semibold leading-7 text-green-500">Revolutionizing the donation process</h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Introducing "ShareLelKheir"</p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                A Worldwide Platform that connects Donors to People in Need from across the globe. With your help we can make a difference. "ShareLelKheir" Aims to Streamline the Donation process it, making it more efficient and responsive for both donors and recipients alike. 
+                An International Platform that connects Donors to People in Need from across the globe. With your help we can make a difference. "ShareLelKheir" Aims to Streamline the Donation process, making it more efficient and responsive for both donors and recipients alike. 
               </p>
               <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                 {features.map((feature) => (
                   <div key={feature.name} className="relative pl-9">
                     <dt className="inline font-semibold text-gray-900">
-                      <feature.icon className="absolute left-1 top-1 h-5 w-5 text-indigo-600" aria-hidden="true" />
+                      <feature.icon className="absolute left-1 top-1 h-5 w-5 text-green-500" aria-hidden="true" />
                       {feature.name}
                     </dt>{' '}
                     <dd className="inline">{feature.description}</dd>
@@ -99,9 +154,9 @@ const LandingPage = () => {
           </div>
 
            <img
-            src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
+            src="https://image.cnbcfm.com/api/v1/image/106806533-1607102792308-gettyimages-1283072124-20200930_fooddrive2_sdil0383.jpeg?v=1607102809&w=740&h=416&ffmt=webp&vtcrop=y"
             alt="Product screenshot"
-            className="w-[48rem] max-w-none rounded-xl shadow-xl mt-8 ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0 fade-in"
+            className="w-[48rem] max-w-none rounded-xl shadow-xl mt-20 ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0 fade-in"
             width={2432}
             height={1500}
           /> 
@@ -171,7 +226,7 @@ const LandingPage = () => {
     </div>
 
 
-    <div className="bg-white mt-20 fade-in">
+    <div className={`bg-white mt-28 ${isVisible3 ? 'fade-in' : ''}`} ref={domRef3}>
     <section className="relative isolate overflow-hidden bg-white px-6 lg:px-8">
       <div  />
       <div />
@@ -202,12 +257,12 @@ const LandingPage = () => {
     </section>
     </div>
     
-    <div className="mt-20 flex flex-col gap-2 mb-20">
+    <div className={`bg-white mt-20 flex flex-col gap-2 mb-50 ${isVisible4 ? 'fade-in' : ''}`} ref={domRef4}>
     <h2 className="order-first text-3xl font-bold tracking-tight text-green-500 sm:text-5xl text-center">
           Join us!
         </h2>
         <h2 className="text-center text-lg font-semibold leading-8 text-green-500">
-          Join us and the millions of others who have helped make a difference in the world!
+          Join us and the millions of other users who have helped make a difference in the world!
         </h2>
         <h2 className="text-center text-lg font-semibold leading-8 text-green-500">
         Whether youre a donor or an organization, ShareLelKheir is designed for you!
@@ -220,6 +275,10 @@ const LandingPage = () => {
         </div>
 
     </div>
+
+<br/>
+<br/>
+<br/>
 
 
 </div>
