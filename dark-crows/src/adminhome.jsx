@@ -4,7 +4,7 @@ import ThePole from "./Admin/adminNav";
 function AdminHome() {
   const {isOpen, onOpen, onOpenChange} = useDisclosure()
     return (
-      <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: 'center' }} className="flex flex-col h-screen w-screen">
         <ThePole/>
         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
           <Button

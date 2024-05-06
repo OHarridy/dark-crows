@@ -6,9 +6,12 @@ import {
     DropdownMenu,
     DropdownItem,
   } from "@nextui-org/react";
-  import { Button } from "@nextui-org/react"; // import useState function from react library
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
+// import useState function from react library
+import ThePole from "./Admin/adminNav"; 
 import './admincss.css';
 import './button.css';
+import { EyeFilledIcon } from "./EyeFilledIcon";
 const Regorg = () => {  
 const [blogs, setBlogs] = useState([
     {type:'Refugees & Improverished',number:'01017315557',title: 'Thawra street, 5th', body: 'lorem ipsum...', author: 'Masr El Kheir', id: 1, profilePic: 'https://www.globalgiving.org/pfil/organ/81861/orglogo.jpg', clicked: false},
@@ -21,12 +24,13 @@ const [blogs, setBlogs] = useState([
     {type:'Hospital',number:'01017315557',title: 'Anwar El-Sadat, Ismailia 2, Ismailia Governorate 8363541', body: 'lorem ipsum...', author: 'Sadik', id: 8, profilePic: 'https://play-lh.googleusercontent.com/Ne1Ywh282G_uQ6voKpOXanguGOTuJZ_Iw0E6ouc4f8AzhLGnSlEA9wTWNSFVED12wP9D', clicked: false}
 ]);
 
-    const [searchTerm, setSearchTerm] = useState(""); // state to store the search term
-    const [selectedBlog, setSelectedBlog] = useState(null);
-    const [selectedCategory, setSelectedCategory] = useState(null);
+  const [searchTerm, setSearchTerm] = useState(""); // state to store the search term
+  const [selectedBlog, setSelectedBlog] = useState(null);
+  const [tobedeletedBlog, settobedeletedBlog] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [showSubcategories, setShowSubcategories] = useState(false);
-
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
   const categories = {
     'Type': ['Hospital', 'Orphanage', 'Refugees & Improverished'  ],
     'Governorate': ['Ismailia Governorate', 'Cairo Governorate', 'Giza Governorate'],
@@ -38,16 +42,14 @@ const [blogs, setBlogs] = useState([
     setSelectedSubcategory(null);
     console.log(selectedCategory);
   };
-  const filterbegad = (() => {
-    if (selectedCategory === 'Governorate' && selectedSubcategory !== null ) {
-      return blogs.filter((blog) => blog.title.toLowerCase().includes(selectedSubcategory.toLowerCase()));
-    } else {
-      return blogs;
-    }
-  })();
+ 
     const deleteblogs = (id)=>{
         const newlist = blogs.filter(blog => blog.id !== id)
         setBlogs(newlist)
+    };
+    function filterbegad () {
+      deleteblogs(tobedeletedBlog.id);
+      onClose;
     };
     const filteredBlogs = blogs.filter((blog) =>{if (selectedCategory === 'Governorate' && selectedSubcategory !== null ) {
         console.log(selectedSubcategory);
@@ -63,9 +65,9 @@ const [blogs, setBlogs] = useState([
 
 
     return (
-        <div className="regorg flex flex-col  h-screen">
+        <div className="regorg flex flex-col  h-screen w-screen">
           <ThePole/>
-            <h2 className="font-bold text-4xl">All Registered Organizations</h2>
+            <h2 className="font-bold text-center text-4xl">Registered </h2>
             
            <div className="split-div flex ">
             <div className="left-div flex-2 mr-20 ">
@@ -95,7 +97,7 @@ const [blogs, setBlogs] = useState([
         <DropdownMenu 
           aria-label="Action event example" 
           onAction={(key) => handleCategoryClick(key)}
-        >
+        > 
         {Object.keys(categories).map((item) => (
             <DropdownItem key={item}>{item}</DropdownItem>
           ))}
@@ -123,11 +125,11 @@ const [blogs, setBlogs] = useState([
 
             <div
                 className="blogs "
-                style={{ overflowY: "scroll", maxHeight: "500px", maxWidth:"300px", display: "flex", flexDirection: "column" }}
+                style={{ overflowY: "scroll", maxHeight: "300px", maxWidth:"300px", display: "grid", gridColumn:"4" }}
             >
                 {filteredBlogs.map((blog) => (
                     <div
-                        className="blog-preview bg-green-500 hover:bg-green-700"
+                        className="blog-preview justify-between border-2 border-green-500 text-black hover:shadow-lg hover:shadow-green-900 transition duration-200 ease-in-out py-2 px-4 rounded"
                         style={{
                             display: "flex",
                             alignItems: "center",
@@ -138,20 +140,21 @@ const [blogs, setBlogs] = useState([
                
                             <img className="blog-image rounded-full" style={{width:"18%", maxWidth:"100px"}} src={blog.profilePic} />
                         
-                        <div style={{  }}>
-                            <h2>{blog.author}</h2>
+                        <div style={{columnSpan:"2"  }}>
+                            <h2 className="text-xl">{blog.author}</h2>
                         </div>
                       
                         <button
                             id={blog.id}
-                            class="ml-auto info-button "
+                            class="ml-auto info-button min-w-10 "
                             onClick={() => setSelectedBlog(blog)}
                         >
-                         𝓲
+                          <EyeFilledIcon className="text-2xl mx-auto text-white" />
                         </button>
                         <button
-                            class="bin-button "
-                            onClick={() => deleteblogs(blog.id)}
+                            class="bin-button min-w-10"
+                            onClick={()=>{onOpen(); settobedeletedBlog(blog)}}
+                                                     
                         >
                             <svg
                                 class="bin-top"
@@ -215,8 +218,8 @@ const [blogs, setBlogs] = useState([
             {selectedBlog && (
                     <div>
                         <div className="split-div " style={{backgroundColor:"#5d62f5"}}>
-                        <div className="left-div mr-0" >
-                        <img className="blog-image w-24 h-24 "style={{borderRadius:"50%"}}  src={selectedBlog.profilePic} />          
+                        <div className="left-div border-1 border-black mr-0" >
+                        <img className="blog-image w-24 h-24  "  src={selectedBlog.profilePic} />          
                          </div>
                          <div id="hamada"className="right-div flex flex-center w-full ">
                         <h2 className="font-bold text-2xl  mx-auto my-auto">{selectedBlog.author}</h2>
@@ -224,7 +227,7 @@ const [blogs, setBlogs] = useState([
                         </div>
                         </div>
                         <div className="split-div ">
-                        <div className="left-div text-left flex flex-col"style={{backgroundColor:"#D5D8E1"}} >
+                        <div className="left-div text-left flex flex-col max-w-60"style={{backgroundColor:"#D5D8E1"}} >
                             <p className="font-bold text-lg ">Type:</p>
                             <p>{selectedBlog.type}</p>
                             <br/>
@@ -257,7 +260,7 @@ const [blogs, setBlogs] = useState([
                          </div>
                          <div className="right-div ">
                          <iframe className="mr-0 h-full"src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d431.855933447735!2d31.321447549598684!3d30.012535899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583f7e406772f5%3A0x4bfd4ca20c13262a!2sYour%20clinic!5e0!3m2!1sen!2seg!4v1714583676383!5m2!1sen!2seg" 
-                            width="500" ></iframe>
+                            width="700" ></iframe>
                           </div>  
                          </div> 
                            
@@ -265,6 +268,42 @@ const [blogs, setBlogs] = useState([
                     </div>
                 )}
             </div>
+            <Modal    backdrop="blur" 
+        isOpen={isOpen} 
+        onOpenChange={onOpenChange}
+        radius="lg"
+        classNames={{
+          body: "py-6",
+          backdrop: "bg-[#292f46]/50 backdrop-opacity-40",
+          base: "border-[#292f46] bg-[#19172c] dark:bg-[#19172c] text-[#a8b0d3]",
+          header: "border-b-[1px] border-[#292f46]",
+          footer: "border-t-[1px] border-[#292f46]",
+          closeButton: "hover:bg-white/5 active:bg-white/10",
+        }}>
+            <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1 text-danger">ALert</ModalHeader>
+              <ModalBody>
+                <p> 
+                  Are you sure you want to delete this ?
+                </p>
+            
+              </ModalBody>
+              <ModalFooter>
+                
+                <Button  color="foreground" variant="light" onPress={onClose}>
+                  No
+                </Button>
+              
+                <Button className="bg-[#6f4ef2] shadow-lg shadow-indigo-500/20" onPress={()=>{onClose();filterbegad();}}>
+                  Yes
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
             </div>
             </div>
       

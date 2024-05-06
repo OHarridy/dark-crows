@@ -4,7 +4,7 @@ import Donor from './donorAccount.jsx';
 import Home from './mainPage.jsx';
 import DonationPage from './DonationPage.jsx';
 import './index.css';
-import {NextUIProvider} from "@nextui-org/react";
+import {Dropdown, NextUIProvider} from "@nextui-org/react";
 import RegisterPage from './RegisterPage';
 import ResetPwPage from './ResetPwPage.jsx';
 import LandingPage from './LandingPage.jsx';
@@ -13,6 +13,7 @@ import TheMAP from '../TheMAP.jsx';
 import DropDown from './DropDownskillissue.jsx';
 import AdminHome from './adminhome.jsx';
 import Regorg from './regorg.jsx';
+import DropDownniiga from './DropDownskillissue.jsx';
 function App() {
   return (
     <NextUIProvider>
@@ -30,9 +31,9 @@ function App() {
             <Route path='/ResetPassword' element={<ResetPwPage />} /> 
             <Route path='/DonorMainPage' element={<Home />} /> 
             <Route path='/DropDown' element={<DropDown/>}/>
-            <Route path='/AdminHome' element={<AdminHome/>}/>
+            
             <Route path='/Regorg' element={<Regorg/>}/>
-          
+            <Route path='/Helpme' element={<DropDownniiga/>}/>
           </Routes>
       </Router>
     </div>

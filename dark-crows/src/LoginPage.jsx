@@ -59,7 +59,7 @@ function LoginPage(){
     function handleSubmit(e){
       e.preventDefault();
     if(username === "admin" && password === "admin"){
-        navigate('/AdminMainpage');
+        navigate('/Regorg');
       }
      else if(login(username,password) && org_name===''){
       navigate('/DonorMainpage');
@@ -111,8 +111,8 @@ function LoginPage(){
         </div>
 
         </div>
-<div className="login-form-container">
-<div className="flex  flex-1 flex-col justify-center px-2 py-12 lg:px-8">
+<div className="login-form-container ">
+<div className=" flex  flex-1 flex-col justify-center px-2 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
          
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
