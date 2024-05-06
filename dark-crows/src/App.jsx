@@ -10,6 +10,7 @@ import OrgDonationPost1 from './OrgDonationPost1'
 import OrgDonationPost2 from './OrgDonationPost2'
 import ViewPost from './viewPost'
 import Home from './mainPage';
+import OrgDonationPost3 from './OrgDonationPost3';
 
 
 // import MainPage from 'src/App.jsx'; // Import the component you want to navigate to
@@ -28,6 +29,7 @@ function App() {
       <Route path='/OrgDonationPost' element={<OrgDonationPost/>}/>
       <Route path='/OrgDonationPost1' element={<OrgDonationPost1/>}/>
       <Route path='/OrgDonationPost2' element={<OrgDonationPost2/>}/>
+      <Route path='/OrgDonationPost3' element={<OrgDonationPost3 />}/>
       <Route path='/RegisterPage' element={<RegisterPage/>} /> 
       <Route path='/Home' element={<Home/>} /> 
         <Route path='/' element={<App2/>} />

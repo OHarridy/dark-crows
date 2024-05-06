@@ -1,7 +1,7 @@
 
 // import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Button from "./generalButton";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, redirect, useNavigate } from 'react-router-dom';
 import {Select, SelectItem, Avatar} from "@nextui-org/react";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, RadioGroup, Radio} from "@nextui-org/react";
 import { useState } from 'react';
@@ -13,15 +13,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-const RegistrationForm = () => {
+const OrgDonationPost3 = () => {
 
   const [isVisible, setIsVisible] =useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   const [formData, setFormData] = useState({
    
-    title: 'The Key to Life!',
-    description:'Kids in Africa are dying of thirst, help us provide clean water for them!',
+    title: 'Feeders',
+    description:'African kids starve to death!! be the one that helps us provide better nutrition for them.',
     category: 'Food',
     docs:'',
     maxDonateAmount:10000,
@@ -67,8 +67,6 @@ console.log("ALL REGISTERED USERS", localStorage.getItem("posts"));
 
 
 
-
-
 function handleFileChange(event) {
   const file = event.target.files[0];
   const reader = new FileReader();
@@ -90,16 +88,20 @@ const [uploadText, setUploadtext] = useState('');
 
 const navigate= useNavigate();
 
-function redirectToEdit(){
-  navigate("/OrgDonationPost2");
+function redirectBack(){
+  navigate("/");
 }
 
   return ( 
     <div className="flex flex-col">
-      <div className="h-[700px]"></div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+      <div className="h-[800px]"></div>
       
 
-    <div className="reg-parent ">
+    <div className="reg-parent">
 
 
 <div className="reg-form-container shadow-lg  ">
@@ -117,7 +119,7 @@ function redirectToEdit(){
                Title
               </label>
               <div className="mt-2">
-              <p className="mt-1 text-md leading-6 text-gray-600">Medical Assistance</p>
+              <p className="mt-1 text-md leading-6 text-gray-600">The Key to Life!</p>
                 {/* <input
                   id="title"
                   name="title"
@@ -136,7 +138,7 @@ function redirectToEdit(){
                Category
               </label>
               <div className="mt-2">
-              <p className="mt-1 text-md leading-6 text-gray-600">Medical</p>
+              <p className="mt-1 text-md leading-6 text-gray-600">Food</p>
            
               </div>
             </div>
@@ -148,7 +150,7 @@ function redirectToEdit(){
               Description
               </label>
               <div className="mt-2">
-              <p className="mt-1 text-md leading-6 text-gray-600">Any Pro-bono Doctor that can help maya, a 6 year old who has very a severe cold and has been sick for weeks! Please help!</p>
+              <p className="mt-1 text-md leading-6 text-gray-600">Kids in Africa are dying of thirst, help us provide clean water for them!</p>
               </div>
             </div>
             <div className="col-span-full">
@@ -160,7 +162,7 @@ function redirectToEdit(){
             
               <div className="mt-2 flex items-center gap-x-3">
            
-              <img src="https://assets.clevelandclinic.org/transform/df266997-a5d9-44e0-90f9-63100ef2b798/childSick-1445845423-770x533-1_jpg" width={"400px"}/>
+              <img src="https://t4.ftcdn.net/jpg/01/62/37/69/360_F_162376940_TvJVgP7PPQFOtpTRLmLKkpCg3RjaQIyj.jpg" width={"700px"}/>
 
                <div className="uploaded-text">
                 <p className="mt-1 text-sm leading-6 ">{uploadText}</p>
@@ -176,7 +178,17 @@ function redirectToEdit(){
               </div>
             </div>
 
-            <div className="col-span-6">
+            <div className="col-span-full">
+              <label htmlFor="maxDonateAmount" className="block text-sm font-medium leading-6 text-gray-900">
+               Donation Goal
+              </label>
+              <div className="mt-2">
+              <p className="mt-1 text-md leading-6 text-gray-600">0/1 Pro-bono Doctor</p>
+              </div>
+            </div>
+
+
+             <div className="col-span-6">
               <label htmlFor="maxDonateAmount" className="block text-sm font-medium leading-6 text-gray-900">
                Donors
               </label>
@@ -217,6 +229,9 @@ function redirectToEdit(){
               </div>
             </div>
 
+
+            
+
             
 
             
@@ -230,16 +245,13 @@ function redirectToEdit(){
       </div>
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
-        <Link to="/" className="text-sm font-semibold leading-6 text-gray-900"> 
-        <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
-          Back
-        </button>
-        </Link>
         <Button
-        onClick={redirectToEdit}
-          text="Edit"
+        onClick={redirectBack}
+          text="Back"
           className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         />
+
+       
        
       </div>
     </form>
@@ -288,4 +300,4 @@ TODO: Adjust styling of table + alignment of text in table */}
   );
 }
  
-export default RegistrationForm;
+export default OrgDonationPost3;

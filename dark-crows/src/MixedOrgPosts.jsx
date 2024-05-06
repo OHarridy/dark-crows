@@ -14,16 +14,16 @@ const MixedOrgPosts = () => {
 
     function redirect(){
         console.log("PRESSEDDDDD");
-        Navigate("/OrgDonationPost2");
+        Navigate("/OrgDonationPost1");
     }
     
     function redirect2(){
         console.log("PRESSEDDDDD");
-        Navigate("/OrgDonationPost1");
+        Navigate("/OrgDonationPost3");
     }
     var [blogs, setBlogs] = useState(
         [
-            {link: '/OrgDonationPost1',body: 'African kids starve to death!! be the one that helps us provide better nutrition for them.',                                             author: 'Feeders',   id: 100, donatedAmount: 1000 ,maximumAmount: 1000 , get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 1, source: 'https://t4.ftcdn.net/jpg/01/62/37/69/360_F_162376940_TvJVgP7PPQFOtpTRLmLKkpCg3RjaQIyj.jpg'                                                                                     ,source2:"https://identity-mag.com/wp-content/uploads/2015/01/269c791.jpg"},
+            {link: '/OrgDonationPost1',body: 'Kids in Africa are dying of thirst, help us provide clean water for them!',                                             author: 'The Key of Life!',   id: 100, donatedAmount: 1000 ,maximumAmount: 1000 , get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 1, source: 'https://t4.ftcdn.net/jpg/01/62/37/69/360_F_162376940_TvJVgP7PPQFOtpTRLmLKkpCg3RjaQIyj.jpg'                                                                                     ,source2:"https://identity-mag.com/wp-content/uploads/2015/01/269c791.jpg"},
             {link: '/OrgDonationPost2',body: "Toys stimulate a child's cognitive abilities, fostering problem-solving, critical thinking, and creativity.",  author: 'Smile Getters', id: 2, donatedAmount: 5000 ,   maximumAmount: 5000 ,   get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 2, source: 'https://i0.wp.com/epthinktank.eu/wp-content/uploads/2023/04/EPRS-Briefing-747093-Russia-war-Ukraine-forcibly-displaced-childrent-FINAL.png?fit=1000%2C581&ssl=1&w=640'                                                    ,source2:"https://identity-mag.com/wp-content/uploads/2015/01/269c791.jpg"},
         {link: '/OrgDonationPost3',body: 'Some people can not live without an oven others dont know what an oven is.help us provide the standard appliances for them', author: 'House helpers',    id: 3, donatedAmount: 70000 ,   maximumAmount: 70000 ,  get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 2, source: 'https://i.pinimg.com/736x/8b/c2/08/8bc208048e0a4d54cf0d255aedb9da0c.jpg',source2:"https://identity-mag.com/wp-content/uploads/2015/01/269c791.jpg"},
             
@@ -34,7 +34,7 @@ const MixedOrgPosts = () => {
         [
             {link: '/OrgDonationPost4',body: 'Despite all the technological advancements still in some parts the education is so poor help us make kids have better education', author: 'Knowledge providers',  id: 4, donatedAmount: 10 ,  maximumAmount: 100 ,   get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 2, source: 'https://genevaglobal.com/wp-content/uploads/2023/10/Unidentified-children-study-at-Pan-Paung-Village-school_Shutterstock.png'                                                         ,source2:"https://identity-mag.com/wp-content/uploads/2015/01/269c791.jpg"},
             
-            {link: '/OrgDonationPost5',body: 'Any Pro-bono Doctor that can help my 6 year old, she has a very rough cold and has been sick for weeks! Please help!', author: 'Medical Assistance',  id: 4, donatedAmount: 10 ,  maximumAmount: 100 ,   get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 2, source: 'https://assets.clevelandclinic.org/transform/df266997-a5d9-44e0-90f9-63100ef2b798/childSick-1445845423-770x533-1_jpg'                                                         ,source2:"https://identity-mag.com/wp-content/uploads/2015/01/269c791.jpg"},
+            {link: '/OrgDonationPost5',body: 'Any Pro-bono Doctor that can help maya, a 6 year old who has very a severe cold and has been sick for weeks! Please help!', author: 'Medical Assistance',  id: 4, donatedAmount: 0 ,  maximumAmount: 1 ,   get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 0, source: 'https://assets.clevelandclinic.org/transform/df266997-a5d9-44e0-90f9-63100ef2b798/childSick-1445845423-770x533-1_jpg'                                                         ,source2:"https://identity-mag.com/wp-content/uploads/2015/01/269c791.jpg"},
            ]);
 
  
@@ -174,7 +174,7 @@ function handleTabChange() {
                                 className=""
                                 onClick={donorNotif}>
                                 </View> 
-                <Card onPress={redirect2}
+                <Card onPress={redirect}
                 isPressable
                             className="w-[300px] h-[500px] hover:shadow-lg
                              transform transition-all duration-200 ease-in-out"
@@ -226,6 +226,7 @@ function handleTabChange() {
                     {/* </Link> */}
             </div>
         ))}
+
     </ul>
 
     );

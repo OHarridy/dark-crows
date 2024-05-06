@@ -25,11 +25,10 @@ function handleTabChange() {
     return (  
     <div className="register-page-container">
         <div>
-            <CardProfile/>
-            
+            <CardProfile/> 
         </div>
 
-        <div className="register-page-slider-container">
+        <div className="register-page-slider-container mt-10">
   <div className="flex flex-wrap gap-4">
         <Tabs key="success" color="success" aria-label="Tabs colors" radius="full" selectedKey={selectedTab}  onSelectionChange={setSelectedTab} onClick={handleTabChange}>
           <Tab key="All" title="All" id= "All" value="All"/>
@@ -40,7 +39,7 @@ function handleTabChange() {
         </div>
         </div>
 
-        <div className="pt-10">
+         <div className="mb-[200px]">
 
             <h1>{selectedTab}</h1>
             <div className="pb-10 ">
@@ -52,11 +51,13 @@ function handleTabChange() {
             <FulfilledOrgPosts/>
             ) : <CardOrgIbra/>}
 
-
-
-
             
+<br/>
+<br/>
+<br/>
             </div>
+
+
 
         </div>
     );

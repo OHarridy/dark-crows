@@ -19,11 +19,10 @@ const FulfilledOrgPosts = () => {
     
     function redirect2(){
         console.log("PRESSEDDDDD");
-        Navigate("/OrgDonationPost1");
+        Navigate("/OrgDonationPost3");
     }
     var [blogs, setBlogs] = useState(
-        [
-            {link: '/OrgDonationPost1',body: 'African kids starve to death!! be the one that helps us provide better nutrition for them.',                                             author: 'Feeders',   id: 100, donatedAmount: 1000 ,maximumAmount: 1000 , get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 1, source: 'https://t4.ftcdn.net/jpg/01/62/37/69/360_F_162376940_TvJVgP7PPQFOtpTRLmLKkpCg3RjaQIyj.jpg'                                                                                     ,source2:"https://identity-mag.com/wp-content/uploads/2015/01/269c791.jpg"},
+        [ {link: '/OrgDonationPost1',body: 'Kids in Africa are dying of thirst, help us provide clean water for them!',                                             author: 'The Key of Life!',   id: 100, donatedAmount: 1000 ,maximumAmount: 1000 , get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 1, source: 'https://t4.ftcdn.net/jpg/01/62/37/69/360_F_162376940_TvJVgP7PPQFOtpTRLmLKkpCg3RjaQIyj.jpg'                                                                                     ,source2:"https://identity-mag.com/wp-content/uploads/2015/01/269c791.jpg"},
             {link: '/OrgDonationPost2',body: "Toys stimulate a child's cognitive abilities, fostering problem-solving, critical thinking, and creativity.",  author: 'Smile Getters', id: 2, donatedAmount: 5000 ,   maximumAmount: 5000 ,   get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 2, source: 'https://i0.wp.com/epthinktank.eu/wp-content/uploads/2023/04/EPRS-Briefing-747093-Russia-war-Ukraine-forcibly-displaced-childrent-FINAL.png?fit=1000%2C581&ssl=1&w=640'                                                    ,source2:"https://identity-mag.com/wp-content/uploads/2015/01/269c791.jpg"},
         {link: '/OrgDonationPost3',body: 'Some people can not live without an oven others dont know what an oven is.help us provide the standard appliances for them', author: 'House helpers',    id: 3, donatedAmount: 70000 ,   maximumAmount: 70000 ,  get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 2, source: 'https://i.pinimg.com/736x/8b/c2/08/8bc208048e0a4d54cf0d255aedb9da0c.jpg',source2:"https://identity-mag.com/wp-content/uploads/2015/01/269c791.jpg"},
             
