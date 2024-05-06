@@ -641,7 +641,7 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
       label="Select country"
     value={formData.country}
        onChange={handleInputChange}
-       defaultValue=""
+       defaultValue="Egypt"
     >
       <SelectItem
         key="argentina"
@@ -721,6 +721,7 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   placeholder="Enter your Contact Number"
                   value={formData.contact_number}
                   onChange={handleInputChange}
+                  required
                   autoComplete="street-address"
                   className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />

@@ -14,7 +14,7 @@ function showAllData(){
   console.log( "LOGGED IN USERNAME" , loggedInUser.username);
   console.log( "LOGGED IN USER DATA" , loggedInUser);
   console.log("ALL USERS:" ,allusers);
-}
+}console.log("ALL USERS:" ,allusers);
 function LoginPage(){
 
     const [username, setUsername] = useState('');

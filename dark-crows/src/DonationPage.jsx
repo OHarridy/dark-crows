@@ -8,10 +8,8 @@ const DonationPage = () => {
 
     return (
         <div className="min-h-screen w-screen">
-            
             <TheBAR/>
-
-                
+            
         </div>
     );
 }

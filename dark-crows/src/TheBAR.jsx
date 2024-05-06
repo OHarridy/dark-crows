@@ -10,7 +10,7 @@ const TheBAR = () => {
           <NavbarBrand className="mr-4">
           <Image src="https://i.ibb.co/5x4KDm7/better.png" alt="sharelelkheir" radius="full" width="62" />
           </NavbarBrand>
-          <NavbarContent className="hidden sm:flex gap-3">
+          <NavbarContent className="gap-12">
             <NavbarItem isActive={currentUrl.includes("/Organization") ? "false" : ""}>
             <Link href="/Home" aria-current="page" >
                 <p style={{color: currentUrl.includes("/Organization") ? "#28c95a" : "#000000"}}>Organizations</p>
@@ -52,7 +52,7 @@ const TheBAR = () => {
                 <p className="font-semibold w-full" style={{color:"#28c95a"}}>My Account</p>
               </DropdownItem>
               <DropdownItem key="settings">My Settings</DropdownItem>
-              <DropdownItem key="logout" color="danger">Log Out</DropdownItem>
+              <DropdownItem href="/Login" key="logout" color="danger">Log Out</DropdownItem>
             </DropdownMenu>
           </Dropdown>
         </NavbarContent>
