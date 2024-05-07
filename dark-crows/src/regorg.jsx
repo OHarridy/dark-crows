@@ -29,8 +29,8 @@ const [blogs, setBlogs] = useState([
   const [tobedeletedBlog, settobedeletedBlog] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
-  const [showSubcategories, setShowSubcategories] = useState(false);
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
+  const [isVisible, setIsVisible] = useState(true);
   const categories = {
     'Type': ['Hospital', 'Orphanage', 'Refugees & Improverished'  ],
     'Governorate': ['Ismailia Governorate', 'Cairo Governorate', 'Giza Governorate'],
@@ -71,14 +71,14 @@ const [blogs, setBlogs] = useState([
             
            <div className="split-div flex ">
             <div className="left-div flex-2 mr-20 ">
-            <div class="group">
-                <svg viewBox="0 0 24 24" aria-hidden="true" class="icon">
+            <div className="search-bar">
+                <svg viewBox="0 0 24 24" aria-hidden="true" className="icon">
                     <g>
                         <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
                     </g>
                 </svg>
                 <input
-                    class="input"
+                    className="input"
                     type="search"
                     placeholder="Search"
                     value={searchTerm}
@@ -146,18 +146,18 @@ const [blogs, setBlogs] = useState([
                       
                         <button
                             id={blog.id}
-                            class="ml-auto info-button min-w-10 "
+                            className="ml-auto info-button min-w-10 "
                             onClick={() => setSelectedBlog(blog)}
                         >
                           <EyeFilledIcon className="text-2xl mx-auto text-white" />
                         </button>
                         <button
-                            class="bin-button min-w-10"
+                            className="bin-button min-w-10"
                             onClick={()=>{onOpen(); settobedeletedBlog(blog)}}
                                                      
                         >
                             <svg
-                                class="bin-top"
+                                className="bin-top"
                                 viewBox="0 0 39 7"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -167,7 +167,7 @@ const [blogs, setBlogs] = useState([
                                     x2="39"
                                     y2="5"
                                     stroke="white"
-                                    stroke-width="4"
+                                    strokeWidth="4"
                                 ></line>
                                 <line
                                     x1="12"
@@ -175,11 +175,11 @@ const [blogs, setBlogs] = useState([
                                     x2="26.0357"
                                     y2="1.5"
                                     stroke="white"
-                                    stroke-width="3"
+                                    strokeWidth="3"
                                 ></line>
                             </svg>
                             <svg
-                                class="bin-bottom"
+                                className="bin-bottom"
                                 viewBox="0 0 33 39"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -200,12 +200,12 @@ const [blogs, setBlogs] = useState([
                                 <path
                                     d="M12 6L12 29"
                                     stroke="white"
-                                    stroke-width="4"
+                                    strokeWidth="4"
                                 ></path>
                                 <path
                                     d="M21 6V29"
                                     stroke="white"
-                                    stroke-width="4"
+                                    strokeWidth="4"
                                 ></path>
                             </svg>
                         </button>
@@ -215,7 +215,7 @@ const [blogs, setBlogs] = useState([
             </div>
             
             <div className="right-div shadow-2xl flex-1  mr-20" >
-            {selectedBlog && (
+            {(selectedBlog && isVisible) ? (
                     <div>
                         <div className="split-div " style={{backgroundColor:"#5d62f5"}}>
                         <div className="left-div border-1 border-black mr-0" >
@@ -266,7 +266,10 @@ const [blogs, setBlogs] = useState([
                            
                         {/* Display other info from selectedBlog */}
                     </div>
-                )}
+                ):null}
+
+
+
             </div>
             <Modal    backdrop="blur" 
         isOpen={isOpen} 
@@ -283,7 +286,7 @@ const [blogs, setBlogs] = useState([
             <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1 text-danger">ALert</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1 text-danger">Alert</ModalHeader>
               <ModalBody>
                 <p> 
                   Are you sure you want to delete this ?
@@ -296,7 +299,7 @@ const [blogs, setBlogs] = useState([
                   No
                 </Button>
               
-                <Button className="bg-[#6f4ef2] shadow-lg shadow-indigo-500/20" onPress={()=>{onClose();filterbegad();}}>
+                <Button className="bg-[#6f4ef2] shadow-lg shadow-indigo-500/20" onPress={()=>{onClose();filterbegad();setSelectedBlog(null);setIsVisible(false);console.log("ISVISBILITY", isVisible);}}>
                   Yes
                 </Button>
               </ModalFooter>
