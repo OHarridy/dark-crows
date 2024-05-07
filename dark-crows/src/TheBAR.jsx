@@ -11,9 +11,9 @@ const TheBAR = () => {
           <Image src="https://i.ibb.co/5x4KDm7/better.png" alt="sharelelkheir" radius="full" width="62" />
           </NavbarBrand>
           <NavbarContent className="gap-12">
-            <NavbarItem isActive={currentUrl.includes("/Organization") ? "false" : ""}>
-            <Link href="/Home" aria-current="page" >
-                <p style={{color: currentUrl.includes("/Organization") ? "#28c95a" : "#000000"}}>Organizations</p>
+            <NavbarItem isActive={currentUrl.includes("/DonorOrganization") ? "false" : ""}>
+            <Link href="/DonorOrganization" aria-current="page" >
+                <p style={{color: currentUrl.includes("/DonorOrganization") ? "#28c95a" : "#000000"}}>Organizations</p>
               </Link>
             </NavbarItem>
             <NavbarItem isActive={currentUrl.includes("/Home") ? "false" : ""}>

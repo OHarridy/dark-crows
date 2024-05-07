@@ -5,6 +5,7 @@ import {DateInput} from "@nextui-org/react";
 import {parseAbsoluteToLocal} from "@internationalized/date";
 import {EyeFilledIcon} from "./EyeFilledIcon";
 import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
+import { ToastContainer, toast } from "react-toastify";
 var thisp = "text-3xl w-[290px]";
 const Donor = () => {
     let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")); 
@@ -40,7 +41,8 @@ function downloadFile() {
     setTimeout(() => document.body.removeChild(link), 0);
   
   }
-  
+  let currentTime = new Date();
+  console.log(currentTime);
 const [interim, setInterim] = useState({
     username: loggedInUser.username,
     first_name: loggedInUser.first_name,
@@ -86,22 +88,12 @@ const [interim, setInterim] = useState({
     setNigga(loggedInUser);
       console.log("ay7agacapitalneshofhaaaahhhh",JSON.parse(localStorage.getItem('loggedInUser')));
 
-    //   const username = nigga.username;
-    //   const users = JSON.parse(localStorage.getItem('users')) || [];
-      
-    //   var userIndex = users.findIndex(user => user.username === username);
-      
-    //   if (userIndex !== -1) {
-    //     users[userIndex] = nigga;
-    //     localStorage.setItem('users', JSON.stringify(users));
-    //     console.log(JSON.parse(localStorage.getItem('users')));
-    //     console.log(users[userIndex]);
-    //   }
-
   }
   const fileDataUrl = localStorage.getItem('file');
   const [isVisible, setIsVisible] =useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
+  function notify(){
+    toast.info("Driver has Arrived");}
     return (
         
         <div className="min-h-screen w-screen">
@@ -114,7 +106,7 @@ const [interim, setInterim] = useState({
                     {drivernigga.map(drivernigga => (
                     <div key={drivernigga.ETA}> 
                     <div className="text-2xl w-52 mx-auto">{drivernigga.driverName}</div>
-                        <DateInput startContent="⠀⠀⠀⠀" endContent="⠀⠀⠀⠀" defaultValue={parseAbsoluteToLocal(drivernigga.ETA)}/>
+                        <DateInput startContent="⠀⠀⠀⠀" endContent="⠀⠀⠀⠀" defaultValue={parseAbsoluteToLocal(drivernigga.ETA)} isReadOnly/>
                     </div>
                     ))}
                     </div>
@@ -126,11 +118,11 @@ const [interim, setInterim] = useState({
                     <div className="grid grid-cols-3 gap-4 items-center">   
                         <Avatar className="row-span-5 w-[300px] h-[300px] mx-auto" 
                         src={fileDataUrl}/>
-                    {changeMode?<Input id="first_name" name="first_name" onChange={handleInputChange} isRequired size="lg" type="text" variant={"flat"} placeholder="Name" defaultValue={nigga.first_name} />:<p className={thisp}>{nigga.first_name}</p>}
-                    {changeMode?<Input id="last_name" name="last_name" onChange={handleInputChange} isRequired size="lg" type="text" variant={"flat"} placeholder="Name" defaultValue={nigga.last_name} />:<p className={thisp}>{nigga.last_name}</p>}
+                    {changeMode?<Input id="first_name" name="first_name" onChange={handleInputChange} size="lg" type="text" variant={"flat"} placeholder="Name" defaultValue={nigga.first_name} />:<p className={thisp}>{nigga.first_name}</p>}
+                    {changeMode?<Input id="last_name" name="last_name" onChange={handleInputChange} size="lg" type="text" variant={"flat"} placeholder="Name" defaultValue={nigga.last_name} />:<p className={thisp}>{nigga.last_name}</p>}
                     {changeMode?<Input id="email" name="email" onChange={handleInputChange} isRequired size="lg" type="email" variant={"flat"} placeholder="Email" defaultValue={nigga.email} />:<p className={thisp}>{nigga.email}</p>}
-                    {changeMode?<Input id="gender" name="gender" onChange={handleInputChange} isRequired size="lg" type="text" variant={"flat"} placeholder="Gender" defaultValue={nigga.gender} />:<p className={thisp}>{nigga.gender}</p>}
-                    {changeMode?<Input id="contact_number" name="contact_number" onChange={handleInputChange} isRequired size="lg" type="tel" variant={"flat"} placeholder="Phone" defaultValue={nigga.contact_number} />:<p className={thisp}>{nigga.contact_number}</p>}
+                    {changeMode?<Input id="gender" name="gender" onChange={handleInputChange} size="lg" type="text" variant={"flat"} placeholder="Gender" defaultValue={nigga.gender} />:<p className={thisp}>{nigga.gender}</p>}
+                    {changeMode?<Input id="contact_number" name="contact_number" onChange={handleInputChange} size="lg" type="tel" variant={"flat"} placeholder="Phone" defaultValue={nigga.contact_number} />:<p className={thisp}>{nigga.contact_number}</p>}
                     {changeMode?<Input id="role" name="role" onChange={handleInputChange} isRequired size="lg" type="text" variant={"flat"} placeholder="Type" defaultValue={nigga.role} />:<p className={thisp}>{nigga.role}</p>}
                     {changeMode?<Input id="address" name="address" onChange={handleInputChange} isRequired size="lg" type="text" variant={"flat"} placeholder="Address" defaultValue={nigga.address} />:<p className={thisp}>{nigga.address}</p>}
                     {changeMode?<Input id="country" name="country" 
@@ -192,8 +184,8 @@ const [interim, setInterim] = useState({
                 <div className="w-full h-12 pl-[1100px]">
                 <button className="w-[90px] h-[45px] bg-green-500 rounded-lg" 
                 onClick={() => (
-                    changethis()
-                    
+                    changethis(),
+                    notify()
                 )}
                 >
                 Edit
@@ -202,7 +194,7 @@ const [interim, setInterim] = useState({
                 </div>
                   
             </div>
-            
+            <ToastContainer/>
         </div>
     );
 }
