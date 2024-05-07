@@ -1,6 +1,6 @@
 
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input} from "@nextui-org/react"
-import ThePole from "./Admin/adminNav";
+import ThePole from "./Admin/AdminNavbar";
 function AdminHome() {
   const {isOpen, onOpen, onOpenChange} = useDisclosure()
     return (

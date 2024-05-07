@@ -8,7 +8,7 @@ import {
   } from "@nextui-org/react";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
 // import useState function from react library
-import ThePole from "./Admin/adminNav"; 
+import ThePole from "./Admin/AdminNavbar"; 
 import './admincss.css';
 import './button.css';
 import { EyeFilledIcon } from "./EyeFilledIcon";
