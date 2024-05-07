@@ -1,0 +1,118 @@
+
+
+  
+  .search-bar {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 190px;
+  }
+  
+  .input {
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    width: 100%;
+    padding-left: 2.5rem;
+    outline: none;
+    background: linear-gradient(180deg,     rgb(56, 56, 56) 0%, rgb(36, 36, 36)   66%, rgb(41, 41, 41) 100%);
+    color: #fff;
+    transition: .3s ease;
+    border: 2px solid;
+    border-image: conic-gradient( #00F260, #0575E6,#64f38c) 1;
+  }
+  
+  .input::placeholder {
+    color: #fff;
+  }
+  
+  .input:focus::placeholder {
+    color: #999;
+  }
+  
+  .icon {
+    position: absolute;
+    left: 1rem;
+    fill: #fff;
+    width: 1rem;
+    height: 1rem;
+  }
+  .info-button {
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: rgb(0, 153, 235);
+    cursor: pointer;
+    border: 3px solid rgb(201, 255, 201);
+    transition-duration: 0.3s;
+    
+  }
+  
+  .bin-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: rgb(255, 95, 95);
+    cursor: pointer;
+    border: 3px solid rgb(255, 201, 201);
+    transition-duration: 0.3s;
+  }
+  .bin-bottom {
+    width: 15px;
+  }
+  .bin-top {
+    width: 17px;
+    transform-origin: right;
+    transition-duration: 0.3s;
+  }
+  .bin-button:hover .bin-top {
+    transform: rotate(45deg);
+  }
+  .bin-button:hover {
+    background-color: rgb(255, 0, 0);
+  }
+  .info-button:hover{
+    background-color: rgb(0, 183, 255);
+  } 
+  
+  .bin-button:active {
+    transform: scale(0.9);
+  }
+  .split-div {
+    display: flex;
+}
+
+.filter {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.192);
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.021);
+  transition: all 0.3s;
+}
+
+.filter svg {
+  height: 16px;
+  fill: rgb(77, 77, 77);
+  transition: all 0.3s;
+}
+.filter:hover {
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.11);
+  background-color: rgb(59, 59, 59);
+}
+.filter:hover svg {
+  fill: white;
+}
+
+
