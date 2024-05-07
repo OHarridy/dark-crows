@@ -66,7 +66,7 @@ const domRef1 = useRef();
     // let history = useHistory();
 
     if(username === "admin" && password === "admin"){
-     navigate('/AdminPage');
+     navigate('/Regorg');
     }
     if(login(username,password)){
       const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -126,8 +126,8 @@ const domRef1 = useRef();
         </div>
 
         </div>
-<div className="login-form-container">
-<div className="flex  flex-1 flex-col justify-center px-2 py-12 lg:px-8">
+<div className="login-form-container ">
+<div className=" flex  flex-1 flex-col justify-center px-2 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
          
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">

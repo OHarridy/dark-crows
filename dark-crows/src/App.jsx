@@ -4,13 +4,16 @@ import Donor from './donorAccount.jsx';
 import Home from './mainPage.jsx';
 import DonationPage from './DonationPage.jsx';
 import './index.css';
-import {NextUIProvider} from "@nextui-org/react";
+import {Dropdown, NextUIProvider} from "@nextui-org/react";
 import RegisterPage from './RegisterPage';
 import ResetPwPage from './ResetPwPage.jsx';
 import LandingPage from './LandingPage.jsx';
 import TheMAP from './TheMAP.jsx';
 import DropDown from './DropDownskillissue.jsx';
+import Regorg from './regorg.jsx';
 import AdminSubmission from './Admin/AdminSubmission.jsx';
+
+
 
 function App() {
   return (
@@ -29,6 +32,8 @@ function App() {
             <Route path='/AdminSubmission' element={<AdminSubmission />} />
             <Route path='/ResetPassword' element={<ResetPwPage />} /> 
             <Route path='/DonorMainPage' element={<Home />} /> 
+            <Route path='/DropDown' element={<DropDown/>}/>
+            <Route path='/Regorg' element={<Regorg/>}/>
           </Routes>
       </Router>
     </div>
