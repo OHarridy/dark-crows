@@ -1,11 +1,20 @@
 import {Image, Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Input, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar} from "@nextui-org/react";
 import { useState } from "react";
+import PropTypes from 'prop-types';
+
+const TheBAR = (
+  props
+) => {
+
+  TheBAR.propTypes = {
+    setTerm: PropTypes.func,
+};
 
 
-const TheBAR = () => {
+
     const [currentUrl] = useState(window.location.href);
     return ( 
-        <Navbar isBordered shouldHideOnScroll isBlurred="false">
+        <Navbar position="static" isBordered shouldHideOnScroll isBlurred="false">
         <NavbarContent justify="end">
           <NavbarBrand className="mr-4">
           <Image src="https://i.ibb.co/5x4KDm7/better.png" alt="sharelelkheir" radius="full" width="62" />
@@ -26,6 +35,7 @@ const TheBAR = () => {
 
         <NavbarContent as="div" className="items-center" justify="end">
           <Input
+          onChange={(event) => (props.setTerm(event.target.value), console.log(event.target.value))}
             classNames={{
               base: "max-w-full sm:max-w-[22rem] h-10",
               mainWrapper: "h-full",

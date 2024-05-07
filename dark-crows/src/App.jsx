@@ -27,7 +27,6 @@ function App() {
             <Route path='/Donor' element={<Donor />} />
             <Route path='/DonationPage' element={<DonationPage />} />
             <Route path='/MAP' element={<TheMAP/>}/>
-            <Route path='/DropDown' element={<DropDown/>}/>
             <Route path='/AdminSubmission' element={<AdminSubmission />} />
             <Route path='/ResetPassword' element={<ResetPwPage />} /> 
             <Route path='/DonorMainPage' element={<Home />} /> 

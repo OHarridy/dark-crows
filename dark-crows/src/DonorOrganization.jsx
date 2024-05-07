@@ -18,7 +18,6 @@ const [blogs, setBlogs] = useState([
 
   const [searchTerm, setSearchTerm] = useState(""); // state to store the search term
   const [selectedBlog, setSelectedBlog] = useState(null);
-  const [tobedeletedBlog, settobedeletedBlog] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -37,14 +36,6 @@ const [isVisibles, setIsVisibles] = useState(Array(blogs.length).fill(false));
     console.log(selectedCategory);
   };
  
-    const deleteblogs = (id)=>{
-        const newlist = blogs.filter(blog => blog.id !== id)
-        setBlogs(newlist)
-    };
-    function filterbegad () {
-      deleteblogs(tobedeletedBlog.id);
-      onClose;
-    }
     const filteredBlogs = blogs.filter((blog) =>{if (selectedCategory === 'Governorate' && selectedSubcategory !== null ) {
         console.log(selectedSubcategory);
         return blog.title.toLowerCase().includes(selectedSubcategory.toLowerCase());
@@ -70,8 +61,10 @@ const [isVisibles, setIsVisibles] = useState(Array(blogs.length).fill(false));
                     </g>
                 </svg>
                 <input
-                style={{borderImage: "conic-gradient( #00F260, #0575E6,#64f38c) 1",}}
-                    className="w-full pl-10  placeholder: placeholder:text-white placeholder:focus:text-gray-600 h-10 leading-7 outline-none bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 text-white transition-colors duration-300 ease-in-out border-2 border-transparent border-gradient radial"
+                style={{borderImage: "conic-gradient( #00F260, #0575E6,#64f38c) 1"}}
+                    className="w-full pl-10  placeholder: placeholder:text-white placeholder:focus:text-gray-600 h-10 
+                    leading-7 outline-none bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 text-white transition-colors 
+                    duration-300 ease-in-out border-2 border-transparent border-gradient radial"
                     type="search"
                     placeholder="Search"
                     value={searchTerm}
@@ -121,9 +114,13 @@ const [isVisibles, setIsVisibles] = useState(Array(blogs.length).fill(false));
                 style={{ overflowY: "scroll", maxHeight: "323px", maxWidth:"300px", display: "grid", gridColumn:"4" }}
             >
                 {filteredBlogs.map((blog) => (
-                    <div
-                        className="blog-preview justify-between border-2 border-green-500 text-black hover:shadow-lg hover:shadow-green-900 transition duration-200 ease-in-out py-2 px-4 rounded"
+                    <div onClick={() => (setSelectedBlog(blog) 
+                      ,toggleVisibility(blog.id))
+                  }
+                        className="blog-preview justify-between border-2 border-green-500 text-black hover:shadow-lg hover:shadow-green-900 
+                        transition duration-200 ease-in-out py-2 px-4 rounded"
                         style={{
+                          cursor:"pointer",
                             display: "flex",
                             alignItems: "center",
                             margin: "0 ",
@@ -137,19 +134,7 @@ const [isVisibles, setIsVisibles] = useState(Array(blogs.length).fill(false));
                             <h2 className="text-xl">{blog.author}</h2>
                         </div>
                       
-                        <button
-                            id={blog.id}
-                            className="ml-auto info-button min-w-10 "
-                            onClick={() => (setSelectedBlog(blog) 
-                                ,toggleVisibility(blog.id))
-                            }
-                        >
-                          {isVisibles[blog.id] ? (
-            <EyeSlashFilledIcon className="text-2xl mx-auto text-white" />
-          ) : (
-            <EyeFilledIcon className="text-2xl mx-auto text-white" />
-          )}
-                        </button>
+                        
                     </div>
                 ))}
             </div>
