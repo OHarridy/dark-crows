@@ -28,7 +28,7 @@ function handleTabChange() {
             <CardProfile/> 
         </div>
 
-        <div className="register-page-slider-container mt-10">
+        <div className="register-page-slider-container mt-10 mb-10">
   <div className="flex flex-wrap gap-4">
         <Tabs key="success" color="success" aria-label="Tabs colors" radius="full" selectedKey={selectedTab}  onSelectionChange={setSelectedTab} onClick={handleTabChange}>
           <Tab key="All" title="All" id= "All" value="All"/>
@@ -41,7 +41,7 @@ function handleTabChange() {
 
          <div className="mb-[200px]">
 
-            <h1>{selectedTab}</h1>
+            <h1>Your Posts: {selectedTab}</h1>
             <div className="pb-10 ">
             <hr className="myHr"/>
             </div>

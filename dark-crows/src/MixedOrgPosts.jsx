@@ -16,6 +16,11 @@ const MixedOrgPosts = () => {
         console.log("PRESSEDDDDD");
         Navigate("/OrgDonationPost1");
     }
+
+    function redirectToEdit(){
+        Navigate("/OrgDonationPost2");
+    }
+    
     
     function redirect2(){
         console.log("PRESSEDDDDD");
@@ -93,14 +98,15 @@ function handleTabChange() {
         </div>
 
         {blogs.map(blog=> (
-            <div id={"blog" + blog.id} className="blog-preview relative " key={blog.id}>
+            <div id={"blog" + blog.id} className="blog-preview relative group " key={blog.id}>
                 
                 {/* <Link to={blog.link}> */}
-
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-100">
                  <Nyet
                                 onClick={() => deleteblogs(blog.id)}
                                 className="">
                                 </Nyet>
+                                </div>
                                
                 <Card onPress={redirect2}
                 isPressable
@@ -156,10 +162,11 @@ function handleTabChange() {
         ))}
 
 {blogs1.map(blog=> (
-            <div id={"blog" + blog.id} className="blog-preview relative " key={blog.id}>
+            <div id={"blog" + blog.id} className="blog-preview relative group" key={blog.id}>
                 
                 {/* <Link to={blog.link}> */}
 
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-100">
                  <Nyet
                                 onClick={() => deleteblogs(blog.id)}
                                 className="">
@@ -167,13 +174,14 @@ function handleTabChange() {
                                
                                 <Edit
                                 className=""
-                                onClick={redirect}>
+                                onClick={redirectToEdit}>
                                 </Edit>
 
                                 <View
                                 className=""
                                 onClick={donorNotif}>
                                 </View> 
+                                </div>
                 <Card onPress={redirect}
                 isPressable
                             className="w-[300px] h-[500px] hover:shadow-lg

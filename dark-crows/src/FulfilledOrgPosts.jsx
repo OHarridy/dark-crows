@@ -84,14 +84,16 @@ function handleTabChange() {
         </div>
 
         {blogs.map(blog=> (
-            <div id={"blog" + blog.id} className="blog-preview relative " key={blog.id}>
+            <div id={"blog" + blog.id} className="blog-preview relative group " key={blog.id}>
                 
                 {/* <Link to={blog.link}> */}
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-100">
 
                 <Nyet
                                 onClick={() => deleteblogs(blog.id)}
                                 className="">
                                 </Nyet>
+                                </div>
                                
                 <Card onPress={redirect2}
                 isPressable
