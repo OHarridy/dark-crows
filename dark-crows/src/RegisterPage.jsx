@@ -1,4 +1,5 @@
-
+import Button from "./generalButton";
+import { Link } from 'react-router-dom';
 import RegistrationForm from "./RegistrationForm";
 
 const RegisterPage = () => {
@@ -23,6 +24,13 @@ const RegisterPage = () => {
             <h1>Create an Account</h1>
             <h2>It Wont take a minute!</h2>
         </div>
+
+{/* TODO adjust back button so it doesnt hover with me */}
+        <div className=" fixed top-0 left-0 mt-4 text-white font-bold py-2 px-4 rounded">
+  <Link to="/Login">
+  <Button text="Back" className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline "/>
+  </Link>
+</div>
         
         
 
