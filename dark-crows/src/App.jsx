@@ -23,13 +23,12 @@ function App() {
             <Route path='/' element={<LandingPage />} /> 
             <Route path='/Login' element={<LoginPage />} /> 
             <Route path='/Register' element={<RegisterPage />} /> 
-            <Route path="/Home" element={<Home />} />
+            <Route path="/DonorMainPage" element={<Home />} />
             <Route path='/Donor' element={<Donor />} />
             <Route path='/DonationPage' element={<DonationPage />} />
             <Route path='/MAP' element={<TheMAP/>}/>
             <Route path='/AdminSubmission' element={<AdminSubmission />} />
             <Route path='/ResetPassword' element={<ResetPwPage />} /> 
-            <Route path='/DonorMainPage' element={<Home />} /> 
             <Route path='/DropDown' element={<DropDown/>}/>
             <Route path='/Regorg' element={<Regorg/>}/>
             <Route path='/DonorOrganization' element={<DonorOrganization/>}/>

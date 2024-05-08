@@ -25,9 +25,9 @@ const TheBAR = (
                 <p style={{color: currentUrl.includes("/DonorOrganization") ? "#28c95a" : "#000000"}}>Organizations</p>
               </Link>
             </NavbarItem>
-            <NavbarItem isActive={currentUrl.includes("/Home") ? "false" : ""}>
-              <Link href="/Home" aria-current="page" >
-                <p style={{color: currentUrl.includes("/Home") ? "#28c95a" : "#000000"}}>Posts</p>
+            <NavbarItem isActive={currentUrl.includes("/DonorMainPage") ? "false" : ""}>
+              <Link href="/DonorMainPage" aria-current="page" >
+                <p style={{color: currentUrl.includes("/DonorMainPage") ? "#28c95a" : "#000000"}}>Posts</p>
               </Link>
             </NavbarItem>
           </NavbarContent>
@@ -61,7 +61,6 @@ const TheBAR = (
               <DropdownItem href="/Donor" showDivider key="profile" className="h-14 gap-2">
                 <p className="font-semibold w-full" style={{color:"#28c95a"}}>My Account</p>
               </DropdownItem>
-              <DropdownItem key="settings">My Settings</DropdownItem>
               <DropdownItem href="/Login" key="logout" color="danger">Log Out</DropdownItem>
             </DropdownMenu>
           </Dropdown>

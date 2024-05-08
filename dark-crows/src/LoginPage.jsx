@@ -73,7 +73,7 @@ const domRef1 = useRef();
       const user = users.find(user => user.username === username);
 
       if(user.org_name===''){
-        navigate('/Home');
+        navigate('/DonorMainPage');
       }
       else{
         navigate('/OrgMainpage');
