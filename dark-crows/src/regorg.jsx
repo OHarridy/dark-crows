@@ -12,9 +12,9 @@ import { Fragment, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import ThePole from "./Admin/adminNav"; 
-import ThePole from "./Admin/AdminNavbar"; 
 import './admincss.css';
 import './button.css';
+import AdminNavbar from "./Admin/AdminNavbar";
 const Regorg = () => {  
 const [blogs, setBlogs] = useState([
     {email: 'hamada@gmail.com', type:'Refugees & Improverished',number:'01017315557',title: 'El-Nozha, El Nozha, Cairo Governorate 4470038', body: 'lorem ipsum...', author: 'Masr El Kheir', id: 1, profilePic: 'https://www.globalgiving.org/pfil/organ/81861/orglogo.jpg', clicked: false, src:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d431.855933447735!2d31.321447549598684!3d30.012535899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583f7e406772f5%3A0x4bfd4ca20c13262a!2sYour%20clinic!5e0!3m2!1sen!2seg!4v1714583676383!5m2!1sen!2seg'},
@@ -73,8 +73,8 @@ const [blogs, setBlogs] = useState([
 
     return (
         <div className="regorg flex flex-col  h-screen w-screen">
-          <ThePole/>
-            <h2 className="font-bold text-center text-4xl">Registered </h2>
+          <AdminNavbar/>
+            {/* <h2 className="font-bold text-center text-4xl">Registered </h2> */}
             
            <div className="split-div flex ">
             <div className="left-div flex-2 mr-20 ">
