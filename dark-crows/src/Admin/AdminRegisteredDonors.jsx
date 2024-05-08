@@ -11,7 +11,10 @@ import List from "./List.jsx";
 
 function AdminRegisteredDonors(){
     return (
-        <div className='flex flex-row mt-5 justify-center w-full'><div className="w-2/3"><List /></div> </div>
+        <div>
+            <AdminNavbar />
+            <div className='flex flex-row mt-5 justify-center w-full'><div className="w-2/3"><List /></div> </div>
+        </div>
     );
 }
 

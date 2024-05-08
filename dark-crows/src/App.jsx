@@ -12,6 +12,7 @@ import TheMAP from './TheMAP.jsx';
 import DropDown from './DropDownskillissue.jsx';
 import Regorg from './regorg.jsx';
 import AdminSubmission from './Admin/AdminSubmission.jsx';
+import AdminRegisteredDonors from './Admin/AdminRegisteredDonors.jsx';
 import DonorOrganization from './DonorOrganization.jsx';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path='/DonationPage' element={<DonationPage />} />
             <Route path='/MAP' element={<TheMAP/>}/>
             <Route path='/AdminSubmission' element={<AdminSubmission />} />
+            <Route path='/AdminRegisteredDonors' element={<AdminRegisteredDonors />} />
             <Route path='/ResetPassword' element={<ResetPwPage />} /> 
             <Route path='/DropDown' element={<DropDown/>}/>
             <Route path='/Regorg' element={<Regorg/>}/>

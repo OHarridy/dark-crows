@@ -1,69 +1,150 @@
-const donors = [
+
+const orgs = [
     {
-        name:"White Crows I",
-        email:"whitecrows1@example.com",
-        number:"+0134567890",
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows IDark Crows IDark Crows I",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
     },
     {
-        name:"White Crows II",
-        email:"whitecrows5@example.com",
-        number:"+0134567892",
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows II",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
     },
     {
-        name:"White Crows VI",
-        email:"whitecrows6@example.com",
-        number:"+0134567893",
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
     },
     {
-        name:"White Crows VII",
-        email:"whitecrows7@example.com",
-        number:"+0134567894",
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
     },
     {
-        name:"White Crows VIII",
-        email:"whitecrows8@example.com",
-        number:"+0134567895",
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
     },
     {
-        name:"White Crows II",
-        email:"whitecrows5@example.com",
-        number:"+0134567892",
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows II",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
     },
     {
-        name:"White Crows VI",
-        email:"whitecrows6@example.com",
-        number:"+0134567893",
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
     },
     {
-        name:"White Crows VII",
-        email:"whitecrows7@example.com",
-        number:"+0134567894",
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
     },
     {
-        name:"White Crows VIII",
-        email:"whitecrows8@example.com",
-        number:"+0134567895",
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
     },
     {
-        name:"White Crows II",
-        email:"whitecrows5@example.com",
-        number:"+0134567892",
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows II",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
     },
     {
-        name:"White Crows VI",
-        email:"whitecrows6@example.com",
-        number:"+0134567893",
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
     },
     {
-        name:"White Crows VII",
-        email:"whitecrows7@example.com",
-        number:"+0134567894",
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
     },
     {
-        name:"White Crows VIII",
-        email:"whitecrows8@example.com",
-        number:"+0134567895",
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows II",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows II",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows II",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows II",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
+    },
+    {
+        img:"https://www.wallpapers13.com/wp-content/uploads/2015/12/Nature-Lake-Bled.-Desktop-background-image.jpg",
+        name:"Dark Crows III",
+        description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
     }
 ];
 
-export default donors;
+export default orgs;
