@@ -1,10 +1,13 @@
 import { useState } from "react";
-const Nyet = () => {
+
+const Nyet = ({onClick}) => {
+    
     const [isHovered, setIsHovered] = useState(false);
     return ( 
 
         <button 
-        className="topgear absolute top-[1%] left-[1%] z-10 flex flex-col items-center justify-center w-[35px] h-[35px] rounded-lg bg-red-500 cursor-pointer border-2 border-pink-300 transition duration-300 hover:bg-red-400 active:scale-90"
+        onClick={onClick}
+        className="topgear absolute top-[1%]  z-10 flex flex-col items-center justify-center w-10 h-10 rounded-lg bg-red-500 cursor-pointer border-2 border-pink-300 transition duration-300 hover:bg-red-400 active:scale-90"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

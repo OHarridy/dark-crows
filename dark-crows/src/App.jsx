@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPage from './LoginPage.jsx';
 import Donor from './donorAccount.jsx';
@@ -37,8 +39,10 @@ function App() {
           </Routes>
       </Router>
     </div>
-    </NextUIProvider>
-
+    
+      
+    
+    
   );
 }
 
