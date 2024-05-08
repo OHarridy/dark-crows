@@ -19,9 +19,10 @@ const TheBAR = (
           <NavbarBrand className="mr-4">
           <Image src="https://i.ibb.co/5x4KDm7/better.png" alt="sharelelkheir" radius="full" width="62" />
           </NavbarBrand>
+          {currentUrl.includes("/Donor")?
           <NavbarContent className="gap-12">
             <NavbarItem isActive={currentUrl.includes("/DonorOrganization") ? "false" : ""}>
-            <Link href="/DonorOrganization" aria-current="page" >
+              <Link href="/DonorOrganization" aria-current="page" >
                 <p style={{color: currentUrl.includes("/DonorOrganization") ? "#28c95a" : "#000000"}}>Organizations</p>
               </Link>
             </NavbarItem>
@@ -31,10 +32,18 @@ const TheBAR = (
               </Link>
             </NavbarItem>
           </NavbarContent>
+          :
+          <NavbarContent className="gap-12 pl-[300px]">
+          <NavbarItem isActive={currentUrl.includes("/OrgHomePage") ? "false" : ""}>
+            <Link href="/OrgHomePage" aria-current="page" >
+              <p style={{color: currentUrl.includes("/OrgHomePage") ? "#28c95a" : "#000000"}}>Home</p>
+            </Link>
+          </NavbarItem>
+        </NavbarContent>}
         </NavbarContent>
 
         <NavbarContent as="div" className="items-center" justify="end">
-          <Input
+          {currentUrl.includes("/DonorMainPage")?<Input
           onChange={(event) => (props.setTerm(event.target.value), console.log(event.target.value))}
             classNames={{
               base: "max-w-full sm:max-w-[22rem] h-10",
@@ -45,7 +54,7 @@ const TheBAR = (
             placeholder="Type to search..."
             size="sm"
             type="search"
-          />
+          />:""}
           <Dropdown placement="bottom-end">
             <DropdownTrigger>
               <Avatar

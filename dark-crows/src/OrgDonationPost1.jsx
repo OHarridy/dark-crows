@@ -217,7 +217,7 @@ function redirectToDonor(){
       </div>
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
-        <Link to="/" className="text-sm font-semibold leading-6 text-gray-900"> 
+        <Link to="/OrgHomePage" className="text-sm font-semibold leading-6 text-gray-900"> 
         <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
           Back
         </button>

@@ -1,7 +1,7 @@
 
 // import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Button from "./generalButton";
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 import {Select, SelectItem, Avatar} from "@nextui-org/react";
 import { useState } from 'react';
 import {Input} from "@nextui-org/react";
@@ -118,12 +118,19 @@ function downloadFile() {
 
 const [uploadText, setUploadtext] = useState('');
 
+const navigate = useNavigate();
 
+function postDonation(){
+  toast.success('Donation Post Created! 🎉');
+  setTimeout(() => {
+    navigate('/OrgHomePage');
+  }, 1000);
+}
 
   return (  
     <div className="flex flex-col">
     <div className="h-[500px]"></div>
-
+<ToastContainer/>
 
     <div className="reg-parent"  >
 
@@ -363,7 +370,7 @@ const [uploadText, setUploadtext] = useState('');
       </div>
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
-        <Link to="/" className="text-sm font-semibold leading-6 text-gray-900"> 
+        <Link to="/OrgHomePage" className="text-sm font-semibold leading-6 text-gray-900"> 
         <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
           Cancel
         </button>
@@ -371,6 +378,7 @@ const [uploadText, setUploadtext] = useState('');
         <Button
           type="submit"
           text="Post"
+          onClick={postDonation}
           className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         />
        

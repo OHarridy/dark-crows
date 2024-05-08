@@ -89,7 +89,7 @@ const [uploadText, setUploadtext] = useState('');
 const navigate= useNavigate();
 
 function redirectBack(){
-  navigate("/");
+  navigate("/OrgHomePage");
 }
 
   return ( 

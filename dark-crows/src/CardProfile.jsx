@@ -9,7 +9,6 @@ function handleTabChange() {
   console.log(selectedTab);
 }
     return (  
-{/* <div className="border border-gray-300 shadow-lg p-4"> */}
 <div className=" h-auto flex items-left justify-center pb-4">
   
   <div className="w-3/4 grid grid-cols-5">
@@ -41,7 +40,6 @@ function handleTabChange() {
   </div>
   
 </div>
-{/* </div> */}
         
     );
 }

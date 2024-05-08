@@ -196,7 +196,7 @@ function redirectToDonor(){
     </RadioGroup>
 
     <RadioGroup className="w-[300px]" label="Time Slot">
-      <CustomRadio description="from 8 am to 8 pm" value="Business Hours">
+      <CustomRadio description="from 9 am to 5 pm" value="Business Hours">
         Business Hours
       </CustomRadio>
       <CustomRadio description="9 am to 12 pm" value="Normal Hours">

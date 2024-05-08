@@ -76,7 +76,7 @@ const domRef1 = useRef();
         navigate('/DonorMainPage');
       }
       else{
-        navigate('/OrgMainpage');
+        navigate('/OrgHomePage');
       }
     }
    else{
