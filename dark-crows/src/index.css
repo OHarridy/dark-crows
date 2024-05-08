@@ -42,14 +42,12 @@ form {
 
 h1 {
   font-size: 3.2em;
-  /* line-height: 1.1; */
   font-weight: bolder;
 } 
 
 
 h2{
   font-size: 1.8em;
-  /* line-height: 1.1; */
   font-style: italic;
 } 
 
@@ -57,7 +55,6 @@ h2{
   border-radius: 8px;
   border:none;
   outline:none;
-  /* padding: 0.6em 1.2em; */
   font-size: 1em;
   font-weight: 620;
   font-family: inherit;
@@ -216,7 +213,6 @@ h2{
   flex-direction: column;
   margin-top: 10px;
   margin-bottom: 50px;
-  /* padding:20px; */
   gap: 10px;
   height: 100vh;
  }

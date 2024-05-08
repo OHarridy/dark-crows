@@ -13,7 +13,7 @@ function AdminRegisteredDonors(){
     return (
         <div>
             <AdminNavbar />
-            <div className='flex flex-row mt-5 justify-center w-full'><div className="w-2/3"><List /></div> </div>
+            <div className='flex flex-row pt-20 mb-20 justify-center w-screen h-screen'><div className="w-2/3"><List /></div> </div>
         </div>
     );
 }

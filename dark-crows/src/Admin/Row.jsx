@@ -31,7 +31,7 @@ function Row(row){
                 </div>
             </div>
             </td>
-            <td className="p-3 px-48 ml-10">
+            <td className="p-3 px-20 ml-10">
             <div className="flex flex-col">
             {row.role}
             <span className="text-default-400">{row.team}</span>

@@ -30,14 +30,14 @@ function List() {
   
 
   return (
-    <div className="border-2 rounded-xl l text-gray-600 w-full mb-5 mt-2">
-      <table className="w-full">
-        <thead className=" bg-stone-300 w-full m-10">
-          <tr>
+    <div className="border-2 rounded-xl l text-gray-600 w-full mb-5 mt-2 overflow-hidden ">
+      <table className="w-full  rounded-xl">
+        <thead className=" bg-stone-300 w-full m-10 border-solid rounded-3xl">
+          <tr className="">
             <th className="p-2">NAME</th>
             <th className="p-2 ">ROLE</th>
             <th className="p-2 ">STATUS</th>
-            <th className="p-2">ACTIONS</th>
+            <th className="pr-10">ACTIONS</th>
           </tr>
 
         </thead>
