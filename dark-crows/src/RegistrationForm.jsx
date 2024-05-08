@@ -200,7 +200,7 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
 
 <div className="register-page-slider-container">
 <ToastContainer />
-  <div className="flex flex-wrap gap-4">
+  <div className="flex flex-wrap gap-4 mb-8">
         <Tabs key="success" color="success" aria-label="Tabs colors" radius="full" selectedKey={selectedTab}  onSelectionChange={setSelectedTab} onClick={handleTabChange}>
           <Tab key="Donor" title="Donor" id= "donor" value="DonorRegistrationForm"/>
           <Tab key="Org" title="Organization" id="org" value="OrgRegistrationForm"/>
@@ -267,14 +267,16 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
               <div className="mt-2 flex items-center gap-x-3">
            
 
-                <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handlePhotoChange} />
-                <button
+                {/* <input type="file" ref={fileInputRef} style={{ display: 'none' }} onChange={handlePhotoChange} /> */}
+                <input type="file" ref={fileInputRef}
+                className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" onChange={handlePhotoChange} />
+                {/* <button
                   type="button"
                   className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                   onClick={() => fileInputRef.current.click()}
                 >
                   Upload Photo
-                </button>
+                </button> */}
 
                <div className="uploaded-text">
                 <p className="mt-1 text-sm leading-6 ">{uploadPhotoText}</p>
