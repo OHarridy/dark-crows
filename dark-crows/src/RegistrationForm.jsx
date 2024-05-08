@@ -50,6 +50,7 @@ const RegistrationForm = () => {
     confirmPassword: '',
     country: '',
     address_selection:'text',
+    clinic_address_selection:'text',
     address:'',
     city:'',
     state:'',
@@ -112,6 +113,7 @@ const RegistrationForm = () => {
     country: '',
     address:'',
     address_selection:'text',
+    clinic_address_selection:'text',
     city:'',
     state:'',
   });
@@ -307,10 +309,28 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
               </div>
             </div>
             </>
-): null}
+): null}    
 
 { (formData.role === "doctor" && selectedTab==="Donor" )? (
 <>
+<div className="sm:col-span-4">
+              <label htmlFor="clinic_address_selection" className="block text-sm font-medium leading-6 text-gray-900">
+              Clinic Address Input Selection
+              </label>
+              <div className="mt-2">
+              <RadioGroup  
+                  name="clinic_address_selection"
+                  value={formData.clinic_address_selection}
+                  onChange={handleInputChange}
+                  required >
+              <Radio value="text">Text-based Input</Radio>
+              <Radio value="map">Google Map Marker</Radio>
+              <Radio value="both">Both</Radio>
+            </RadioGroup>
+              </div>
+            </div>
+
+
             <div className="sm:col-span-4">
               <label htmlFor="no_appointments" className="block text-sm font-medium leading-6 text-gray-900">
                 Number of Appointments Per Week
@@ -330,6 +350,8 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
               </div>
             </div>
 
+            { (formData.clinic_address_selection === "text" || formData.clinic_address_selection === "both" )? (
+<>
             <div className="sm:col-span-4">
               <label htmlFor="clinic_address" className="block text-sm font-medium leading-6 text-gray-900">
                 Clinic Address
@@ -346,7 +368,23 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                 />
               </div>
             </div>
-            </>
+            </>  ): null}
+
+
+            
+            { (formData.clinic_address_selection === "map" || formData.clinic_address_selection === "both" )? (
+<>
+           
+<div className="col-span-full">
+              <label htmlFor="map" className="block text-sm font-medium leading-6 text-gray-900">
+                Choose your Clinic Address from the map
+              </label>
+              <div className="mt-2">
+              <TheMAP/> 
+              </div>
+            </div>
+            </>  ): null}
+     </>
             ): null}
 
 { (formData.role === "teacher" && selectedTab==="Donor" )? (
@@ -724,6 +762,7 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   required
                   autoComplete="street-address"
                   className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  required
                 />
               </div>
             </div>
@@ -761,6 +800,7 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   onChange={handleInputChange}
                   autoComplete="street-address"
                   className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  required
                 />
               </div>
             </div>
@@ -779,6 +819,7 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   onChange={handleInputChange}
                   autoComplete="address-level2"
                   className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  required
                 />
               </div>
             </div>
@@ -797,6 +838,7 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                   onChange={handleInputChange}
                   autoComplete="address-level1"
                   className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  required
                 />
               </div>
             </div>
