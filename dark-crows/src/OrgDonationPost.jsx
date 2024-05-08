@@ -29,7 +29,8 @@ const RegistrationForm = () => {
     category: 'Food',
     docs:'',
     maxDonateAmount:0,
-    services:''
+    services:'',
+    deliveryTime:'',
 
   });
 
@@ -37,7 +38,7 @@ const RegistrationForm = () => {
 
   function handleInputChange(e){
       const value = e.target ? e.target.value : e;
-      const name = e.target ? e.target.name : 'gender';
+      const name = e.target ? e.target.name : 'deliveryTime';
         setFormData({
           ...formData,
           [name]: value
@@ -62,7 +63,8 @@ const RegistrationForm = () => {
     category: '',
     docs:'',
     maxDonateAmount:0,
-    services:''
+    services:'',
+    deliveryTime:''
   });
 
   setUploadtext('');
@@ -190,7 +192,7 @@ function postDonation(){
       className="max-w-xs"
       label="Select category"
     value={formData.category}
-    onChange={event => this.setState({ formData: { formData, category: event.target.value } })}
+    onChange={handleInputChange}
        
     >
       <SelectItem
@@ -331,6 +333,30 @@ function postDonation(){
                   Download Document
                 </button> */}
               </div>
+
+              {(formData.category !=="Services")?(
+<>
+ <div className="sm:col-span-4 mt-7">
+              <label htmlFor="deliveryTime" className="block text-sm font-medium leading-6 text-gray-900">
+                Schedule Delivery
+              </label>
+              <div className="mt-2">
+              <RadioGroup
+                  name="deliveryTime"
+                  id="deliveryTime"
+                  onChange={handleInputChange} 
+                  required
+                  defaultValue="morning">
+              <Radio value="morning">Morning (8am to 12pm)</Radio>
+              <Radio value="afternoon">Afternoon (12pm to 5pm)</Radio>
+              <Radio value="evening">Evening (5pm to 9pm)</Radio>
+              <Radio value="night">Night (9pm to 12am)</Radio>
+            </RadioGroup>
+              </div>
+            </div> 
+            </>
+    ):null}
+
 
               <div className="col-span-full mt-7">
               <label htmlFor="maxDonateAmount" className="block text-sm font-medium leading-6 text-gray-900">
