@@ -18,7 +18,7 @@ import DonorOrganization from './DonorOrganization.jsx';
 function App() {
   return (
     <NextUIProvider>
-    <div className='App'>
+    <div className='App w-full h-full'>
       <Router>
           <Routes>
             <Route path='/' element={<LandingPage />} /> 
@@ -32,7 +32,7 @@ function App() {
             <Route path='/AdminRegisteredDonors' element={<AdminRegisteredDonors />} />
             <Route path='/ResetPassword' element={<ResetPwPage />} /> 
             <Route path='/DropDown' element={<DropDown/>}/>
-            <Route path='/Regorg' element={<Regorg/>}/>
+            <Route path='/AdminRegisteredOrgs' element={<Regorg/>}/>
             <Route path='/DonorOrganization' element={<DonorOrganization/>}/>
           </Routes>
       </Router>

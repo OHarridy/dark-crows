@@ -6,6 +6,7 @@ import AdminPicture from './AdminPicture.jsx';
 import orgs from "./orgs.js";
 import donors from './donors.jsx';
 import AdminNavbar from './AdminNavbar.jsx';
+import TheBAR from "../TheBAR.jsx";
 
 const screenHeight = window.screen.height;
 const screenWidth = window.screen.width;
@@ -73,7 +74,8 @@ function AdminSubmission(){
     var tmp = screenHeight/15 ;
     
     return (
-        <div>
+        <div className='w-screen h-screen'>
+            
             <AdminNavbar />
             <div className="w-full flex flex-col text-center justify-center border-2">
                 

@@ -78,7 +78,10 @@ const [blogs, setBlogs] = useState([
                     </g>
                 </svg>
                 <input
-                    className="input"
+                style={{borderImage: "conic-gradient( #00F260, #0575E6,#64f38c) 1"}}
+                    className="w-full pl-10  placeholder: placeholder:text-white placeholder:focus:text-gray-600 h-10 
+                    leading-7 outline-none bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 text-white transition-colors 
+                    duration-300 ease-in-out border-2 border-transparent border-gradient radial"
                     type="search"
                     placeholder="Search"
                     value={searchTerm}

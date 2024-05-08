@@ -5,7 +5,7 @@ import { useState } from "react";
 const AdminNavbar = () => {
     const [currentUrl] = useState(window.location.href);
     return ( 
-        <Navbar isBordered shouldHideOnScroll isBlurred="false" className="w-full p-2">
+        <Navbar isBordered shouldHideOnScroll isBlurred="false" className="w-full p-2 m-0">
             <NavbarContent justify="end">
             <NavbarBrand className="mr-4">
             <Image src="https://i.ibb.co/5x4KDm7/better.png" alt="sharelelkheir" radius="full" width="62" />
@@ -53,11 +53,7 @@ const AdminNavbar = () => {
                 />
                 </DropdownTrigger>
                 <DropdownMenu aria-label="Profile Actions" variant="flat">
-                <DropdownItem href="/Donor" showDivider key="profile" className="h-14 gap-2">
-                    <p className="font-semibold w-full" style={{color:"#28c95a"}}>My Account</p>
-                </DropdownItem>
-                <DropdownItem key="settings">My Settings</DropdownItem>
-                <DropdownItem key="logout" color="danger">Log Out</DropdownItem>
+                <DropdownItem href="/Login" key="logout" color="danger">Log Out</DropdownItem>
                 </DropdownMenu>
             </Dropdown>
            </NavbarContent>

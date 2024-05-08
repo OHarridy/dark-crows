@@ -6,7 +6,7 @@ function Row(row){
     const [hide,setHide] = useState("");
     var status= row.status;
     function setHidden(){
-        if (window.confirm("Are you sure you want to Reject?"))
+        if (window.confirm("Are you sure you want to Delete?"))
             setHide("hidden");
     }
 

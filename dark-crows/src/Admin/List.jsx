@@ -30,8 +30,8 @@ function List() {
   
 
   return (
-    <div className="border-2 rounded-xl l text-gray-600 w-full mb-5 mt-2 overflow-hidden ">
-      <table className="w-full  rounded-xl">
+    <div className="border-2 rounded-xl l text-gray-600 w-full mb-5 overflow-hidden mt-10">
+      <table className="w-full rounded-xl">
         <thead className=" bg-stone-300 w-full m-10 border-solid rounded-3xl">
           <tr className="">
             <th className="p-2">NAME</th>
@@ -41,7 +41,7 @@ function List() {
           </tr>
 
         </thead>
-        <tbody>
+        <tbody className="">
           {demoUsers.map((user) => (
             <Row id={user.id} name={user.name} email={user.email} team={user.team} img={user.avatar} role={user.role} status={user.status}/>
             
