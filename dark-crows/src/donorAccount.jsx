@@ -6,7 +6,7 @@ import {parseAbsoluteToLocal} from "@internationalized/date";
 import {EyeFilledIcon} from "./EyeFilledIcon";
 import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
 import { ToastContainer, toast } from "react-toastify";
-var thisp = "text-3xl w-[290px]";
+var thisp = "text-3xl w-[100px]";
 const Donor = () => {
     let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")); 
     var [nigga, setNigga] = useState(
@@ -89,7 +89,7 @@ const [interim, setInterim] = useState({
       console.log("ay7agacapitalneshofhaaaahhhh",JSON.parse(localStorage.getItem('loggedInUser')));
 
   }
-  const fileDataUrl = localStorage.getItem('photo');
+  const fileDataUrl = localStorage.getItem('file');
   const [isVisible, setIsVisible] =useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
   function notify(){
