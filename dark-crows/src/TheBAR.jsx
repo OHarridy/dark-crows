@@ -2,16 +2,11 @@ import {Image, Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Input, Drop
 import { useState } from "react";
 import PropTypes from 'prop-types';
 
-const TheBAR = (
-  props
-) => {
+const TheBAR = (props) => {
 
   TheBAR.propTypes = {
     setTerm: PropTypes.func,
 };
-
-
-
     const [currentUrl] = useState(window.location.href);
     return ( 
         <Navbar position="static" isBordered shouldHideOnScroll isBlurred="false">
@@ -27,7 +22,7 @@ const TheBAR = (
               </Link>
             </NavbarItem>
             <NavbarItem isActive={currentUrl.includes("/DonorMainPage") ? "false" : ""}>
-              <Link href="/DonorMainPage" aria-current="page" >
+              <Link href="/DonorMainPage" aria-current="page">
                 <p style={{color: currentUrl.includes("/DonorMainPage") ? "#28c95a" : "#000000"}}>Posts</p>
               </Link>
             </NavbarItem>
@@ -46,7 +41,7 @@ const TheBAR = (
           {currentUrl.includes("/DonorMainPage")?<Input
           onChange={(event) => (props.setTerm(event.target.value), console.log(event.target.value))}
             classNames={{
-              base: "max-w-full sm:max-w-[22rem] h-10",
+              base: "max-w-full sm:max-w-[2z2rem] h-10",
               mainWrapper: "h-full",
               input: "text-small",
               inputWrapper: "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
