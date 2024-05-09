@@ -6,6 +6,7 @@ import {Select, SelectItem, Avatar} from "@nextui-org/react";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, RadioGroup, Radio} from "@nextui-org/react";
 import { useState } from 'react';
 import {Input} from "@nextui-org/react";
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure} from "@nextui-org/react"
 
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -98,10 +99,15 @@ function redirectToDonor(){
   navigate("/DonorProfile");
 }
 
+function sendMessage(){
+  toast.success("Message Sent Successfully!");
+}
 
+const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
   return ( 
     <div className="flex flex-col">
+      <ToastContainer/>
       <div className="h-[600px]"></div>
       
 
@@ -198,6 +204,7 @@ function redirectToDonor(){
           <TableColumn>Donor Role</TableColumn>
           <TableColumn >Donated Amount</TableColumn>
           <TableColumn align="end">Status</TableColumn>
+          <TableColumn align="end">Gratitude</TableColumn>
         </TableHeader>
         <TableBody>
           <TableRow key="1">
@@ -205,11 +212,42 @@ function redirectToDonor(){
             <TableCell>Pro-bono Doctor</TableCell>
             <TableCell>-</TableCell>
             <TableCell>Pending</TableCell>
+            <TableCell onClick={onOpen}><a className="underline">Send Message </a></TableCell>
           </TableRow>
         </TableBody>
       </Table>
               </div>
             </div>
+
+            <Modal 
+          isOpen={isOpen} 
+          onOpenChange={onOpenChange}
+          placement="top"
+          backdrop="blur"
+        >
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalHeader className="flex flex-col gap-1">Send a Message of Gratitude!</ModalHeader>
+                <ModalBody>
+                  <textarea
+                    label="Message"
+                    placeholder="Enter your message"
+                    className="block w-full h-[10rem] rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                
+                </ModalBody>
+                <ModalFooter>
+                <button type="button" className="text-sm font-semibold leading-6 text-gray-900 mr-4" onClick={onClose}>
+                  Close
+                 </button>
+                  <Button  text="Send" className="flex justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline"  onClick={onClose}/>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
+          
             
           </div>
         </div>
