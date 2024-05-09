@@ -89,7 +89,7 @@ const [interim, setInterim] = useState({
       console.log("ay7agacapitalneshofhaaaahhhh",JSON.parse(localStorage.getItem('loggedInUser')));
 
   }
-  const fileDataUrl = localStorage.getItem('file');
+  const fileDataUrl = localStorage.getItem('photo');
   const [isVisible, setIsVisible] =useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
   function notify(){

@@ -156,7 +156,7 @@ function handlePhotoChange(event) {
   const file = event.target.files[0];
   const reader = new FileReader();
   reader.onloadend = function() {
-    localStorage.setItem('file', reader.result);
+    localStorage.setItem('photo', reader.result);
     console.log('Selected photo:', file);
   }
   reader.readAsDataURL(file);
