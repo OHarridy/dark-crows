@@ -1,10 +1,24 @@
+import { Button } from "@nextui-org/react";
 import React from "react";
 
 
 function DeleteIcon (props) {
   
-  return(<svg className="text-red-500 cursor-pointer"
-    onClick={props.sethidden}
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  function func() {
+    setIsOpen(!isOpen);
+    
+    }
+
+  function del(){
+    props.sethidden();
+  }
+
+  return(
+  <div>
+  <svg className="text-red-500 cursor-pointer"
+    onClick={func}
     aria-hidden="true"
     fill="none"
     focusable="false"
@@ -49,7 +63,41 @@ function DeleteIcon (props) {
       strokeLinejoin="round"
       strokeWidth={1.5}
     />
+
+
   </svg>
+
+
+  {isOpen && (
+            <div className="flex flex-col border-3 rounded-xl w-1/4 border-red-700" style={{position: 'fixed',top: '40%',left: '50%',transform: 'translate(-50%, -50%)',backgroundColor: 'white',padding: '20px',zIndex: 1000,}}>
+                
+                
+                
+                <p className=" text-xl">Are you sure you want to delete?</p>
+                <div className="flex flex-row justify-end mt-7">
+                  <div >
+                    <Button onClick={func} className="mr-6 text-gray-700">Cancel</Button>
+                    <Button onClick={del} className="text-red-500">Delete</Button>
+                  </div>
+                </div>
+            </div>
+        )}
+
+        {isOpen && (
+          <div
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundColor: 'rgba(0, 0, 0, 0.7)',
+              zIndex: 500,
+            }}
+          />
+        )}
+
+  </div>
 )};
 
 export default DeleteIcon;

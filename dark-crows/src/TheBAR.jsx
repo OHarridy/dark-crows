@@ -16,6 +16,20 @@ const TypeTerm = props.TypeTerm;
 
 const fileDataUrl = localStorage.getItem('photo');
     const [currentUrl] = useState(window.location.href);
+    const [href,setHref] = useState("/Donor");
+
+
+
+  function redirectToProfile(){
+    let currentUrl = window.location.pathname;
+    if (currentUrl === '/DonorMainpage') {
+      window.location.href = '/Donor' 
+     } else if (currentUrl === '/OrgHomePage') {
+      window.location.href = '/OrgProfile'
+     }
+     console.log("REDIRECTION!");
+  }
+
     return ( 
       <Navbar position="static" isBordered shouldHideOnScroll isBlurred="false" className="w-full">
         <NavbarContent justify="end">
@@ -93,7 +107,7 @@ const fileDataUrl = localStorage.getItem('photo');
               />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" variant="flat">
-              <DropdownItem href="/Donor" showDivider key="profile" className="h-14 gap-2">
+              <DropdownItem onClick={redirectToProfile} showDivider key="profile" className="h-14 gap-2">
                 <p className="font-semibold w-full" style={{color:"#28c95a"}}>My Account</p>
               </DropdownItem>
               <DropdownItem href="/Login" key="logout" color="danger">Log Out</DropdownItem>

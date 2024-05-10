@@ -21,11 +21,12 @@ const CardOrgIbra = () => {
         console.log("PRESSEDDDDD");
         Navigate("/OrgDonationPost1");
     }
+    const photoUrl = localStorage.getItem("photo");
     var [blogs, setBlogs] = useState(
         [
-            {link: '/OrgDonationPost4',body: 'Despite all the technological advancements still in some parts the education is so poor help us make kids have better education', author: 'Knowledge providers',  id: 1, donatedAmount: 10 ,  maximumAmount: 100 ,   get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 2, source: 'https://genevaglobal.com/wp-content/uploads/2023/10/Unidentified-children-study-at-Pan-Paung-Village-school_Shutterstock.png'                                                         ,source2:"https://identity-mag.com/wp-content/uploads/2015/01/269c791.jpg"},
+        {link: '/OrgDonationPost4',body: 'Despite all the technological advancements still in some parts the education is so poor help us make kids have better education', author: 'Knowledge providers',  id: 1, donatedAmount: 10 ,  maximumAmount: 100 ,   get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 2, source:'https://genevaglobal.com/wp-content/uploads/2023/10/Unidentified-children-study-at-Pan-Paung-Village-school_Shutterstock.png'                                                       ,source2: photoUrl},
             
-            {link: '/OrgDonationPost5',body: 'Any Pro-bono Doctor that can help maya, a 6 year old who has very a severe cold and has been sick for weeks! Please help!', author: 'Medical Assistance',  id: 2, donatedAmount: 0 ,  maximumAmount: 1 ,   get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 0, source: 'https://assets.clevelandclinic.org/transform/df266997-a5d9-44e0-90f9-63100ef2b798/childSick-1445845423-770x533-1_jpg'                                                         ,source2:"https://identity-mag.com/wp-content/uploads/2015/01/269c791.jpg"},
+            {link: '/OrgDonationPost5',body: 'Any Pro-bono Doctor that can help maya, a 6 year old who has very a severe cold and has been sick for weeks! Please help!', author: 'Medical Assistance',  id: 2, donatedAmount: 0 ,  maximumAmount: 1 ,   get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 0, source: 'https://assets.clevelandclinic.org/transform/df266997-a5d9-44e0-90f9-63100ef2b798/childSick-1445845423-770x533-1_jpg'                                                         ,source2:photoUrl},
            ]);
 
  

@@ -96,14 +96,16 @@ function redirectToEdit(){
 }
 
 function redirectToDonor(){
-  navigate("/DonorProfile");
+  navigate("/ViewDonorProfile");
 }
+const {isOpen, onOpen, onOpenChange, onClose} = useDisclosure();
+const handleSendClick = () => {
+  toast('Your message has been sent!', { type: 'success' });
+  onClose();
+};
 
-function sendMessage(){
-  toast.success("Message Sent Successfully!");
-}
 
-const {isOpen, onOpen, onOpenChange} = useDisclosure();
+
 
   return ( 
     <div className="flex flex-col">
@@ -208,11 +210,11 @@ const {isOpen, onOpen, onOpenChange} = useDisclosure();
         </TableHeader>
         <TableBody>
           <TableRow key="1">
-            <TableCell onClick={redirectToDonor}>Tony Reichert</TableCell>
+            <TableCell className=" cursor-pointer hover:underline" onClick={redirectToDonor}>Tony Reichert</TableCell>
             <TableCell>Pro-bono Doctor</TableCell>
             <TableCell>-</TableCell>
             <TableCell>Pending</TableCell>
-            <TableCell onClick={onOpen}><a className="underline">Send Message </a></TableCell>
+            <TableCell onClick={onOpen}><a className=" cursor-pointer hover:underline">Send Message </a></TableCell>
           </TableRow>
         </TableBody>
       </Table>
@@ -241,7 +243,7 @@ const {isOpen, onOpen, onOpenChange} = useDisclosure();
                 <button type="button" className="text-sm font-semibold leading-6 text-gray-900 mr-4" onClick={onClose}>
                   Close
                  </button>
-                  <Button  text="Send" className="flex justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline"  onClick={onClose}/>
+                  <Button  text="Send" className="flex justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline"  onClick={handleSendClick}/>
                 </ModalFooter>
               </>
             )}

@@ -66,7 +66,7 @@ const AdminNavbar = () => {
                 ></path>
               </g>
             </svg>
-            <span className="lable">Change Password</span>
+            <span className="lable" style={{fontSize:'14px'}}>Change Password</span>
           </Button>
 
           <Modal 

@@ -92,6 +92,10 @@ function redirectBack(){
   navigate("/OrgHomePage");
 }
 
+function redirectToDonor(){
+  navigate("/ViewDonorProfile");
+}
+
   return ( 
     <div className="flex flex-col">
         <br/>
@@ -206,25 +210,25 @@ function redirectBack(){
         </TableHeader>
         <TableBody>
           <TableRow key="1">
-            <TableCell>Tony Reichert</TableCell>
+            <TableCell className=" cursor-pointer hover:underline" onClick={redirectToDonor}>Tony Reichert</TableCell>
             <TableCell>Regular</TableCell>
             <TableCell>200</TableCell>
             <TableCell >Completed</TableCell>
           </TableRow>
           <TableRow key="2" textValue="hello">
-            <TableCell>Zoey Lang</TableCell>
+            <TableCell className=" cursor-pointer hover:underline" onClick={redirectToDonor}>Zoey Lang</TableCell>
             <TableCell>Regular</TableCell>
             <TableCell >200</TableCell>
             <TableCell >Completed</TableCell>
           </TableRow>
           <TableRow key="3">
-            <TableCell>Jane Fisher</TableCell>
+            <TableCell className=" cursor-pointer hover:underline" onClick={redirectToDonor}>Jane Fisher</TableCell>
             <TableCell>Regular</TableCell>
             <TableCell>50</TableCell>
             <TableCell >Completed</TableCell>
           </TableRow>
           <TableRow key="4">
-            <TableCell>William Howard</TableCell>
+            <TableCell className=" cursor-pointer hover:underline" onClick={redirectToDonor}>William Howard</TableCell>
             <TableCell>Regular</TableCell>
             <TableCell>550</TableCell>
             <TableCell >Completed</TableCell>

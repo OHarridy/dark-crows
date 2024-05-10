@@ -129,6 +129,7 @@ function postDonation(){
   }, 1000);
 }
 
+const photoUrl = localStorage.getItem('photo');
   return (  
     <div className="flex flex-col">
     <div className="h-[500px]"></div>
@@ -136,11 +137,11 @@ function postDonation(){
 
     <div className="reg-parent"  >
 
-<div className="register-image flex justify-center items-center mb-5">
+<div className="register-image flex justify-center items-center mb-5 mt-20">
 
         <img
-            className="w-[180px] object-contain"
-            src="https://identity-mag.com/wp-content/uploads/2015/01/269c791.jpg"
+            className="w-[150px] object-contain"
+            src={photoUrl}
             alt="ShareLelKheir"
         />
     </div>
