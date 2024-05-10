@@ -22,7 +22,7 @@ const fileDataUrl = localStorage.getItem('photo');
 
   function redirectToProfile(){
     let currentUrl = window.location.pathname;
-    if (currentUrl === '/DonorMainpage') {
+    if (currentUrl === '/DonorMainPage') {
       window.location.href = '/Donor' 
      } else if (currentUrl === '/OrgHomePage') {
       window.location.href = '/OrgProfile'

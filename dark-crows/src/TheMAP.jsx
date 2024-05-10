@@ -1,7 +1,25 @@
 import { useState } from "react";
-const TheMAP = () => {
-  const [latitude, setLatitude] = useState(30.019092345135768);
-  const [longitude, setLongitude] = useState(31.322912398067018);
+import propTypes from 'prop-types';
+const TheMAP = (props) => {
+
+  TheMAP.propTypes = {
+    handleMapChange: propTypes.func,
+    lat: propTypes.number,
+    long: propTypes.number,
+  }
+  const lat = props.lat;
+   console.log("LAT", lat);
+  const long = props.long;
+  console.log("LONG", long);
+
+  const snapshotLatitude = lat;
+  const snapshotLongitude = long;
+
+
+  const [latitude, setLatitude] = useState(+snapshotLatitude);
+  const [longitude, setLongitude] = useState(+snapshotLongitude);
+  console.log("COORDS", latitude, longitude);
+
 
   function changeLatitude(input){
     setLatitude(input);
@@ -36,6 +54,7 @@ const TheMAP = () => {
               const position = draggableMarker.position;
               changeLatitude(position.lat);
               changeLongitude(position.lng);
+              props.handleMapChange(position.lng, position.lat);
               infoWindow.close();
               infoWindow.setContent(`Pin dropped at: ${position.lat}, ${position.lng}`);
               infoWindow.open(draggableMarker.map, draggableMarker);
