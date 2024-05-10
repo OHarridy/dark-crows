@@ -46,7 +46,7 @@ const AdminNavbar = () => {
 
     <NavbarContent className="hidden mr-0 sm:flex gap-3 ml-7">
           <Button
-            className="button"
+            className="button" style={{width:'200px'}}
             onPress={onOpen}
           >
             <svg
@@ -66,7 +66,7 @@ const AdminNavbar = () => {
                 ></path>
               </g>
             </svg>
-            <span className="lable">Change Password</span>
+            <span className="lable" style={{fontSize:'14px'}}>Change Password</span>
           </Button>
 
           <Modal 

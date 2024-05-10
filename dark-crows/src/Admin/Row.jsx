@@ -6,14 +6,14 @@ function Row(row){
     const [hide,setHide] = useState("");
     var status= row.status;
     function setHidden(){
-        if (window.confirm("Are you sure you want to Delete?"))
+        
             setHide("hidden");
     }
 
     if(row.status === "Active"){
         status = "text-success p-3 px-36 rounded-full";
     }
-    if(row.status === "Paused"){
+    if(row.status === "Pending"){
         status = "text-danger p-3 px-36";
     }
     if(row.status === "Vacation"){
@@ -41,6 +41,8 @@ function Row(row){
             <td className="p-3">
                 <DeleteIcon sethidden={setHidden}/>
             </td>
+            
+
             
         </tr>
     )
