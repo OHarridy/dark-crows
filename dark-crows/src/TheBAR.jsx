@@ -5,11 +5,19 @@ import PropTypes from 'prop-types';
 const TheBAR = (props) => {
 
   TheBAR.propTypes = {
+    TypeTerm: PropTypes.string,
+  }
+
+const TypeTerm = props.TypeTerm;
+
+  TheBAR.propTypes = {
     setTerm: PropTypes.func,
 };
+
+const fileDataUrl = localStorage.getItem('photo');
     const [currentUrl] = useState(window.location.href);
     return ( 
-        <Navbar position="static" isBordered shouldHideOnScroll isBlurred="false">
+      <Navbar position="static" isBordered shouldHideOnScroll isBlurred="false" className="w-full">
         <NavbarContent justify="end">
           <NavbarBrand className="mr-4">
           <Image src="https://i.ibb.co/5x4KDm7/better.png" alt="sharelelkheir" radius="full" width="62" />
@@ -41,13 +49,36 @@ const TheBAR = (props) => {
           {currentUrl.includes("/DonorMainPage")?<Input
           onChange={(event) => (props.setTerm(event.target.value), console.log(event.target.value))}
             classNames={{
-              base: "max-w-full sm:max-w-[2z2rem] h-10",
+              base: "max-w-full sm:max-w-[22rem] h-10",
               mainWrapper: "h-full",
               input: "text-small",
               inputWrapper: "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
             }}
-            placeholder="Type to search..."
-            size="sm"
+            placeholder={
+              (() => {
+                  switch (TypeTerm.toLowerCase()) {
+                      case "blood":
+                          return "Search Blood";
+                      case "medical":
+                          return "Search Medical";
+                      case "clothes":
+                          return "Search Clothes";
+                      case "teaching":
+                          return "Search Teaching";
+                      case "toys":
+                          return "Search Toys";
+                      case "food":
+                          return "Search Food";
+                      case "doctoring":
+                          return "Search Doctoring";
+                      case "school":
+                          return "Search School";
+                      default:
+                          return "Search";
+                  }
+              })()
+          }
+          size="sm"
             type="search"
           />:""}
           <Dropdown placement="bottom-end">
@@ -58,7 +89,7 @@ const TheBAR = (props) => {
                 className="transition-transform"
                 style={{color:"#28c95a"}}
                 size="sm"
-                src="https://cdn.discordapp.com/emojis/765098679362650133.webp?size=44&quality=lossless"
+                src={fileDataUrl}
               />
             </DropdownTrigger>
             <DropdownMenu aria-label="Profile Actions" variant="flat">

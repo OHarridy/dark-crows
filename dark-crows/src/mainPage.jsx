@@ -33,7 +33,6 @@ const Home = () => {
         const [SeasonTerm, setSeasonTerm] = useState("");
         const [TypeTerm, setTypeTerm] = useState("");
         const [CategoryTerm, setCategoryTerm] = useState([""]);
-        const [MedicalTerm, setMedicalTerm] = useState([""]);
         const [GenderTerm, setGenderTerm] = useState("");
         const [GovernorateTerm, setGovernorateTerm] = useState("");
         const [SubjectTerm, setSubjectTerm] = useState("");
@@ -42,7 +41,6 @@ const Home = () => {
         setSearchTerm(searchItem);
         console.log(searchItem);
     }
-
     function setArea(searchItem){
         setAreaTerm(searchItem);
         console.log(searchItem);
@@ -83,10 +81,6 @@ const Home = () => {
         setSpecialTerm(searchItem);
         console.log(searchItem);
     }
-    function setMedical (searchItem){
-        setMedicalTerm(searchItem);
-        console.log(searchItem);
-    }
 
 
     const filter3adeyagedan = fa2erniggaalert.filter(fa2erniggaalert => {
@@ -95,39 +89,56 @@ const Home = () => {
             case "toys":
                 return (AgeTerm != 0 ? (fa2erniggaalert.Age && fa2erniggaalert.Age == AgeTerm) : true)
                     && fa2erniggaalert.Gender && fa2erniggaalert.Gender.includes(GenderTerm)
+                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
                     && (CategoryTerm.length?fa2erniggaalert.tag && CategoryTerm.some(category => fa2erniggaalert.tag.includes(category)):true)
                     && fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase());
             case "blood":
                 return fa2erniggaalert.Area && fa2erniggaalert.Area.toLowerCase().includes(AreaTerm.toLowerCase())
                     && fa2erniggaalert.Hospital && fa2erniggaalert.Hospital.toLowerCase().includes(HospitalTerm.toLowerCase())
                     && fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase())
+                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
                     && fa2erniggaalert.Governorate && fa2erniggaalert.Governorate.toLowerCase().includes(GovernorateTerm.toLowerCase());
             case "teaching":
                 return fa2erniggaalert.Area && fa2erniggaalert.Area.toLowerCase().includes(AreaTerm.toLowerCase())
                     && fa2erniggaalert.Subject && fa2erniggaalert.Subject.some(subject => subject.toLowerCase().includes(SubjectTerm.toLowerCase()))
                     && fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase())
+                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
                     && fa2erniggaalert.Governorate && fa2erniggaalert.Governorate.toLowerCase().includes(GovernorateTerm.toLowerCase());
             case "doctoring":
                 return fa2erniggaalert.Area && fa2erniggaalert.Area.toLowerCase().includes(AreaTerm.toLowerCase())
                     && (fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase()))
                     && (fa2erniggaalert.Specialty && fa2erniggaalert.Specialty.toLowerCase().includes(SpecialTerm.toLowerCase()))
+                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
                     && fa2erniggaalert.Governorate && fa2erniggaalert.Governorate.toLowerCase().includes(GovernorateTerm.toLowerCase());
             case "clothes":
                 return (AgeTerm != 0 ? (fa2erniggaalert.Age && fa2erniggaalert.Age == AgeTerm) : true)
                     && (fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase()))
                     && fa2erniggaalert.Gender && fa2erniggaalert.Gender.includes(GenderTerm)
+                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
                     && fa2erniggaalert.Season && fa2erniggaalert.Season.toLowerCase().includes(SeasonTerm.toLowerCase());
             case "food":
                 return (fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase()))
+                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
                     && (CategoryTerm.length?fa2erniggaalert.tag && CategoryTerm.some(category => fa2erniggaalert.tag.includes(category)):true);
             case "school":
                 return fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase())
+                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
                     && (CategoryTerm.length?fa2erniggaalert.tag && CategoryTerm.some(category => fa2erniggaalert.tag.includes(category)):true);
             case "medical":
                 return fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase())
+                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
                     && (CategoryTerm.length?fa2erniggaalert.tag && CategoryTerm.some(category => fa2erniggaalert.tag.includes(category)):true);
             default:
-                return true;
+                return fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()));
         }
     });
 
@@ -136,11 +147,11 @@ const Home = () => {
 
 
     return (
-    <div className="home min-h-screen w-screen grid grid-col-3 grid-row-3 items-start">
-        <TheBAR setTerm={setTerm}/>
+    <div className="home h-full w-full grid grid-col-3 grid-row-3 items-start">
+        <TheBAR TypeTerm={TypeTerm} setTerm={setTerm}/>
         <div className="w-screen flex flex-row justify-start items-start">
             <DropDownniiga setArea={setArea} setAge={setAge} setCategory={setCategory} setSubject={setSubject} setSpecial={setSpecial}
-             setHospital={setHospital} setSeason={setSeason} setType={setType} setGender={setGender} setGovernorate={setGovernorate} setMedical={setMedical}/>
+             setHospital={setHospital} setSeason={setSeason} setType={setType} setGender={setGender} setGovernorate={setGovernorate}/>
             <div className="home h-screen grid place-items-center mt-20 mx-auto w-[1400px]">
                 <ThisThing fa2erniggaalert={filter3adeyagedan}/>
             </div>  

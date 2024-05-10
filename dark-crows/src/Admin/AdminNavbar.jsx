@@ -5,7 +5,7 @@ import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDis
 const AdminNavbar = () => {
     const [currentUrl] = useState(window.location.href);
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
-    
+    const fileDataUrl = localStorage.getItem('photo');
     return ( 
         <Navbar isBordered shouldHideOnScroll isBlurred="false" className="w-full p-2 m-0">
             <NavbarContent justify="end">
@@ -46,7 +46,7 @@ const AdminNavbar = () => {
 
     <NavbarContent className="hidden mr-0 sm:flex gap-3 ml-7">
           <Button
-            className="button"
+            className="flex justify-center items-center p-2 gap-2 h-9 w-30 border-none bg-purple-200 rounded-full cursor-pointer"
             onPress={onOpen}
           >
             <svg
@@ -121,7 +121,7 @@ const AdminNavbar = () => {
                     className="transition-transform"
                     style={{color:"#28c95a"}}
                     size="sm"
-                    src="https://cdn.discordapp.com/emojis/765098679362650133.webp?size=44&quality=lossless"
+                    src={fileDataUrl}
                 />
                 </DropdownTrigger>
                 <DropdownMenu aria-label="Profile Actions" variant="flat">
