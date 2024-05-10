@@ -24,6 +24,8 @@ import OrgDonationPost1 from './OrgDonationPost1'
 import OrgDonationPost2 from './OrgDonationPost2'
 import ViewPost from './viewPost'
 import OrgDonationPost3 from './OrgDonationPost3';
+import ViewDonorProfileAsOrg from './ViewDonorProfileAsOrg.jsx';
+import OrgProfile from './OrgProfile.jsx';
 
 
 function App() {
@@ -53,6 +55,8 @@ function App() {
            <Route path='/OrgDonationPost2' element={<OrgDonationPost2/>}/>
            <Route path='/OrgDonationPost3' element={<OrgDonationPost3 />}/>
            <Route path='/OrgHomePage' element={<App2/>} />
+           <Route path='/ViewDonorProfile' element={<ViewDonorProfileAsOrg/>} />
+           <Route path='/OrgProfile' element={<OrgProfile/>} />
           </Routes>
       </Router>
     </div>

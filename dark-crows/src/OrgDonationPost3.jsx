@@ -93,7 +93,7 @@ function redirectBack(){
 }
 
 function redirectToDonor(){
-  navigate("/Donor");
+  navigate("/ViewDonorProfile");
 }
 
   return ( 

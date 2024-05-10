@@ -96,7 +96,7 @@ function redirectToEdit(){
 }
 
 function redirectToDonor(){
-  navigate("/Donor");
+  navigate("/ViewDonorProfile");
 }
 const {isOpen, onOpen, onOpenChange, onClose} = useDisclosure();
 const handleSendClick = () => {
