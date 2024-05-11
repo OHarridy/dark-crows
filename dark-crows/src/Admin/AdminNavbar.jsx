@@ -35,6 +35,8 @@ const AdminNavbar = () => {
   const toggleVisibility2 = () => setIsVisible2(!isVisible2); 
   const toggleVisibility3 = () => setIsVisible3(!isVisible3);
 
+  const fileDataUrl = localStorage.getItem("photo");
+
     return ( 
       
         <Navbar isBordered shouldHideOnScroll isBlurred="false" className="w-full p-2 m-0">
