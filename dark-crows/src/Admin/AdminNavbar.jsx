@@ -5,7 +5,12 @@ import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDis
 const AdminNavbar = () => {
     const [currentUrl] = useState(window.location.href);
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
-    
+    const {oldpass, setoldpass} = useState("admin");
+   function change(old, newp, rep){
+     if(oldpass === old && newp === rep){
+       setoldpass(newp);
+     }
+   }
     return ( 
         <Navbar isBordered shouldHideOnScroll isBlurred="false" className="w-full p-2 m-0">
             <NavbarContent justify="end">
@@ -81,18 +86,21 @@ const AdminNavbar = () => {
                 <ModalHeader className="flex flex-col gap-1">Change Password</ModalHeader>
                 <ModalBody>
                   <Input
+                  id="oldepass"
                     label="Old Password"
                     placeholder="Enter old password"
                     type="password"
                     variant="bordered"
                   />
                   <Input
+                  id="newpass"
                     label="New Password"
                     placeholder="Enter new password"
                     type="password"
                     variant="bordered"
                   />
                   <Input
+                  id="newpass2"
                     label="Repeat new Password"
                     placeholder="Repeat new password"
                     type="password"
@@ -103,7 +111,7 @@ const AdminNavbar = () => {
                   <Button color="danger" variant="flat" onPress={onClose}>
                     Close
                   </Button>
-                  <Button color="primary" onPress={onClose}>
+                  <Button color="primary" onPress={change()}>
                     Change Password
                   </Button>
                 </ModalFooter>
