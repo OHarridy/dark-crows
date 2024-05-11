@@ -16,11 +16,11 @@ const AdminNavbar = () => {
     const [oldp, setOldp] = useState("");
    function change(old, newp, rep){
     if(oldpass !== old){
-      toast.error('Old Password is incorrect! womp womp 😢');
+      toast.error('Old Password is incorrect!');
       console.log("old pass", oldpass);
     } 
     else if(newp !== rep){
-    toast.error('New Passwords do not match! womp womp 😢');
+    toast.error('New Passwords do not match!');
     console.log("old pass", oldpass);
     }
     else{
