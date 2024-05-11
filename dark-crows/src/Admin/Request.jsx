@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 
-function Record(org){
+function Request(org){
     const [flag,setFlag] = useState(false);
     const [hideVariable, sethideVariable] = React.useState("");
     const [bold, setNotBold] = React.useState("font-bold");
@@ -43,6 +43,7 @@ function Record(org){
                 <img className={`{org.isOrg === "true" ? "hidden" : ""} h-16 rounded-full mr-3`}  src={org.img}></img>
                 <div className="flex flex-col">
                     <p className={` ${bold} text-xl mt-4`}>{org.name}</p>
+                    <p className={`text-sm text-gray-700`}>{org.name}</p>
                     
                     
                 </div>
@@ -155,4 +156,4 @@ function Record(org){
     );
 }
 
-export default Record;
+export default Request;
