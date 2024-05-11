@@ -7,9 +7,9 @@ const TheMAP = (props) => {
     lat: propTypes.number,
     long: propTypes.number,
   }
-  const lat = props.lat;
+  const lat = 30;
    console.log("LAT", lat);
-  const long = props.long;
+  const long = 31;
   console.log("LONG", long);
 
   const snapshotLatitude = lat;

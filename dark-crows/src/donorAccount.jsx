@@ -122,9 +122,10 @@ const [interim, setInterim] = useState({
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-  const fileDataUrl = localStorage.getItem('photo');
+  const photoSrc = localStorage.getItem('photo');
   const [isVisible, setIsVisible] =useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
+
   function notify(){
     toast.info("Driver has Arrived");}
     return (
@@ -147,7 +148,7 @@ const [interim, setInterim] = useState({
                        <img src="https://vojislavd.com/ta-template-demo/assets/img/profile-background.jpg" className="w-full h-full rounded-tl-lg rounded-tr-lg"/>
                    </div>
                    <div className="flex flex-col items-center -mt-20">
-                       <img src="https://comicus.co.uk/wp-content/uploads/2018/05/flat.jpg" className="w-40 border-4 border-white rounded-full"/>
+                       <img src={photoSrc} className="w-40 border-4 border-white rounded-full"/>
                        <div className="flex items-center space-x-2 mt-2">
                            <p className="text-2xl">{nidda.username}</p>
                        </div>
@@ -207,6 +208,18 @@ const [interim, setInterim] = useState({
                                    {!changeMode?<span className="text-gray-700 ">{nidda.address}</span>:<Input name="address" id="address" onChange={handleInputChange}  defaultValue={nidda.address} variant="underlined" size="sm"/>}
                                </li>
 
+                               <li className="flex border-b py-2">
+                                   <span className="font-bold w-24 my-auto">Subjects:</span>
+                                   {!changeMode?<span className="text-gray-700 ">{nidda.subjects}</span>:<Input name="subjects" id="subjects" onChange={handleInputChange}  defaultValue={nidda.subjects} variant="underlined" size="sm"/>}
+                               </li>
+
+                               
+                               <li className="flex border-b py-2">
+                                   <span className="font-bold w-24 my-auto">Subjects:</span>
+                                   {!changeMode?<span className="text-gray-700 ">{nidda.subjects}</span>:<Input name="subjects" id="subjects" onChange={handleInputChange}  defaultValue={nidda.subjects} variant="underlined" size="sm"/>}
+                               </li>
+
+                               
                                <li className="flex border-b py-2">
                                    <span className="font-bold w-24 my-auto">Subjects:</span>
                                    {!changeMode?<span className="text-gray-700 ">{nidda.subjects}</span>:<Input name="subjects" id="subjects" onChange={handleInputChange}  defaultValue={nidda.subjects} variant="underlined" size="sm"/>}
