@@ -1,12 +1,11 @@
 import { Avatar, Input } from "@nextui-org/react";
 import { useState, useEffect } from "react";
 import TheBAR from "./TheBAR";
-import TheMAP from "./TheMAP";
-import {DateInput} from "@nextui-org/react";
-import {parseAbsoluteToLocal} from "@internationalized/date";
-import {EyeFilledIcon} from "./EyeFilledIcon";
-import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
+import GeneralButton from "./generalButton";
+import { PencilSquareIcon  } from '@heroicons/react/20/solid'
 import { ToastContainer, toast } from "react-toastify";
+import ProfileCard from "./ProfileCard";
+import {Textarea} from "@nextui-org/react";
 var thisp = "text-3xl w-[200px] break-words";
 const Donor = () => {
     let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")); 
@@ -16,10 +15,11 @@ const Donor = () => {
              role: loggedInUser.role, gender: loggedInUser.gender, longitude:+loggedInUser.longitude, latitude:+loggedInUser.latitude, no_appointments: loggedInUser.no_appointments, subjects: loggedInUser.subjects, no_students: loggedInUser.no_students, no_sessions: loggedInUser.no_sessions, document: loggedInUser.document, clinic_address: loggedInUser.clinic_address, org_name: loggedInUser.org_name, org_type: loggedInUser.org_type, about: loggedInUser.about, city: loggedInUser.city, state: loggedInUser.state, address_selection: loggedInUser.address_selection}
 );
     var [drivernidda] = useState(
-        [{ETA: '2024-05-10T19:57:00Z', driverName: "Ahmed 3andaleeb", driver: "01092408287"},
-         {ETA: '2024-04-26T19:45:00Z', driverName: "Omar 3andaleeb", driver: "01022608212"},
-         {ETA: '2024-09-10T07:17:00Z', driverName: "Shaz 3andaleeb", driver: "01092285549"},
-         {ETA: '2024-07-02T07:30:00Z', driverName: "Hamo 3andaleeb", driver: "01092267447"}
+        [{ETA: '2024-05-10 19:57:00', driverName: "Ahmed 3andaleeb", driver: "01092408287"},
+         {ETA: '2024-04-26 19:45:00', driverName: "Omar 3andaleeb", driver: "01022608212"},
+         {ETA: '2024-09-10 07:17:00', driverName: "Shazly 3andaleeb", driver: "01092285549"},
+         {ETA: '2024-07-02 07:30:00', driverName: "Hamo 3andaleeb", driver: "01092267447"},
+         {ETA: '2024-07-02 07:30:00', driverName: "Boko 3andaleeb", driver: "01092287447"},
 ]);
 
 const [time, setTime] = useState(new Date());
@@ -113,13 +113,15 @@ const [interim, setInterim] = useState({
 
   const [changeMode, setChangeMode] = useState(false);
   function changethis(){
-    
     setChangeMode(!changeMode)
     localStorage.setItem('loggedInUser', JSON.stringify(interim));
     loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")); 
     setnidda(loggedInUser);
 
   }
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
   const fileDataUrl = localStorage.getItem('photo');
   const [isVisible, setIsVisible] =useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
@@ -131,99 +133,128 @@ const [interim, setInterim] = useState({
             
             <TheBAR/>
             <div className="flex flex-row ml-[0.5%]">
-                <div className>
-                    <div className="text-4xl font-bold px-[2%]"> Pending Deliveries </div>
-                    <div>
-                    {drivernidda.map(drivernidda => (
-                    <div key={drivernidda.ETA}> 
-                    <div className="text-2xl w-[60%] mx-auto">{drivernidda.driverName}</div>
-                        <DateInput startContent="⠀⠀⠀⠀" endContent="⠀⠀⠀⠀" defaultValue={parseAbsoluteToLocal(drivernidda.ETA)} isReadOnly/>
-                    </div>
-                    ))}
-                    </div>
+
+                <div className="mx-auto">
+                <div>
+       
+       <div className="h-full w-full bg-gray-200 p-8 mt-[800px] mb-12">
+               <div className="bg-white rounded-lg shadow-xl ">
+                   <div className="absolute right-12 mt-4 rounded">
+                       <div className="bg-white absolute right-0 w-40 py-2 mt-1 border border-gray-200 shadow-2xl" style={{display: "none"}}>
+                       </div>
+                   </div>
+                   <div className="w-full h-[250px]">
+                       <img src="https://vojislavd.com/ta-template-demo/assets/img/profile-background.jpg" className="w-full h-full rounded-tl-lg rounded-tr-lg"/>
+                   </div>
+                   <div className="flex flex-col items-center -mt-20">
+                       <img src="https://comicus.co.uk/wp-content/uploads/2018/05/flat.jpg" className="w-40 border-4 border-white rounded-full"/>
+                       <div className="flex items-center space-x-2 mt-2">
+                           <p className="text-2xl">{nidda.username}</p>
+                       </div>
+                       <p className="text-gray-500">{capitalizeFirstLetter(nidda.role)}</p>
+                       
+                                   {!changeMode?<p className="text-sm">{nidda.about}</p>:<Textarea variant="faded"
+      label="Description"
+      placeholder="Enter your description"
+      description="Edit your Bio."
+      className="max-w-xs" defaultValue={nidda.about}/>}
+                   </div>
+                   <div className="flex-1 flex flex-col items-center lg:items-end justify-end px-8 mt-2">
+                   </div>
+                   <div className="text-2xl flex justify-end">
+                       <GeneralButton onClick={() => (
+                    changethis(),
+                    notify()
+                )} text={<PencilSquareIcon className="w-6"/>} className="m-2"/>
+                       </div>
+               </div>
+       
+               <div className="my-4 flex flex-col 2xl:flex-row space-y-4 2xl:space-y-0 2xl:space-x-4">
+                   <div className="w-full flex flex-row gap-4">
+                       <div className="flex-1 bg-white rounded-lg shadow-xl p-8">
+                           <h4 className="text-xl text-gray-900 font-bold">Personal Info</h4>
+                           <ul className="mt-2 text-gray-700">
+                              <li className="flex border-y py-2">
+                                <span className="font-bold w-24 my-auto">First name:</span>
+                                {!changeMode ? <span className="text-gray-700">{nidda.first_name}</span> : <Input type="text" name="first_name" onChange={handleInputChange}  id="first_name" defaultValue={nidda.first_name} variant="underlined" size="sm" />}
+                              </li>
+                              <li className="flex border-y py-2">
+                                <span className="font-bold w-24 my-auto">Last name:</span>
+                                {!changeMode ? <span className="text-gray-700">{nidda.last_name}</span> : <Input onChange={handleInputChange}  type="text" name="last_name" id="last_name" defaultValue={nidda.last_name} variant="underlined" size="sm" />}
+                              </li>
+                               <li className="flex border-b py-2">
+                                  <span className="font-bold w-24 my-auto">Phone:</span>
+                                  {!changeMode ? <span className="text-gray-700">{nidda.contact_number}</span> : <Input name="contact_number" onChange={handleInputChange} variant="underlined" size="sm" defaultValue={nidda.contact_number} />}
+                               </li>
+                               <li className="flex border-b py-2">
+                                  <span className="font-bold w-24 my-auto">Email:</span>
+                                  {!changeMode ? <span className="text-gray-700">{nidda.email}</span> : <Input  id="email" name="email" onChange={handleInputChange}  defaultValue={nidda.email} variant="underlined" size="sm"/>}
+                               </li>
+                               <li className="flex border-b py-2">
+                                   <span className="font-bold w-24 my-auto">Gender:</span>
+                                   <span className="text-gray-700 ">{capitalizeFirstLetter(nidda.gender)}</span>
+                               </li>
+                               <li className="flex border-b py-2">
+                                   <span className="font-bold w-24 my-auto">City:</span>
+                                   {!changeMode?<span className="text-gray-700">{nidda.city}</span>:<Input  id="city" name="city" onChange={handleInputChange}  variant="underlined" size="sm" defaultValue={nidda.city}/>}
+                               </li>
+                               <li className="flex border-b py-2">
+                                   <span className="font-bold w-24 my-auto">Country:</span>
+                                   {!changeMode?<span className="text-gray-700">{capitalizeFirstLetter(nidda.country)}</span>:<Input onChange={handleInputChange}  name="country" id="country" variant="underlined" size="sm" defaultValue={capitalizeFirstLetter(nidda.country)}/>}
+                               </li>
+                               <li className="flex border-b py-2">
+                                   <span className="font-bold w-24 my-auto">Address:</span>
+                                   {!changeMode?<span className="text-gray-700 ">{nidda.address}</span>:<Input name="address" id="address" onChange={handleInputChange}  defaultValue={nidda.address} variant="underlined" size="sm"/>}
+                               </li>
+
+                               <li className="flex border-b py-2">
+                                   <span className="font-bold w-24 my-auto">Subjects:</span>
+                                   {!changeMode?<span className="text-gray-700 ">{nidda.subjects}</span>:<Input name="subjects" id="subjects" onChange={handleInputChange}  defaultValue={nidda.subjects} variant="underlined" size="sm"/>}
+                               </li>
+
+                               <li className="flex border-b py-2">
+                                   <span className="font-bold w-24 my-auto">Appointments:</span>
+                                   {!changeMode?<span className="text-gray-700 ">{nidda.no_appointments}</span>:<Input id="no_appointments" name="no_appointments" onChange={handleInputChange}  value={nidda.no_appointments} variant="underlined" size="sm"/>}
+                               </li>
+
+
+                           </ul>
+                       </div>
+                       <div className="flex-1 bg-white rounded-lg shadow-xl p-8">
+                           <h4 className="text-xl text-gray-900 font-bold">Pending Deliveries</h4>
+                           <div className="relative px-4">
+                               
+       
+                           {drivernidda.map(supanigga => (
+                           <div key={drivernidda.ETA}> 
+                           
+                           <div className="flex items-center w-full my-6 -ml-1.5">
+                                   <div className="w-1/12 z-10">
+                                       <div className="w-3.5 h-3.5 bg-green-500 rounded-full"></div>
+                                   </div>
+                                   <div className="w-11/12">
+                                       <p className="text-sm">{supanigga.driverName}</p>
+                                       <p className="text-xs text-gray-500">{supanigga.ETA}</p>
+                                   </div>
+                               </div>
+                           
+                           </div>
+                           ))}
+       
+                           </div>
+                       </div>
+                   </div>
+                   
+       
+               </div>
+       
+               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13816.535839230537!2d31.434103619311546!3d30.03301445684388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1715456458622!5m2!1sen!2seg" 
+               width="100%" height="400px" style={{border:"0"}} className="rounded-lg shadow-xl"></iframe>
+       
+               </div>
+               </div>
                 </div>
 
-                <div className="w-[55.8%] ml-20 border-large border-dotted rounded-lg border-blue-500 ">
-                    <div className="grid grid-cols-3 gap-4 items-center">   
-                        <Avatar className="row-span-5 w-[200px] h-[200px] mx-auto"
-                        src={fileDataUrl}/>
-                    {changeMode?<Input id="first_name" name="first_name" onChange={handleInputChange} size="lg" type="text" variant={"flat"} placeholder="Name" defaultValue={nidda.first_name} />:<p className={thisp}>{nidda.first_name}</p>}
-                    {changeMode?<Input id="last_name" name="last_name" onChange={handleInputChange} size="lg" type="text" variant={"flat"} placeholder="Name" defaultValue={nidda.last_name} />:<p className={thisp}>{nidda.last_name}</p>}
-                    {changeMode?<Input id="email" name="email" onChange={handleInputChange} isRequired size="lg" type="email" variant={"flat"} placeholder="Email" defaultValue={nidda.email} />:<p className={thisp}>{nidda.email}</p>}
-                    {changeMode?<Input id="gender" name="gender" onChange={handleInputChange} size="lg" type="text" variant={"flat"} placeholder="Gender" defaultValue={nidda.gender} />:<p className={thisp}>{nidda.gender}</p>}
-                    {changeMode?<Input id="contact_number" name="contact_number" onChange={handleInputChange} size="lg" type="tel" variant={"flat"} placeholder="Phone" defaultValue={nidda.contact_number} />:<p className={thisp}>{nidda.contact_number}</p>}
-                    {changeMode?<Input id="role" name="role" onChange={handleInputChange} isRequired size="lg" type="text" variant={"flat"} placeholder="Type" defaultValue={nidda.role} />:<p className={thisp}>{nidda.role}</p>}
-                    {changeMode?<Input id="address" name="address" onChange={handleInputChange} isRequired size="lg" type="text" variant={"flat"} placeholder="Address" defaultValue={nidda.address} />:<p className={thisp}>{nidda.address}</p>}
-                    {changeMode?<Input id="country" name="country" 
-                    onChange={handleInputChange} isRequired size="lg" 
-                    type="text" variant={"flat"} placeholder="Country" 
-                    defaultValue={nidda.country} />:<p className={thisp}>{nidda.country}</p>}
-                    {<p className={thisp}>{nidda.username}</p>}
-                    {changeMode?<Input id="password" name="password" isRequired onChange={handleInputChange}
-      placeholder="Password"
-      defaultValue={nidda.password}
-      endContent={
-        <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
-          {isVisible ? (
-            <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
-          ) : (
-            <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
-          )}
-        </button>
-      }
-      type={isVisible ? "text" : "password"}
-      
-    />:<p className={thisp}>*****</p>}
-                </div>
-
-                {nidda.role === "doctor" ? 
-                <div className="flex flex-row">
-                {loggedInUser.longitude?
-                    !changeMode?<iframe src={"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1818.421628697366!2d"+nidda.longitude+"!3d"+nidda.latitude+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714984628638!5m2!1sen!2seg"} 
-                    width="600" height="600"></iframe>:<TheMAP long={nidda.longitude} lat={nidda.latitude} handleMapChange={handleMapChange}/>:""}
-
-                    <div className="flex flex-col gap-12 my-auto">
-                        <p className="w-54 text-3xl">
-                            Number of Appointments:{nidda.no_appointments}
-                        </p>
-                    </div>
-                </div> : nidda.role === "teacher"?<div className="flex flex-row">
-                {loggedInUser.longitude?
-                    !changeMode?<iframe src={"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1818.421628697366!2d"+nidda.longitude+"!3d"+nidda.latitude+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714984628638!5m2!1sen!2seg"} 
-                    width="600" height="600"></iframe>:<TheMAP long={nidda.longitude} lat={nidda.latitude} handleMapChange={handleMapChange}/>:""}
-                    <div className="grid grid-col-1 my-auto gap-24">
-                        <p className="w-54 text-3xl">
-                            Subjects: {nidda.subjects}
-                        </p>
-                        <p className="w-54 text-3xl">
-                             No. of pro bono classes: {nidda.no_sessions}
-                        </p>
-                        <p className="w-54 text-3xl">
-                            No. of private students: {nidda.no_students}
-                        </p>
-                        
-                    </div>
-                    </div> : <div className="flex flex-row">
-
-                    {loggedInUser.longitude?
-                    !changeMode?<iframe src={"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1818.421628697366!2d"+nidda.longitude+"!3d"+nidda.latitude+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714984628638!5m2!1sen!2seg"} 
-                    width="600" height="600"></iframe>:<TheMAP long={nidda.longitude} lat={nidda.latitude} handleMapChangelong={handleMapChangelong} handleMapChangelat={handleMapChangelat}/>:""}
-
-
-
-
-                    </div> }
-                    <div className="w-full flex flex-col">
-                      <button className="w-[90px] h-[45px] bg-green-500 rounded-lg self-end" 
-                      onClick={() => (
-                          changethis(),
-                          notify()
-                      )}
-                      >
-                      Edit
-                      </button> 
-                  </div>
-                </div>
             </div>
             <ToastContainer/>
         </div>
