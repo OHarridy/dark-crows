@@ -7,7 +7,7 @@ import {parseAbsoluteToLocal} from "@internationalized/date";
 import {EyeFilledIcon} from "./EyeFilledIcon";
 import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
 import { ToastContainer, toast } from "react-toastify";
-var thisp = "text-3xl w-[100%]";
+var thisp = "text-3xl w-[200px] break-words";
 const Donor = () => {
     let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")); 
     var [nidda, setnidda] = useState(
@@ -120,7 +120,7 @@ const [interim, setInterim] = useState({
     setnidda(loggedInUser);
 
   }
-  const fileDataUrl = localStorage.getItem('file');
+  const fileDataUrl = localStorage.getItem('photo');
   const [isVisible, setIsVisible] =useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
   function notify(){
@@ -130,7 +130,6 @@ const [interim, setInterim] = useState({
         <div className="min-h-screen w-screen">
             
             <TheBAR/>
-            <h2>{time.toLocaleTimeString()}</h2>
             <div className="flex flex-row ml-[0.5%]">
                 <div className>
                     <div className="text-4xl font-bold px-[2%]"> Pending Deliveries </div>
@@ -146,7 +145,7 @@ const [interim, setInterim] = useState({
 
                 <div className="w-[55.8%] ml-20 border-large border-dotted rounded-lg border-blue-500 ">
                     <div className="grid grid-cols-3 gap-4 items-center">   
-                        <Avatar className="row-span-5 w-[250px] h-[250px] mx-auto"
+                        <Avatar className="row-span-5 w-[200px] h-[200px] mx-auto"
                         src={fileDataUrl}/>
                     {changeMode?<Input id="first_name" name="first_name" onChange={handleInputChange} size="lg" type="text" variant={"flat"} placeholder="Name" defaultValue={nidda.first_name} />:<p className={thisp}>{nidda.first_name}</p>}
                     {changeMode?<Input id="last_name" name="last_name" onChange={handleInputChange} size="lg" type="text" variant={"flat"} placeholder="Name" defaultValue={nidda.last_name} />:<p className={thisp}>{nidda.last_name}</p>}
