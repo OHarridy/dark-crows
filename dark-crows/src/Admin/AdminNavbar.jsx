@@ -1,13 +1,44 @@
 import {Image, Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Input, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar} from "@nextui-org/react";
 import { useState } from "react";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react"
+import { ToastContainer, toast } from "react-toastify";
+import {EyeFilledIcon} from "../EyeFilledIcon";
+import {EyeSlashFilledIcon} from "../EyeSlashFilledIcon";
+import GeneralButton from "../generalButton";
+
 
 const AdminNavbar = () => {
     const [currentUrl] = useState(window.location.href);
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
-    const fileDataUrl = localStorage.getItem('photo');
+    const {oldpass, setoldpass} = useState("admin");
+    const [newp, setNewp] = useState("");
+    const [rep, setRep] = useState("");
+    const [oldp, setOldp] = useState("");
+   function change(old, newp, rep){
+    if(oldpass !== old){
+      toast.error('Old Password is incorrect! womp womp 😢');
+    } 
+    else if(newp !== rep){
+    toast.error('New Passwords do not match! womp womp 😢');
+    }
+    else{
+      //  setoldpass(newp);
+       toast.success('Password Changed Successfully! 🎉🥳');
+       setoldpass(newp);
+     }
+   }
+
+   const [isVisible, setIsVisible] =useState(false);
+   const [isVisible2, setIsVisible2] =useState(false);
+   const [isVisible3, setIsVisible3] =useState(false);
+  const toggleVisibility = () => setIsVisible(!isVisible);
+  const toggleVisibility2 = () => setIsVisible2(!isVisible2); 
+  const toggleVisibility3 = () => setIsVisible3(!isVisible3);
+
     return ( 
+      
         <Navbar isBordered shouldHideOnScroll isBlurred="false" className="w-full p-2 m-0">
+          
             <NavbarContent justify="end">
             <NavbarBrand className="mr-4">
             <Image src="https://i.ibb.co/5x4KDm7/better.png" alt="sharelelkheir" radius="full" width="62" />
@@ -66,7 +97,8 @@ const AdminNavbar = () => {
                 ></path>
               </g>
             </svg>
-            <span className="lable" style={{fontSize:'14px'}}>Change Password</span>
+            <span className="lable">Change Password</span>
+           
           </Button>
 
           <Modal 
@@ -79,33 +111,74 @@ const AdminNavbar = () => {
             {(onClose) => (
               <>
                 <ModalHeader className="flex flex-col gap-1">Change Password</ModalHeader>
-                <ModalBody>
+                <ModalBody>                  
+              <Input
+             id="oldepass"
+             label="Old Password"
+             placeholder="Enter old password"
+             type="password"
+             variant="bordered"
+             value={oldp}
+             onChange={e => setOldp(e.target.value)}
+      endContent={
+        <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
+          {isVisible ? (
+            <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+          ) : (
+            <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+          )}
+        </button>
+      }
+      required
+      type={isVisible ? "text" : "password"}
+    />
+
+              <Input
+              id="newpass"
+              label="New Password"
+              placeholder="Enter new password"
+              type="password"
+              variant="bordered"
+              value={newp}
+              onChange={e => setNewp(e.target.value)}
+      endContent={
+        <button className="focus:outline-none" type="button" onClick={toggleVisibility2}>
+          {isVisible2 ? (
+            <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+          ) : (
+            <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+          )}
+        </button>
+      }
+      required
+      type={isVisible2 ? "text" : "password"}
+    />
                   <Input
-                    label="Old Password"
-                    placeholder="Enter old password"
-                    type="password"
-                    variant="bordered"
-                  />
-                  <Input
-                    label="New Password"
-                    placeholder="Enter new password"
-                    type="password"
-                    variant="bordered"
-                  />
-                  <Input
-                    label="Repeat new Password"
-                    placeholder="Repeat new password"
-                    type="password"
-                    variant="bordered"
-                  />
+               id="newpass2"
+               label="Repeat new Password"
+               placeholder="Repeat new password"
+               type="password"
+               variant="bordered"
+               value={rep}
+               onChange={e => setRep(e.target.value)}
+      endContent={
+        <button className="focus:outline-none" type="button" onClick={toggleVisibility3}>
+          {isVisible3 ? (
+            <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+          ) : (
+            <EyeFilledIcon className="text-2xl text-default-400 pointer-events-none" />
+          )}
+        </button>
+      }
+      required
+      type={isVisible3 ? "text" : "password"}
+    /> <ToastContainer/>
                 </ModalBody>
                 <ModalFooter>
                   <Button color="danger" variant="flat" onPress={onClose}>
                     Close
                   </Button>
-                  <Button color="primary" onPress={onClose}>
-                    Change Password
-                  </Button>
+                  <GeneralButton text="Change Password" onClick={()=>{change(oldp,newp,rep)}}/>
                 </ModalFooter>
               </>
             )}

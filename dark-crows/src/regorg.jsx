@@ -38,6 +38,7 @@ const [blogs, setBlogs] = useState([
   const categories = {
     'Type': ['Hospital', 'Orphanage', 'Refugees & Improverished'  ],
     'Governorate': ['Ismailia Governorate', 'Cairo Governorate', 'Giza Governorate'],
+    'Area': ['El-Nozha', 'El Mokattam', 'El Sayeda Zeinab', 'El Haram', 'Al Abageyah', 'Al Thawra', 'Sekat Hadid Al Mahger', 'Anwar El-Sadat']
     // Add more categories and subcategories as needed
   };
 
@@ -65,6 +66,9 @@ const [blogs, setBlogs] = useState([
       else if(selectedCategory === 'Type' && selectedSubcategory !== null){
         return  blog.type.toLowerCase().includes(selectedSubcategory.toLowerCase());
       }
+      else if(selectedCategory === 'Area' && selectedSubcategory !== null){
+        return  blog.title.toLowerCase().includes(selectedSubcategory.toLowerCase());
+      }
       else {
         return  blog.author.toLowerCase().includes(searchTerm.toLowerCase());
       }}
@@ -78,8 +82,8 @@ const [blogs, setBlogs] = useState([
             
            <div className="split-div flex ">
             <div className="left-div flex-2 mr-20 ">
-            <div className="search-bar">
-                <svg viewBox="0 0 24 24" aria-hidden="true" className="icon">
+            <div className="flex items-center relative max-w-xs leading-7">
+                <svg viewBox="0 0 24 24" aria-hidden="true" className="absolute left-4 w-4 h-4 mt-[2px]" style={{fill: "#fff"}}>
                     <g>
                         <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
                     </g>
@@ -134,13 +138,15 @@ const [blogs, setBlogs] = useState([
       </div>
 
             <div
-                className="blogs "
-                style={{ overflowY: "scroll", maxHeight: "300px", maxWidth:"300px", display: "grid", gridColumn:"4" }}
+                className="blogs"
+                style={{ overflowY: "scroll", maxHeight: "323px", maxWidth:"300px", display: "grid", gridColumn:"4" }}
             >
                 {filteredBlogs.map((blog) => (
-                    <div
-                        className="blog-preview justify-between border-2 border-green-500 text-black hover:shadow-lg hover:shadow-green-900 transition duration-200 ease-in-out py-2 px-4 rounded"
-                        onClick={() => setSelectedBlog(blog)}
+                    <div onClick={() => (setSelectedBlog(blog) 
+                      ,toggleVisibility(blog.id))
+                  }
+                        className="blog-preview justify-between border-2 border-green-500 text-black hover:shadow-lg hover:shadow-green-900 
+                        transition duration-200 ease-in-out py-2 px-4 rounded"
                         style={{
                           cursor:"pointer",
                             display: "flex",
@@ -155,8 +161,6 @@ const [blogs, setBlogs] = useState([
                         <div style={{columnSpan:"2"  }}>
                             <h2 className="text-xl">{blog.author}</h2>
                         </div>
-                      
-                      
                         <button
                             className="bin-button min-w-10"
                             onClick={()=>{setOpen(!open); settobedeletedBlog(blog)}}
@@ -215,6 +219,7 @@ const [blogs, setBlogs] = useState([
                                 ></path>
                             </svg>
                         </button>
+                        
                     </div>
                 ))}
             </div>
