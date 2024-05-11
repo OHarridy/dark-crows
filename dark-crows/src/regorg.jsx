@@ -38,6 +38,7 @@ const [blogs, setBlogs] = useState([
   const categories = {
     'Type': ['Hospital', 'Orphanage', 'Refugees & Improverished'  ],
     'Governorate': ['Ismailia Governorate', 'Cairo Governorate', 'Giza Governorate'],
+    'Area': ['El-Nozha', 'El Mokattam', 'El Sayeda Zeinab', 'El Haram', 'Al Abageyah', 'Al Thawra', 'Sekat Hadid Al Mahger', 'Anwar El-Sadat']
     // Add more categories and subcategories as needed
   };
 
@@ -64,6 +65,9 @@ const [blogs, setBlogs] = useState([
       }
       else if(selectedCategory === 'Type' && selectedSubcategory !== null){
         return  blog.type.toLowerCase().includes(selectedSubcategory.toLowerCase());
+      }
+      else if(selectedCategory === 'Area' && selectedSubcategory !== null){
+        return  blog.title.toLowerCase().includes(selectedSubcategory.toLowerCase());
       }
       else {
         return  blog.author.toLowerCase().includes(searchTerm.toLowerCase());
