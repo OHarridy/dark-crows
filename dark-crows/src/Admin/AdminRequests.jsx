@@ -79,7 +79,7 @@ function AdminRequests(){
             <AdminNavbar />
             <div className="w-full flex flex-col text-center justify-center border-b-4">
                 <div className='flex flex-row justify-center'>
-                <p className='text-3xl mt-5 font-bold w-fit p-3 rounded-lg text-gray-700'>{where}</p>
+                <p className='text-3xl mt-5 font-bold w-fit p-3 rounded-lg text-gray-700'>Organizations Requests</p>
                 </div>
                 <div className='flex flex-row justify-between my-7' style={{marginTop:``}}>
                     

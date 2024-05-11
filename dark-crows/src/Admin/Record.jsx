@@ -5,21 +5,21 @@ function Record(org){
     const [hideVariable, sethideVariable] = React.useState("");
     const [bold, setNotBold] = React.useState("font-bold");
     const handleAcceptClick = () => {
-        // if (window.confirm("Are you sure you want to Accept?")) {
+        if (window.confirm("Are you sure you want to Accept?")) {
             sethideVariable("hidden");
             org.setTotalWhenAccept();
             if(!flag)
                 org.setUnseen();
-        // } else {}
+        } else {}
         
     };
     const handleRejectClick = () => {
-        // if (window.confirm("Are you sure you want to Reject?")) {
+        if (window.confirm("Are you sure you want to Reject?")) {
             sethideVariable("hidden");
             org.setTotalWhenAccept();
             if(!flag)
                 org.setUnseen();
-        // } else {}
+        } else {}
     };
     
     function openProfile(){
@@ -40,7 +40,7 @@ function Record(org){
     return (
         <div className={`flex flex-row ${hideVariable} justify-between border-2 border-green-500 text-black hover:shadow-green-900 hover:shadow-lg transition duration-200 ease-in-out py-2 px-4 rounded`}>
             <div className="flex flex-row hover:cursor-pointer hover:shadow-md w-3/4"  onClick={openProfile} >
-                <img className={`{org.isOrg === "true" ? "hidden" : ""} h-16 rounded-full mr-3`}  src={org.img}></img>
+                <img className={`{org.isOrg === "true" ? "hidden" : ""} h-16 rounded-full mr-3 w-24`}  src={org.img}></img>
                 <div className="flex flex-col">
                     <p className={` ${bold} text-xl mt-4`}>{org.name}</p>
                     

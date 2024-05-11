@@ -12,7 +12,7 @@ function Records(props){
             
             
             <div className={props.hid === false ? "" : "hidden"}>{orgs.map((rec,index) => 
-            (<Record key={index} name={rec.name} description={rec.description} img={rec.img} isOrg={props.isOrg} 
+            (<Record key={index} name={rec.author} description={rec.type} img={rec.profilePic} isOrg={props.isOrg} 
             setUnseen={props.setUnseen} unseen={props.unseen} setTotalWhenAccept={props.setTotalWhenAccept}
             
             />))}</div>
