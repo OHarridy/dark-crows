@@ -26,7 +26,7 @@ import ViewPost from './viewPost'
 import OrgDonationPost3 from './OrgDonationPost3';
 import ViewDonorProfileAsOrg from './ViewDonorProfileAsOrg.jsx';
 import OrgProfile from './OrgProfile.jsx';
-
+import AdminRequests from './Admin/AdminRequests.jsx';
 
 function App() {
   return (
@@ -57,6 +57,7 @@ function App() {
            <Route path='/OrgHomePage' element={<App2/>} />
            <Route path='/ViewDonorProfile' element={<ViewDonorProfileAsOrg/>} />
            <Route path='/OrgProfile' element={<OrgProfile/>} />
+           <Route path='/AdminRequests' element={<AdminRequests/>} />
           </Routes>
       </Router>
     </div>

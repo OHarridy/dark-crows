@@ -54,6 +54,11 @@ const AdminNavbar = () => {
                         <p style={{color: currentUrl.includes("/AdminRegisteredDonors") ? "#28c95a" : "#000000"}}>Donors</p>
                     </Link>
                 </NavbarItem>
+                <NavbarItem isActive={currentUrl.includes("/AdminRequests") ? "false" : ""}>
+                    <Link href="/AdminRequests" aria-current="page" >
+                        <p style={{color: currentUrl.includes("/AdminRequests") ? "#28c95a" : "#000000"}}>Requests</p>
+                    </Link>
+                </NavbarItem>
                 <NavbarItem isActive={currentUrl.includes("/AdminSubmission") ? "false" : ""}>
                     <Link href="/AdminSubmission" aria-current="page" >
                         <p style={{color: currentUrl.includes("/AdminSubmission") ? "#28c95a" : "#000000"}}>Submissions</p>
@@ -129,8 +134,7 @@ const AdminNavbar = () => {
           )}
         </button>
       }
-      required
-      type={isVisible ? "text" : "password"}
+      requiredtype={isVisible ? "text" : "password"}
     />
 
               <Input
@@ -150,8 +154,7 @@ const AdminNavbar = () => {
           )}
         </button>
       }
-      required
-      type={isVisible2 ? "text" : "password"}
+      requiredtype={isVisible2 ? "text" : "password"}
     />
                   <Input
                id="newpass2"
@@ -170,8 +173,7 @@ const AdminNavbar = () => {
           )}
         </button>
       }
-      required
-      type={isVisible3 ? "text" : "password"}
+      requiredtype={isVisible3 ? "text" : "password"}
     /> <ToastContainer/>
                 </ModalBody>
                 <ModalFooter>
