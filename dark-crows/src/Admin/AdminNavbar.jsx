@@ -10,16 +10,18 @@ import GeneralButton from "../generalButton";
 const AdminNavbar = () => {
     const [currentUrl] = useState(window.location.href);
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
-    const {oldpass, setoldpass} = useState("admin");
+    const [oldpass, setoldpass] = useState("admin");
     const [newp, setNewp] = useState("");
     const [rep, setRep] = useState("");
     const [oldp, setOldp] = useState("");
    function change(old, newp, rep){
     if(oldpass !== old){
       toast.error('Old Password is incorrect! womp womp 😢');
+      console.log("old pass", oldpass);
     } 
     else if(newp !== rep){
     toast.error('New Passwords do not match! womp womp 😢');
+    console.log("old pass", oldpass);
     }
     else{
       //  setoldpass(newp);
