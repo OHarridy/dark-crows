@@ -230,7 +230,7 @@ useEffect(() => {
     <section className="relative isolate overflow-hidden bg-white px-6 lg:px-8">
       <div  />
       <div />
-      <div className="mx-auto max-w-2xl lg:max-w-4xl">
+      <div className="mx-auto max-w-2xl lg:max-w-3xl">
         <img className="mx-auto h-20" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/UN_emblem_blue.svg" alt="" />
         <figure className="mt-10">
           <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-3xl sm:leading-9">
