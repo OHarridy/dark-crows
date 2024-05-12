@@ -12,7 +12,7 @@ const Donor = () => {
     var [nidda, setnidda] = useState(
         {username: loggedInUser.username, password:loggedInUser.password ,first_name: loggedInUser.first_name,last_name: loggedInUser.last_name, email: loggedInUser.email, contact_number: loggedInUser.contact_number,
              address: loggedInUser.address, country: loggedInUser.country,
-             role: loggedInUser.role, gender: loggedInUser.gender, longitude:+loggedInUser.longitude, latitude:+loggedInUser.latitude, no_appointments: loggedInUser.no_appointments, subjects: loggedInUser.subjects, no_students: loggedInUser.no_students, no_sessions: loggedInUser.no_sessions, document: loggedInUser.document, clinic_address: loggedInUser.clinic_address, org_name: loggedInUser.org_name, org_type: loggedInUser.org_type, about: loggedInUser.about, city: loggedInUser.city, state: loggedInUser.state, address_selection: loggedInUser.address_selection}
+             role: loggedInUser.role, gender: loggedInUser.gender, longitude:+loggedInUser.longitude, latitude:+loggedInUser.latitude, no_appointments: loggedInUser.no_appointments, subjects: loggedInUser.subjects, no_students: loggedInUser.no_students, no_sessions: loggedInUser.no_sessions, document: loggedInUser.document, clinic_address: loggedInUser.clinic_address, org_name: loggedInUser.org_name, org_type: loggedInUser.org_type, about: loggedInUser.about, city: loggedInUser.city, state: loggedInUser.state, address_selection: loggedInUser.address_selection, specialty: loggedInUser.specialty}
 );
     var [drivernidda] = useState(
         [{ETA: '2024-05-10 19:57:00', driverName: "Ahmed 3andaleeb", driver: "01092408287"},
@@ -91,6 +91,8 @@ const [interim, setInterim] = useState({
     address: loggedInUser.address,
     city: loggedInUser.city,
     state: loggedInUser.state,
+    specialty: loggedInUser.specialty,
+
   });
   function handleInputChange(e){
     const value =e.target.value;
@@ -152,7 +154,15 @@ const [interim, setInterim] = useState({
                        <div className="flex items-center space-x-2 mt-2">
                            <p className="text-2xl">{nidda.username}</p>
                        </div>
-                       <p className="text-gray-500">{capitalizeFirstLetter(nidda.role)}</p>
+                       { nidda.org_name === '' ?
+    <>
+        <p className="text-gray-500">{capitalizeFirstLetter(nidda.role)}</p>
+    </>
+    :
+    <>
+        <p className="text-gray-500">{capitalizeFirstLetter(nidda.org_type)}</p>
+    </>
+}
                        
                                    {!changeMode?<p className="text-sm">{nidda.about}</p>:<Textarea variant="faded"
       label="Description"
@@ -208,6 +218,7 @@ const [interim, setInterim] = useState({
                                    {!changeMode?<span className="text-gray-700 ">{nidda.address}</span>:<Input name="address" id="address" onChange={handleInputChange}  defaultValue={nidda.address} variant="underlined" size="sm"/>}
                                </li>
 
+{nidda.role === "teacher" ? <>
                                <li className="flex border-b py-2">
                                    <span className="font-bold w-24 my-auto">Subjects:</span>
                                    {!changeMode?<span className="text-gray-700 ">{nidda.subjects}</span>:<Input name="subjects" id="subjects" onChange={handleInputChange}  defaultValue={nidda.subjects} variant="underlined" size="sm"/>}
@@ -215,21 +226,37 @@ const [interim, setInterim] = useState({
 
                                
                                <li className="flex border-b py-2">
-                                   <span className="font-bold w-24 my-auto">Subjects:</span>
-                                   {!changeMode?<span className="text-gray-700 ">{nidda.subjects}</span>:<Input name="subjects" id="subjects" onChange={handleInputChange}  defaultValue={nidda.subjects} variant="underlined" size="sm"/>}
+                                   <span className="font-bold w-24 my-auto">Students:</span>
+                                   {!changeMode?<span className="text-gray-700 ">{nidda.no_students}</span>:<Input name="no_students" id="no_students" onChange={handleInputChange}  defaultValue={nidda.no_students} variant="underlined" size="sm"/>}
                                </li>
 
                                
                                <li className="flex border-b py-2">
-                                   <span className="font-bold w-24 my-auto">Subjects:</span>
-                                   {!changeMode?<span className="text-gray-700 ">{nidda.subjects}</span>:<Input name="subjects" id="subjects" onChange={handleInputChange}  defaultValue={nidda.subjects} variant="underlined" size="sm"/>}
+                                   <span className="font-bold w-24 my-auto">Sessions:</span>
+                                   {!changeMode?<span className="text-gray-700 ">{nidda.no_sessions}</span>:<Input name="no_sessions" id="no_sessions" onChange={handleInputChange}  defaultValue={nidda.no_sessions} variant="underlined" size="sm"/>}
                                </li>
 
+                               </>:<></>}
+
+                               
+                               {nidda.role === "doctor" ? <>
+                               <li className="flex border-b py-2">
+                                   <span className="font-bold w-24 my-auto">Specialty:</span>
+                                   {!changeMode?<span className="text-gray-700 ">{nidda.specialty}</span>:<Input id="specialty" name="specialty" onChange={handleInputChange}  defaultValue={nidda.specialty} variant="underlined" size="sm"/>}
+                               </li>
+
+                               
                                <li className="flex border-b py-2">
                                    <span className="font-bold w-24 my-auto">Appointments:</span>
-                                   {!changeMode?<span className="text-gray-700 ">{nidda.no_appointments}</span>:<Input id="no_appointments" name="no_appointments" onChange={handleInputChange}  value={nidda.no_appointments} variant="underlined" size="sm"/>}
+                                   {!changeMode?<span className="text-gray-700 ">{nidda.no_appointments}</span>:<Input id="no_appointments" name="no_appointments" onChange={handleInputChange}  defaultValue={nidda.no_appointments} variant="underlined" size="sm"/>}
                                </li>
 
+                               
+                               <li className="flex border-b py-2">
+                                   <span className="font-bold w-24 my-auto">Clinic Address:</span>
+                                   {!changeMode?<span className="text-gray-700 ">{nidda.clinic_address}</span>:<Input id="clinic_address" name="clinic_address" onChange={handleInputChange}  defaultValue={nidda.clinic_address} variant="underlined" size="sm"/>}
+                               </li>
+                               </>:<></>}
 
                            </ul>
                        </div>

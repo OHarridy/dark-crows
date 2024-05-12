@@ -211,7 +211,7 @@ const handleSendClick = () => {
         </TableHeader>
         <TableBody>
           <TableRow key="1">
-            <TableCell className=" cursor-pointer hover:underline" onClick={redirectToDonor}>Tony Reichert</TableCell>
+            <TableCell className=" cursor-pointer hover:underline" onClick={redirectToDonor}>John Micheal</TableCell>
             <TableCell>Pro-bono Doctor</TableCell>
             <TableCell>-</TableCell>
             <TableCell>Pending</TableCell>
