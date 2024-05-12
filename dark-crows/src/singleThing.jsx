@@ -15,7 +15,7 @@ export default function ThisThing(props) {
         <ul className="grid lg:grid-cols-3 gap-3">
             {fa2erniggaalert.map(request => (
                 <div id={"fa2ernigga" + request.id} className="fa2ernigga-preview " key={request.id}>
-                    <Link to="/DonationPage">
+                    <Link to="/DonationPage2">
                         <Card
                             className="w-[300px] h-[500px] hover:shadow-lg hover:scale-105 transform transition-all duration-200 ease-in-out"
                             style={{borderRadius: 0}} isHoverable={true}>

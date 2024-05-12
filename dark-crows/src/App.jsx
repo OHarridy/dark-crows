@@ -5,6 +5,7 @@ import LoginPage from './LoginPage.jsx';
 import Donor from './donorAccount.jsx';
 import Home from './mainPage.jsx';
 import DonationPage from './DonationPage.jsx';
+import DonationPage2 from './DonationPage2.jsx';
 import './index.css';
 import {NextUIProvider} from "@nextui-org/react";
 import RegisterPage from './RegisterPage';
@@ -27,6 +28,13 @@ import OrgDonationPost3 from './OrgDonationPost3';
 import ViewDonorProfileAsOrg from './ViewDonorProfileAsOrg.jsx';
 import OrgProfile from './OrgProfile.jsx';
 import AdminRequests from './Admin/AdminRequests.jsx';
+import DonationPage3 from './DonationPage3.jsx';
+import DonationPage4 from './DonationPage4.jsx';
+import DonationPage5 from './DonationPage5.jsx';
+import DonationPage6 from './DonationPage6.jsx';
+import DonationPage7 from './DonationPage7.jsx';
+import DonationPage8 from './DonationPage8.jsx';
+import DonationPage9 from './DonationPage9.jsx';
 
 function App() {
   return (
@@ -58,6 +66,14 @@ function App() {
           <Route path='/OrgHomePage' element={<App2/>} />
           <Route path='/ViewDonorProfile' element={<ViewDonorProfileAsOrg/>} />
           <Route path='/AdminRequests' element={<AdminRequests/>} />
+          <Route path='/DonationPage2' element={<DonationPage2/>} />
+          <Route path='/DonationPage3' element={<DonationPage3/>} />
+          <Route path='/DonationPage4' element={<DonationPage4/>} />
+          <Route path='/DonationPage5' element={<DonationPage5/>} />
+          <Route path='/DonationPage6' element={<DonationPage6/>} />
+          <Route path='/DonationPage7' element={<DonationPage7/>} />
+          <Route path='/DonationPage8' element={<DonationPage8/>} />
+          <Route path='/DonationPage9' element={<DonationPage9/>} />
         </Routes>
       </Router>
     </div>
