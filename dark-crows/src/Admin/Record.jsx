@@ -105,7 +105,9 @@ function Record(org){
                 </div>
                 
                 <div className="flex flex-col">
-                    <p className="text-lg text-gray-500 my-10 mx-5 text-left">{org.description}</p>
+                    <p className="text-lg text-gray-500  mt-8 mx-5 text-left">Type:  <span className="text-black">{org.description}</span></p>
+                    <p className="text-lg text-gray-500  mx-5 text-left">{org.email}</p>
+                    <p className="text-lg text-gray-500 mb-7 mx-5 text-left">{org.address}</p>
 
                     <div className="flex flex-row">
                         <button className="border-2 text-xl font-light hover:font-normal w-24 h-16 mr-5 border-green-500 hover:border-green-700 p-2 rounded-xl" onClick={togglePopup}>
@@ -151,7 +153,10 @@ function Record(org){
                 </div>
                 
                 <div className="flex flex-col">
-                    <p className="text-lg text-gray-500 my-10 mx-5 text-left">{org.description}</p>
+                    <p className="text-lg  mt-7 mx-5 text-left">{org.description}</p>
+                    <p className="text-lg text-gray-500 mx-5 text-left">{org.email}</p>
+                    <p className="text-lg text-gray-500 mx-5 text-left">{org.number}</p>
+                    <p className="text-lg text-gray-500 mb-7 mx-5 text-left">{org.address}</p>
 
                     <div className="flex flex-row">
                         <button className="border-2 text-xl font-light hover:font-normal w-24 h-16 mr-5 border-green-500 hover:border-green-700 p-2 rounded-xl" onClick={togglePopup}>

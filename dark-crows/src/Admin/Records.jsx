@@ -12,13 +12,13 @@ function Records(props){
             
             
             <div className={props.hid === false ? "" : "hidden"}>{orgs.map((rec,index) => 
-            (<Record key={index} name={rec.author} description={rec.type} img={rec.profilePic} isOrg={props.isOrg} 
+            (<Record key={index} name={rec.author} description={rec.type} img={rec.profilePic} isOrg={props.isOrg} address={rec.title} email={rec.email}
             setUnseen={props.setUnseen} unseen={props.unseen} setTotalWhenAccept={props.setTotalWhenAccept}
             
             />))}</div>
             
             <div className={props.hid === true ? "" : "hidden"}>{donors.map((rec,index) => 
-            (<Record key={index} name={rec.name} description={rec.description} img={rec.img} isOrg={props.isOrg}
+            (<Record key={index} name={rec.name} description={rec.description} img={rec.img} isOrg={props.isOrg} address={rec.title} email={rec.email} number={rec.number}
             setUnseen={props.setUnseen} unseen={props.unseen} setTotalWhenAccept={props.setTotalWhenAccept}
             
             />))}</div>
