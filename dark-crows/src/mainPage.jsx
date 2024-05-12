@@ -152,7 +152,7 @@ const Home = () => {
         <div className="w-screen flex flex-row justify-start items-start">
             <DropDownniiga setArea={setArea} setAge={setAge} setCategory={setCategory} setSubject={setSubject} setSpecial={setSpecial}
              setHospital={setHospital} setSeason={setSeason} setType={setType} setGender={setGender} setGovernorate={setGovernorate}/>
-            <div className="home h-screen grid place-items-center mt-20 mx-auto w-[1400px]">
+            <div className="home h-screen grid place-items-center mt-20 mx-auto w-[1000px]">
                 <ThisThing fa2erniggaalert={filter3adeyagedan}/>
             </div>  
         </div>

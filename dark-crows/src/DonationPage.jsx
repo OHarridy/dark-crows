@@ -15,16 +15,10 @@ const DonationPage = () => {
   const [isVisible, setIsVisible] =useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
 
-  const [formData, setFormData] = useState({
-   
-    title: 'The Key to Life!',
-    description:'Kids in Africa are dying of thirst, help us provide clean water for them!',
-    category: 'Food',
-    docs:'',
-    maxDonateAmount:10000,
-    services:''
 
-  });
+  const [formData, setFormData] = useState(
+        {Type:"Doctoring",tag:'Neurology', Area:"Mokattam", Governorate:"Cairo", 
+        title: 'They need to be fed 3 chickens a day', body: 'Any Pro-bono Doctor that can help maya, a 6 year old who has very a severe cold and has been sick for weeks! Please help!',   id: 1, donatedAmount: 1000 , maximumAmount: 10000 , get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 1,                                                       source: 'https://assets.clevelandclinic.org/transform/df266997-a5d9-44e0-90f9-63100ef2b798/childSick-1445845423-770x533-1_jpg'});
 
 const type = "Clothes";
   function handleInputChange(e){
@@ -106,117 +100,127 @@ function redirectToDonor(){
         <div className="border-b border-gray-900/10">
           <h2 className="text-base font-semibold leading-7 text-gray-900"></h2>
 
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div className="sm:col-span-4">
+          <div className="mt-10 grid grid-cols-2 grid-rows-3 w-[1000px] gap-y-8">
+            <div className="">
               <label htmlFor="title" className="block text-sm font-medium leading-6 text-gray-900">
                Title
               </label>
-              <div className="mt-2">
+              <div className="">
               <p className="mt-1 text-md leading-6 text-gray-600">Medical Assistance</p>
-                {/* <input
-                  id="title"
-                  name="title"
-                  placeholder=" Enter post title"
-                  value={formData.title}
-                  onChange={handleInputChange}
-                  
-                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                /> */}
               </div>
             </div>
 
          
-            <div className="sm:col-span-4">
+            <div className="">
               <label htmlFor="title" className="block text-sm font-medium leading-6 text-gray-900">
                Category
               </label>
-              <div className="mt-2">
+              <div className="">
               <p className="mt-1 text-md leading-6 text-gray-600">Medical</p>
            
               </div>
             </div>
-
-
-
-<div className="col-span-full">
-              <label htmlFor="description" className="block text-sm font-medium leading-6 text-gray-900">
-              Description
+            <div className="">
+              <label htmlFor="title" className="block text-sm font-medium leading-6 text-gray-900">
+               Patient Name
               </label>
-              <div className="mt-2">
-              <p className="mt-1 text-md leading-6 text-gray-600">Any Pro-bono Doctor that can help maya, a 6 year old who has very a severe cold and has been sick for weeks! Please help!</p>
+              <div className="">
+              <p className="mt-1 text-md leading-6 text-gray-600">Anna</p>
+           
               </div>
             </div>
-            <div className="col-span-full">
+            <div className="">
+              <label htmlFor="title" className="block text-sm font-medium leading-6 text-gray-900">
+               Age
+              </label>
+              <div className="">
+              <p className="mt-1 text-md leading-6 text-gray-600">6</p>
+           
+              </div>
+            </div>
+            <div className="">
+              <label htmlFor="title" className="block text-sm font-medium leading-6 text-gray-900">
+               Gender
+              </label>
+              <div className="">
+              <p className="mt-1 text-md leading-6 text-gray-600">Female</p>
+           
+              </div>
+            </div>
+            <div className="">
+              <label htmlFor="title" className="block text-sm font-medium leading-6 text-gray-900">
+               Address
+              </label>
+              <div className="">
+              <p className="mt-1 text-md leading-6 text-gray-600">184 North elnineteen</p>
+           
+              </div>
+            </div>
+            <div className="">
+              <label htmlFor="title" className="block text-sm font-medium leading-6 text-gray-900">
+               Weight
+              </label>
+              <div className="">
+              <p className="mt-1 text-md leading-6 text-gray-600">30 KG</p>
+           
+              </div>
+            </div>
+           
+            <div className="">
+              <label htmlFor="title" className="block text-sm font-medium leading-6 text-gray-900">
+              Medical specialty
+              </label>
+              <div className="">
+              <p className="mt-1 text-md leading-6 text-gray-600">Female</p>
+           
+              </div>
+            </div>
+            <div className="">
+              <label htmlFor="title" className="block text-sm font-medium leading-6 text-gray-900">
+               Organization Name
+              </label>
+              <div className="">
+              <p className="mt-1 text-md leading-6 text-gray-600">Masr ElKheir</p>
+           
+              </div>
+            </div>
+
+            <div className="">
+              <label htmlFor="description" className="block text-sm font-medium leading-6 text-gray-900">
+              Case Description
+              </label>
+              <div className="">
+              <p className="mt-1 text-md leading-6 text-gray-600">{formData.body}</p>
+              </div>
+            </div>
+            <div className="">
               <label htmlFor="Images" className="block text-sm font-medium leading-6 text-gray-900">
                 Images
               </label>
              
-       
-            
-              <div className="mt-2 flex items-center gap-x-3">
+              <div className="flex items-center">
            
-              <img src="https://assets.clevelandclinic.org/transform/df266997-a5d9-44e0-90f9-63100ef2b798/childSick-1445845423-770x533-1_jpg" width={"400px"}/>
+              <img src={formData.source} width={"400px"}/>
 
                <div className="uploaded-text">
                 <p className="mt-1 text-sm leading-6 ">{uploadText}</p>
                 </div>
 
-                {/* <button
-                  type="button"
-                  className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                  onClick={downloadFile}
-                >
-                  Download Document
-                </button> */}
               </div>
             </div>
 
-            <div className="col-span-6">
-              <label htmlFor="maxDonateAmount" className="block text-sm font-medium leading-6 text-gray-900">
-              Donor Contributions
+
+            <div className="">
+              <label htmlFor="description" className="block text-sm font-medium leading-6 text-gray-900">
+              Google Map Location
               </label>
-              <div className="mt-2 ml-2 mr-2">
-
-      <div><Progress/>
-        {type==="Clothes"?<div className="grid grid-cols-3 grid-rows-1 gap-1">
-        
-        <RadioGroup className="w-[300px]" label="Method of Transport">
-      <CustomRadio description="Up to 500 items" value="Truck">
-        Truck
-      </CustomRadio>
-      <CustomRadio description="Up to 100 items" value="Car">
-        Car
-      </CustomRadio>
-      <CustomRadio
-        description="Up to 20 items"
-        value="Motorcycle">
-        Motorcycle
-      </CustomRadio>
-    </RadioGroup>
-
-    <RadioGroup className="w-[300px]" label="Time Slot">
-      <CustomRadio description="from 9 am to 5 pm" value="Business Hours">
-        Business Hours
-      </CustomRadio>
-      <CustomRadio description="9 am to 12 pm" value="Normal Hours">
-        Normal Hours
-      </CustomRadio>
-    </RadioGroup>
-    <Input className="w-[200px]"
-          type="number"
-          label="Amount"
-          placeholder="0"
-          labelPlacement="outside"
-          endContent="items"
-          classNames={{
-            base: "pt-52",
-          }}
-        />
-    </div>:""}
-      </div>
-              </div>
+              <iframe src={"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1818.421628697366!2d"+"31"+"!3d"+"29"+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714984628638!5m2!1sen!2seg"} 
+                    width="400" height={"92%"} ></iframe>
             </div>
-            
+
+
+
+
           </div>
         </div>
 
