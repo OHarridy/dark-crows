@@ -145,7 +145,7 @@ const [interim, setInterim] = useState({
                 <div className="mx-auto">
                 <div>
        
-       <div className="h-full w-full bg-gray-200 p-8 mt-[800px] mb-12">
+       <div className="h-full w-full bg-gray-200 p-8 mb-12" style={{marginTop: loggedInUser.longitude?"1100px":"500px"}}>
                <div className="bg-white rounded-lg shadow-xl ">
                    <div className="absolute right-12 mt-4 rounded">
                        <div className="bg-white absolute right-0 w-40 py-2 mt-1 border border-gray-200 shadow-2xl" style={{display: "none"}}>
@@ -155,7 +155,7 @@ const [interim, setInterim] = useState({
                        <img src="https://vojislavd.com/ta-template-demo/assets/img/profile-background.jpg" className="w-full h-full rounded-tl-lg rounded-tr-lg"/>
                    </div>
                    <div className="flex flex-col items-center -mt-20">
-                       <img src={photoSrc} className="w-40 border-4 border-white rounded-full"/>
+                       <img src={photoSrc} className="w-40 border-4 h-40 border-white rounded-full"/>
                        <div className="flex items-center space-x-2 mt-2">
                            <p className="text-2xl">{nidda.username}</p>
                        </div>
@@ -303,7 +303,7 @@ const [interim, setInterim] = useState({
                </div>
        
                {loggedInUser.longitude?
-                    !changeMode?<iframe src={"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1818.421628697366!2d"+nidda.longitude+"!3d"+nidda.latitude+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714984628638!5m2!1sen!2seg"} 
+                    !changeMode?<iframe src={"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1818.421628697366!2d"+nidda.longitude+"!3d"+nidda.latitude+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714984628638!5m2!1sen!2seg"} className="bg-white rounded-lg shadow-xl "
                     width="100%" height="600"></iframe>:<TheMAP handleMapChange={handleMapChange} width={"100%"} long={nidda.longitude} lat={nidda.latitude} />:""}
        
                </div>

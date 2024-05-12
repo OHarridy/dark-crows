@@ -5,7 +5,8 @@ import {
     DropdownTrigger,
     DropdownMenu,
     DropdownItem,
-    Button
+    Button,
+    Input
   } from "@nextui-org/react";
 // import useState function from react library
 import { Fragment, useRef } from 'react'
@@ -35,6 +36,7 @@ const [blogs, setBlogs] = useState([
   const [isVisible, setIsVisible] = useState(true);
   const [open, setOpen] = useState(false)
   const cancelButtonRef = useRef(null)
+  
   const categories = {
     'Type': ['Hospital', 'School', 'Church', 'Mosque','Non-Profit'],
     'Governorate': ['Ismailia Governorate', 'Cairo Governorate', 'Giza Governorate'],
@@ -58,7 +60,7 @@ const [blogs, setBlogs] = useState([
       setSelectedBlog(null);
       }
       
-    };
+    }
     const filteredBlogs = blogs.filter((blog) =>{if (selectedCategory === 'Governorate' && selectedSubcategory !== null ) {
         console.log(selectedSubcategory);
         return blog.author.toLowerCase().includes(searchTerm.toLowerCase()) && blog.title.toLowerCase().includes(selectedSubcategory.toLowerCase());
@@ -78,28 +80,33 @@ const [blogs, setBlogs] = useState([
     return (
         <div className="regorg flex flex-col  h-screen w-screen">
           <AdminNavbar/>
-            {/* <h2 className="font-bold text-center text-4xl">Registered </h2> */}
+            <p className="font-bold text-center text-4xl mt-4 mb-12">Registered Organizations</p>
             
            <div className="split-div flex ">
-            <div className="left-div flex-2 mr-20 ">
+            <div className="left-div flex-2 mr-20  ml-4">
             <div className="flex items-center relative max-w-xs leading-7">
                 <svg viewBox="0 0 24 24" aria-hidden="true" className="absolute left-4 w-4 h-4 mt-[2px]" style={{fill: "#fff"}}>
                     <g>
                         <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
                     </g>
                 </svg>
-                <input
-                style={{borderImage: "conic-gradient( #00F260, #0575E6,#64f38c) 1"}}
-                    className="w-full pl-10  placeholder: placeholder:text-white placeholder:focus:text-gray-600 h-10 
-                    leading-7 outline-none bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 text-white transition-colors 
-                    duration-300 ease-in-out border-2 border-transparent border-gradient radial"
-                    type="search"
-                    placeholder="Search"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
+                <Input
+                placeholder="Search"
+                value={searchTerm}
+           onChange={(e) => setSearchTerm(e.target.value)}
+            classNames={{
+              base: "max-w-full sm:max-w-[22rem] h-10 shadow-xl mb-4",
+              mainWrapper: "h-full",
+              input: "text-small",
+              inputWrapper: "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+            }}
+            
+          size="sm"
+            type="search"
+          />
+              
          </div>
-         <div className="flex flex-row ">
+         <div className="flex flex-row mb-4">
         <Dropdown>
         <DropdownTrigger>
           <Button 
@@ -139,7 +146,7 @@ const [blogs, setBlogs] = useState([
 
             <div
                 className="blogs"
-                style={{ overflowY: "scroll", maxHeight: "326px", maxWidth:"300px", display: "grid", gridColumn:"4" }}
+                style={{ overflowY: "scroll", maxHeight: "335px", maxWidth:"300px", display: "grid", gridColumn:"4" }}
             >
                 {filteredBlogs.map((blog) => (
                     <div onClick={() => (setSelectedBlog(blog) 
@@ -228,7 +235,7 @@ const [blogs, setBlogs] = useState([
             </div>
             </div>
             
-            <div className="right-div shadow-2xl flex-1  mr-20" >
+            <div className="right-div shadow-2xl mr-20" >
             {(selectedBlog && isVisible) ? (
                     <div>
                         <div className="split-div " style={{backgroundColor:"#5d62f5"}}>
@@ -237,11 +244,10 @@ const [blogs, setBlogs] = useState([
                          </div>
                          <div id="hamada"className="right-div flex flex-center w-full ">
                         <h2 className="font-bold text-2xl  mx-auto my-auto">{selectedBlog.author}</h2>
-                        {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3019.502427512598!2d31.53100688319738!3d30.0033842612752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14582333c548ca6f%3A0x87cab5af140dd0ea!2sMivida%20-%20Gate%201!5e0!3m2!1sen!2seg!4v1714316063328!5m2!1sen!2seg" width="200" height="200" style={{border:"0"}}></iframe> */}
                         </div>
                         </div>
                         <div className="split-div ">
-                        <div className="left-div text-left flex flex-col max-w-60"style={{backgroundColor:"#D5D8E1"}} >
+                        <div className="left-div text-left flex flex-col h-[350px] max-w-60"style={{backgroundColor:"#D5D8E1"}} >
                             <p className="font-bold text-lg ">Type:</p>
                             <p>{selectedBlog.type}</p>
                             <br/>
@@ -278,7 +284,6 @@ const [blogs, setBlogs] = useState([
                           </div>  
                          </div> 
                            
-                        {/* Display other info from selectedBlog */}
                     </div>
                 ):null}
 

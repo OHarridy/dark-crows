@@ -125,7 +125,6 @@ const AdminNavbar = () => {
              id="oldepass"
              label="Old Password"
              placeholder="Enter old password"
-             type="password"
              variant="bordered"
              value={oldp}
              onChange={e => setOldp(e.target.value)}
@@ -138,14 +137,13 @@ const AdminNavbar = () => {
           )}
         </button>
       }
-      requiredtype={isVisible ? "text" : "password"}
+      type={isVisible ? "text" : "password"}
     />
 
               <Input
               id="newpass"
               label="New Password"
               placeholder="Enter new password"
-              type="password"
               variant="bordered"
               value={newp}
               onChange={e => setNewp(e.target.value)}
@@ -158,13 +156,12 @@ const AdminNavbar = () => {
           )}
         </button>
       }
-      requiredtype={isVisible2 ? "text" : "password"}
+      type={isVisible2 ? "text" : "password"}
     />
                   <Input
                id="newpass2"
                label="Repeat new Password"
                placeholder="Repeat new password"
-               type="password"
                variant="bordered"
                value={rep}
                onChange={e => setRep(e.target.value)}
@@ -177,8 +174,11 @@ const AdminNavbar = () => {
           )}
         </button>
       }
-      requiredtype={isVisible3 ? "text" : "password"}
-    /> <ToastContainer/>
+      type={isVisible3 ? "text" : "password"}
+    />
+    
+    
+     <ToastContainer/>
                 </ModalBody>
                 <ModalFooter>
                   <Button color="danger" variant="flat" onPress={onClose}>
