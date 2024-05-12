@@ -6,7 +6,10 @@ const TheMAP = (props) => {
     handleMapChange: propTypes.func,
     lat: propTypes.number,
     long: propTypes.number,
+    width: propTypes.string,
   }
+  const width =  props.width;
+  const actual = width?width:"600px";
   const lat = 30;
    console.log("LAT", lat);
   const long = 31;
@@ -65,7 +68,7 @@ const TheMAP = (props) => {
           
         return ( 
             <div>
-          <div id="map"  className="z-1" style={{height:"600px", width:"600px"}}></div>
+          <div id="map"  className="z-1" style={{height:"600px", width:actual}}></div>
             </div>
          );
     }
