@@ -61,13 +61,13 @@ const [blogs, setBlogs] = useState([
     };
     const filteredBlogs = blogs.filter((blog) =>{if (selectedCategory === 'Governorate' && selectedSubcategory !== null ) {
         console.log(selectedSubcategory);
-        return blog.title.toLowerCase().includes(selectedSubcategory.toLowerCase());
+        return blog.author.toLowerCase().includes(searchTerm.toLowerCase()) && blog.title.toLowerCase().includes(selectedSubcategory.toLowerCase());
       }
       else if(selectedCategory === 'Type' && selectedSubcategory !== null){
-        return  blog.type.toLowerCase().includes(selectedSubcategory.toLowerCase());
+        return blog.author.toLowerCase().includes(searchTerm.toLowerCase()) && blog.type.toLowerCase().includes(selectedSubcategory.toLowerCase());
       }
       else if(selectedCategory === 'Area' && selectedSubcategory !== null){
-        return  blog.title.toLowerCase().includes(selectedSubcategory.toLowerCase());
+        return  blog.author.toLowerCase().includes(searchTerm.toLowerCase()) && blog.title.toLowerCase().includes(selectedSubcategory.toLowerCase());
       }
       else {
         return  blog.author.toLowerCase().includes(searchTerm.toLowerCase());
