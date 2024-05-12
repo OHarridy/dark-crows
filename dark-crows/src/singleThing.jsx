@@ -2,6 +2,7 @@ import {Avatar, Card, CardBody, CardFooter, CardHeader, Image, Progress} from "@
 import {useState} from "react";
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { BuildingOffice2Icon } from "@heroicons/react/20/solid";
 
 export default function ThisThing(props) {
     
@@ -10,12 +11,12 @@ export default function ThisThing(props) {
     };
 
     const fa2erniggaalert = props.fa2erniggaalert;
-
+    const [possibledonation, setPossibledonation] = useState(["DonationPage","DonationPage2", "DonationPage3", "DonationPage4", "DonationPage5", "DonationPage6", "DonationPage7", "DonationPage8", "DonationPage9"]);
     return (
         <ul className="grid lg:grid-cols-3 gap-3">
             {fa2erniggaalert.map(request => (
                 <div id={"fa2ernigga" + request.id} className="fa2ernigga-preview " key={request.id}>
-                    <Link to="/DonationPage2">
+                    <Link to={"/"+possibledonation[request.id%9]}>
                         <Card
                             className="w-[300px] h-[500px] hover:shadow-lg hover:scale-105 transform transition-all duration-200 ease-in-out"
                             style={{borderRadius: 0}} isHoverable={true}>

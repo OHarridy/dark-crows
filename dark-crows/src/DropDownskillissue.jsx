@@ -26,15 +26,18 @@ function deletethis (){
   props.setSubject("");
   props.setSpecial("");
 }
+const[visibility,setVisibility]=useState(false);
     return (
-<Accordion className="w-[200px] fixed ml-4 mt-24 ">
+<Accordion className="w-[200px] ml-4 mt-32 gap-0">
   <AccordionItem key="0" className="w-[0px] h-[0px]"
   isDisabled
+  onFocusChange={() =>  (deletethis(),props.setType(""), console.log(""))}
   isCompact
   hideIndicator
   />
       <AccordionItem key="1" aria-label="Clothes" title="Clothes" className="w-[200px]"
-      onFocusChange={() =>  (deletethis(),props.setType("Clothes"), console.log("Clothes"))}>
+      onFocusChange={() =>  (deletethis(),props.setType("Clothes"), console.log("Clothes"))}
+      >
         
       <Input  className="my-2"
               key="Age"
@@ -139,7 +142,8 @@ onFocusChange={() => (deletethis(),props.setType("Medical"), console.log("Medica
 <CheckboxGroup onChange={(event) => (props.setCategory(event), console.log(event))}>
 <Checkbox value="Medical Devices">Medical Devices</Checkbox>
 <Checkbox value="Medical Equipment">Medical Equipment</Checkbox>
-<Checkbox value="Medication">Medication</Checkbox>
+<Checkbox onChange={() =>setVisibility(!visibility)} value="Medication">Medication</Checkbox>  
+{visibility?<Input placeholder="Medical Use"/>:null}
 </CheckboxGroup>
 
 

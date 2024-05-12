@@ -17,7 +17,7 @@ const DonationPage3 = () => {
 
 
   const [formData, setFormData] = useState(
-        {Type:"Toys",tag:'Cars', Area:"Mokattam", Governorate:"Cairo", 
+        {Type:"Toys",tag:'Dolls', Area:"Mokattam", Governorate:"Cairo", 
         title: 'They need to be fed 3 chickens a day', body: 'Any Pro-bono Doctor that can help maya, a 6 year old who has very a severe cold and has been sick for weeks! Please help!',   id: 1, donatedAmount: 1 , maximumAmount: 3 , get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 1,                                                       source: 'https://assets.clevelandclinic.org/transform/df266997-a5d9-44e0-90f9-63100ef2b798/childSick-1445845423-770x533-1_jpg'});
 
 const type = "Clothes";
@@ -159,7 +159,7 @@ function redirectToDonor(){
                Gender
               </label>
               <div className="">
-              <p className="mt-1 text-md leading-6 text-gray-600">Boy</p>
+              <p className="mt-1 text-md leading-6 text-gray-600">Girl</p>
            
               </div>
             </div>

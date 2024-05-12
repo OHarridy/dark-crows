@@ -142,6 +142,11 @@ const [blogs, setBlogs] = useState([
         </DropdownMenu>
       </Dropdown>
     )}
+    <button
+                            className="bin-button z-20 h-12 mb-auto ml-[30px] text-2xl font-bold"
+                            onClick={() => (setSelectedSubcategory(null),handleCategoryClick(null))}
+                                                     
+                        >X</button>
       </div>
 
             <div

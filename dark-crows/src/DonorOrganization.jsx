@@ -1,5 +1,5 @@
 import {useState} from "react";  
-import {Dropdown, DropdownTrigger,DropdownMenu,DropdownItem} from "@nextui-org/react";
+import {Dropdown, DropdownTrigger,DropdownMenu,DropdownItem, Input} from "@nextui-org/react";
 import {Button, useDisclosure} from "@nextui-org/react";
 import {EyeFilledIcon} from "./EyeFilledIcon";
 import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon";
@@ -63,16 +63,20 @@ const [isVisibles, setIsVisibles] = useState(Array(blogs.length).fill(false));
                         <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
                     </g>
                 </svg>
-                <input
-                style={{borderImage: "conic-gradient( #00F260, #0575E6,#64f38c) 1"}}
-                    className="w-full pl-10  placeholder: placeholder:text-white placeholder:focus:text-gray-600 h-10 
-                    leading-7 outline-none bg-gradient-to-b from-gray-900 via-gray-800 to-gray-700 text-white transition-colors 
-                    duration-300 ease-in-out border-2 border-transparent border-gradient radial"
-                    type="search"
-                    placeholder="Search"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
+                <Input
+                placeholder="Search"
+                value={searchTerm}
+           onChange={(e) => setSearchTerm(e.target.value)}
+            classNames={{
+              base: "max-w-full sm:max-w-[22rem] h-10 shadow-xl mb-4",
+              mainWrapper: "h-full",
+              input: "text-small",
+              inputWrapper: "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
+            }}
+            
+          size="sm"
+            type="search"
+          />
          </div>
          <div className="flex flex-row mb-4">
         <Dropdown>
@@ -110,6 +114,11 @@ const [isVisibles, setIsVisibles] = useState(Array(blogs.length).fill(false));
         </DropdownMenu>
       </Dropdown>
     )}
+    <button
+                            className="bin-button z-20 h-12 mb-auto ml-[30px] text-2xl font-bold"
+                            onClick={() => (setSelectedSubcategory(null),handleCategoryClick(null))}
+                                                     
+                        >X</button>
       </div>
 
       <div
@@ -136,64 +145,7 @@ const [isVisibles, setIsVisibles] = useState(Array(blogs.length).fill(false));
                         <div style={{columnSpan:"2"  }}>
                             <h2 className="text-xl">{blog.author}</h2>
                         </div>
-                        <button
-                            className="bin-button min-w-10"
-                            onClick={()=>{setOpen(!open); settobedeletedBlog(blog)}}
-                                                     
-                        >
-                            <svg
-                                className="bin-top"
-                                viewBox="0 0 39 7"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <line
-                                    y1="5"
-                                    x2="39"
-                                    y2="5"
-                                    stroke="white"
-                                    strokeWidth="4"
-                                ></line>
-                                <line
-                                    x1="12"
-                                    y1="1.5"
-                                    x2="26.0357"
-                                    y2="1.5"
-                                    stroke="white"
-                                    strokeWidth="3"
-                                ></line>
-                            </svg>
-                            <svg
-                                className="bin-bottom"
-                                viewBox="0 0 33 39"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <mask
-                                    id="path-1-inside-1_8_19"
-                                    fill="white"
-                                >
-                                    <path
-                                        d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z"
-                                    ></path>
-                                </mask>
-                                <path
-                                    d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z"
-                                    fill="white"
-                                    mask="url(#path-1-inside-1_8_19)"
-                                ></path>
-                                <path
-                                    d="M12 6L12 29"
-                                    stroke="white"
-                                    strokeWidth="4"
-                                ></path>
-                                <path
-                                    d="M21 6V29"
-                                    stroke="white"
-                                    strokeWidth="4"
-                                ></path>
-                            </svg>
-                        </button>
+
                         
                     </div>
                 ))}
