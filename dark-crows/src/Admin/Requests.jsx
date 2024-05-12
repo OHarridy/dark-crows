@@ -1,24 +1,25 @@
 import React from "react";
-import Record from "./Record.jsx";
-import orgs from "./orgs.js";
+import Request from "./Request.jsx";
+import requests from "./requests.js";
 import donors from "./donors.jsx";
 
 
-function Records(props){
+function Requests(props){
     
     
     return (
         <div style={{width:'70vw'}} className="text-center w-full">
             
             
-            <div className={props.hid === false ? "" : "hidden"}>{orgs.map((rec,index) => 
-            (<Record key={index} name={rec.author} description={rec.type} img={rec.profilePic} isOrg={props.isOrg} 
+            <div className={props.hid === false ? "" : "hidden"}>{requests.map((rec,index) => 
+            (<Request key={index} name={rec.name} description={rec.description} img={rec.img} isOrg={props.isOrg} 
             setUnseen={props.setUnseen} unseen={props.unseen} setTotalWhenAccept={props.setTotalWhenAccept}
             
             />))}</div>
             
+            
             <div className={props.hid === true ? "" : "hidden"}>{donors.map((rec,index) => 
-            (<Record key={index} name={rec.name} description={rec.description} img={rec.img} isOrg={props.isOrg}
+            (<Request key={index} name={rec.name} description={rec.description} img={rec.img} isOrg={props.isOrg}
             setUnseen={props.setUnseen} unseen={props.unseen} setTotalWhenAccept={props.setTotalWhenAccept}
             
             />))}</div>
@@ -28,4 +29,4 @@ function Records(props){
     );
 }
 
-export default Records;
+export default Requests;

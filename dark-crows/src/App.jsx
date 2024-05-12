@@ -34,31 +34,31 @@ function App() {
     <div className='App w-full h-full'>
       <Router>
           <Routes>
-            <Route path='/' element={<LandingPage />} /> 
-            <Route path='/Login' element={<LoginPage />} /> 
-            <Route path='/Register' element={<RegisterPage />} /> 
-            <Route path="/DonorMainPage" element={<Home />} />
-            <Route path='/Donor' element={<Donor />} />
-            <Route path='/DonationPage' element={<DonationPage />} />
-            <Route path='/MAP' element={<TheMAP/>}/>
-            <Route path='/AdminSubmission' element={<AdminSubmission />} />
-            <Route path='/AdminRegisteredDonors' element={<AdminRegisteredDonors />} />
-            <Route path='/ResetPassword' element={<ResetPwPage />} /> 
-            <Route path='/DropDown' element={<DropDown/>}/>
-            <Route path='/AdminRegisteredOrgs' element={<Regorg/>}/>
-            <Route path='/DonorOrganization' element={<DonorOrganization/>}/>
-            <Route path='/viewPost' element={<ViewPost />}/>
-            <Route path='/CardPage' element={<CardPage/>}/>
-           <Route path='/CardProfile' element={<CardProfile/>}/>
-           <Route path='/OrgDonationPost' element={<OrgDonationPost/>}/>
-           <Route path='/OrgDonationPost1' element={<OrgDonationPost1/>}/>
-           <Route path='/OrgDonationPost2' element={<OrgDonationPost2/>}/>
-           <Route path='/OrgDonationPost3' element={<OrgDonationPost3 />}/>
-           <Route path='/OrgHomePage' element={<App2/>} />
-           <Route path='/ViewDonorProfile' element={<ViewDonorProfileAsOrg/>} />
-           <Route path='/OrgProfile' element={<OrgProfile/>} />
-           <Route path='/AdminRequests' element={<AdminRequests/>} />
-          </Routes>
+          <Route path='/' element={<LandingPage />} /> 
+          <Route path='/Login' element={<LoginPage />} /> 
+          <Route path='/Register' element={<RegisterPage />} /> 
+          <Route path="/DonorMainPage" element={<Home />} />
+          <Route path='/Donor' element={<Donor />} />
+          <Route path='/OrgProfile' element={<Donor />} />
+          <Route path='/DonationPage' element={<DonationPage />} />
+          <Route path='/MAP' element={<TheMAP/>}/>
+          <Route path='/AdminSubmission' element={<AdminSubmission />} />
+          <Route path='/AdminRegisteredDonors' element={<AdminRegisteredDonors />} />
+          <Route path='/ResetPassword' element={<ResetPwPage />} /> 
+          <Route path='/DropDown' element={<DropDown/>}/>
+          <Route path='/AdminRegisteredOrgs' element={<Regorg/>}/>
+          <Route path='/DonorOrganization' element={<DonorOrganization/>}/>
+          <Route path='/viewPost' element={<ViewPost />}/>
+          <Route path='/CardPage' element={<CardPage/>}/>
+          <Route path='/CardProfile' element={<CardProfile/>}/>
+          <Route path='/OrgDonationPost' element={<OrgDonationPost/>}/>
+          <Route path='/OrgDonationPost1' element={<OrgDonationPost1/>}/>
+          <Route path='/OrgDonationPost2' element={<OrgDonationPost2/>}/>
+          <Route path='/OrgDonationPost3' element={<OrgDonationPost3 />}/>
+          <Route path='/OrgHomePage' element={<App2/>} />
+          <Route path='/ViewDonorProfile' element={<ViewDonorProfileAsOrg/>} />
+          <Route path='/AdminRequests' element={<AdminRequests/>} />
+        </Routes>
       </Router>
     </div>
     

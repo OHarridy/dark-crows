@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 
-function Record(org){
+function Request(org){
     const [flag,setFlag] = useState(false);
     const [hideVariable, sethideVariable] = React.useState("");
     const [bold, setNotBold] = React.useState("font-bold");
@@ -40,19 +40,16 @@ function Record(org){
     return (
         <div className={`flex flex-row ${hideVariable} justify-between border-2 border-green-500 text-black hover:shadow-green-900 hover:shadow-lg transition duration-200 ease-in-out py-2 px-4 rounded`}>
             <div className="flex flex-row hover:cursor-pointer hover:shadow-md w-3/4"  onClick={openProfile} >
-                <img className={`{org.isOrg === "true" ? "hidden" : ""} h-16 rounded-full mr-3 w-24`}  src={org.img}></img>
-                <div className="flex flex-col">
+                <img className={`{org.isOrg === "true" ? "hidden" : ""}  rounded-full mr-3 w-28`}  src={org.img}></img>
+                <div className="flex flex-col text-left">
                     <p className={` ${bold} text-xl mt-4`}>{org.name}</p>
+                    <p className={`text-sm text-gray-700`}>{org.description}</p>
                     
                     
                 </div>
             </div>
             
-            <a className="Btn mt-2" href="./../MS2 SE" download="MS2 SE">
-                <svg className="svgIcon" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg>
-                <span className="icon2"></span>
-                <span className="tooltip">Download</span>
-            </a>
+            
             <div className=" w-1/4 flex-1 flex justify-center">
                 <button onClick={handleAcceptClick} className="ml-3 h-12 mt-2 mr-4 text-xs inline-block bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded">Accept</button>
                 <button onClick={handleRejectClick} className="h-12 mt-2 text-xs inline-block bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Reject</button>
@@ -79,11 +76,7 @@ function Record(org){
                         <button className="border-2 text-xl font-light hover:font-normal w-24 h-16 mr-5 border-green-500 hover:border-green-700 p-2 rounded-xl" onClick={togglePopup}>
                         Close
                         </button>
-                        <a className="Btn " style={{width:'60px',height:'60px'}} href="./../MS2 SE" download="MS2 SE">
-                            <svg className="svgIcon" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg>
-                            <span className="icon2"></span>
-                            <span className="tooltip">Download</span>
-                        </a>
+                        
                     </div>
                 </div>   
                 
@@ -155,4 +148,4 @@ function Record(org){
     );
 }
 
-export default Record;
+export default Request;
