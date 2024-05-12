@@ -11,7 +11,7 @@ import TheBAR from "../TheBAR.jsx";
 const screenHeight = window.screen.height;
 const screenWidth = window.screen.width;
 
-function AdminRequests(){
+function AdminSubmission(){
     const[totalSubmissions,setTotalSubmissions] = useState(orgs.length);
     const[unseenSubmissions,setUnseenSubmissions] = useState(orgs.length);
 
@@ -25,16 +25,16 @@ function AdminRequests(){
     const[isToggled,setToggle] = useState(false);
     const [where,setWhere] = useState("Organizations");
     function handleToggle(){
-        // setToggle(!isToggled);
-        // setWhere(where === "Organizations" ? "Donors" : "Organizations");
-        // setIsOrg(!isOrg);
-        // if(!isToggled){
-        //     setTotalSubmissions(totalDonors);
-        //     setUnseenSubmissions(unseenDonors);
-        // }else{
-        //     setTotalSubmissions(totalOrgs);
-        //     setUnseenSubmissions(unseenOrgs);
-        // }
+        setToggle(!isToggled);
+        setWhere(where === "Organizations" ? "Donors" : "Organizations");
+        setIsOrg(!isOrg);
+        if(!isToggled){
+            setTotalSubmissions(totalDonors);
+            setUnseenSubmissions(unseenDonors);
+        }else{
+            setTotalSubmissions(totalOrgs);
+            setUnseenSubmissions(unseenOrgs);
+        }
     }
 
     const togglePopup = () => {
@@ -77,9 +77,9 @@ function AdminRequests(){
         <div className='w-screen h-screen'>
             
             <AdminNavbar />
-            <div className="w-full flex flex-col text-center justify-center border-b-4">
-                <div className='flex flex-row justify-center'>
-                <p className='text-3xl mt-5 font-bold w-fit p-3 rounded-lg text-gray-700'>Organizations Requests</p>
+            <div className="w-full flex flex-col text-center justify-center border-2">
+            <div className='flex flex-row justify-center'>
+                <p className='text-3xl mt-5 font-bold  w-fit p-3 rounded-lg text-gray-700'>{where}</p>
                 </div>
                 <div className='flex flex-row justify-between my-7' style={{marginTop:``}}>
                     
@@ -96,7 +96,7 @@ function AdminRequests(){
                 
                                 </div>
                         </div>
-                            {/* <div className="toggle-container m-3 mt-10 border-10 border-red-500"  onClick={handleToggle}>
+                            <div className="toggle-container m-3 mt-10 border-10 border-red-500"  onClick={handleToggle}>
                                 <input type="checkbox" className="toggle-input"/>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 292 142" className="toggle">
                                     <path d="M71 142C31.7878 142 0 110.212 0 71C0 31.7878 31.7878 0 71 0C110.212 0 119 30 146 30C173 30 182 0 221 0C260 0 292 31.7878 292 71C292 110.212 260.212 142 221 142C181.788 142 173 112 146 112C119 112 110.212 142 71 142Z" className="toggle-background"></path>
@@ -112,7 +112,7 @@ function AdminRequests(){
                                     <feColorMatrix result="goo" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" mode="matrix" in="blur"></feColorMatrix>
                                     </filter>
                                 </svg>
-                            </div> */}
+                            </div>
                         </div>
                         <div className='flex flex-row justify-center w-full'><Requests hid={isToggled} isOrg={isOrg} unseen={unseenSubmissions} setTotalWhenAccept={setTotalWhenAccept} setUnseen={setUnseen} setTotal={setTotal}/></div>
                     </div>
@@ -127,4 +127,4 @@ function AdminRequests(){
     );
 }
 
-export default AdminRequests;
+export default AdminSubmission;

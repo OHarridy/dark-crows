@@ -37,7 +37,7 @@ const requests = [
     },
     {
         img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw37Fje-w8cnkt5HhMmq6PsMnCLqoUIhXEdvHeESyydg&s",
-        name:"Dark Crows III",
+        name:"ba4ah.. baaa4ah!.. ba4ah.. baaa4ah! ",
         description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
     },
     {
