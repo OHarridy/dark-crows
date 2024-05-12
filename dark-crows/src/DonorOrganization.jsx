@@ -140,6 +140,9 @@ const [isVisibles, setIsVisibles] = useState(Array(blogs.length).fill(false));
                         
                     </div>
                 ))}
+                <div className="h-3">
+
+              </div>
             </div>
             </div>
             

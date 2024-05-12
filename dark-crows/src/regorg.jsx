@@ -139,7 +139,7 @@ const [blogs, setBlogs] = useState([
 
             <div
                 className="blogs"
-                style={{ overflowY: "scroll", maxHeight: "323px", maxWidth:"300px", display: "grid", gridColumn:"4" }}
+                style={{ overflowY: "scroll", maxHeight: "326px", maxWidth:"300px", display: "grid", gridColumn:"4" }}
             >
                 {filteredBlogs.map((blog) => (
                     <div onClick={() => (setSelectedBlog(blog) 
@@ -222,6 +222,9 @@ const [blogs, setBlogs] = useState([
                         
                     </div>
                 ))}
+                <div className="h-3">
+
+                </div>
             </div>
             </div>
             
