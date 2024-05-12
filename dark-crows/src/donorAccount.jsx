@@ -15,7 +15,7 @@ const Donor = () => {
              no_appointments: loggedInUser.no_appointments, subjects: loggedInUser.subjects, no_students: loggedInUser.no_students, 
              no_sessions: loggedInUser.no_sessions, document: loggedInUser.document, clinic_address: loggedInUser.clinic_address, 
              org_name: loggedInUser.org_name, org_type: loggedInUser.org_type, about: loggedInUser.about, city: loggedInUser.city, 
-             state: loggedInUser.state, address_selection: loggedInUser.address_selection, specialty: loggedInUser.specialty}
+             state: loggedInUser.state, address_selection: loggedInUser.address_selection, specialty: loggedInUser.specialty, clinic_area: loggedInUser.clinic_area, clinic_governorate: loggedInUser.clinic_governorate}
 );
     var [drivernidda] = useState(
         [{ETA: '2024-05-10 19:57:00', driverName: "Ahmed 3andaleeb", driver: "01092408287"},
@@ -95,6 +95,8 @@ const [interim, setInterim] = useState({
     city: loggedInUser.city,
     state: loggedInUser.state,
     specialty: loggedInUser.specialty,
+    clinic_area: loggedInUser.clinic_area,
+    clinic_governorate: loggedInUser.clinic_governorate
 
   });
   function handleInputChange(e){
@@ -210,7 +212,7 @@ const [interim, setInterim] = useState({
                                    <span className="text-gray-700 ">{capitalizeFirstLetter(nidda.gender)}</span>
                                </li>
                                <li className="flex border-y py-2">
-                                   <span className="font-bold flex-1 my-auto">City:</span>
+                                   <span className="font-bold flex-1 my-auto">Area:</span>
                                    {!changeMode?<span className="text-gray-700">{nidda.city}</span>:<Input className="max-w-[420px]"  id="city" name="city" onChange={handleInputChange}  variant="underlined" size="sm" defaultValue={nidda.city}/>}
                                </li>
                                <li className="flex border-y py-2">
@@ -259,6 +261,14 @@ const [interim, setInterim] = useState({
                                <li className="flex border-y border-b-2 py-2">
                                    <span className="font-bold flex-1 my-auto">Clinic Address:</span>
                                    {!changeMode?<span className="text-gray-700 ">{nidda.clinic_address}</span>:<Input className="max-w-[420px]" id="clinic_address" name="clinic_address" onChange={handleInputChange}  defaultValue={nidda.clinic_address} variant="underlined" size="sm"/>}
+                               </li>
+                               <li className="flex border-y border-b-2 py-2">
+                                   <span className="font-bold flex-1 my-auto">Clinic Area:</span>
+                                   {!changeMode?<span className="text-gray-700 ">{nidda.clinic_area}</span>:<Input className="max-w-[420px]" id="clinic_area" name="clinic_area" onChange={handleInputChange}  defaultValue={nidda.clinic_area} variant="underlined" size="sm"/>}
+                               </li>
+                               <li className="flex border-y border-b-2 py-2">
+                                   <span className="font-bold flex-1 my-auto">Clinic Governorate:</span>
+                                   {!changeMode?<span className="text-gray-700 ">{nidda.clinic_governorate}</span>:<Input className="max-w-[420px]" id="clinic_governorate" name="clinic_governorate" onChange={handleInputChange}  defaultValue={nidda.clinic_governorate} variant="underlined" size="sm"/>}
                                </li>
                                </>:<></>}
 

@@ -38,6 +38,8 @@ const RegistrationForm = () => {
     no_appointments:'',
     specialty:'',
     clinic_address:'',
+    clinic_area:'',
+    clinic_governorate:'',
     subjects:'',
     no_students:'',
     no_sessions:'',
@@ -101,6 +103,8 @@ const RegistrationForm = () => {
     no_appointments:'',
     specialty:'',
     clinic_address:'',
+    clinic_area:'',
+    clinic_governorate:'',
     subjects:'',
     no_students:'',
     no_sessions:'',
@@ -374,6 +378,40 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
               </div>
             </div>
 
+            <div className="sm:col-span-4">
+              <label htmlFor="clinic_area" className="block text-sm font-medium leading-6 text-gray-900">
+                Clinic Area
+              </label>
+              <div className="mt-2">
+                <input
+                  id="clinic_area"
+                  name="clinic_area"
+                  placeholder="Enter your Clinic Area"
+                  value={formData.clinic_area}
+                  onChange={handleInputChange}
+                  required
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-4">
+              <label htmlFor="clinic_governorate" className="block text-sm font-medium leading-6 text-gray-900">
+                Clinic Governerate
+              </label>
+              <div className="mt-2">
+                <input
+                  id="clinic_governorate"
+                  name="clinic_governorate"
+                  placeholder="Enter Clinic Governorate"
+                  value={formData.clinic_governorate}
+                  onChange={handleInputChange}
+                  required
+                  className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
 
             { (formData.clinic_address_selection === "text" || formData.clinic_address_selection === "both" )? (
 <>
@@ -393,6 +431,8 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
                 />
               </div>
             </div>
+
+      
             </>  ): null}
 
 
@@ -832,14 +872,14 @@ const [uploadPhotoText, setUploadPhototext] = useState('');
 
             <div className="sm:col-span-2 sm:col-start-1">
               <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
-                City
+                Area
               </label>
               <div className="mt-2">
                 <input
                   type="text"
                   name="city"
                   id="city"
-                  placeholder="Enter your City"
+                  placeholder="Enter your Area"
                   value={formData.city}
                   onChange={handleInputChange}
                   autoComplete="address-level2"
