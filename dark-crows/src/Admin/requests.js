@@ -42,7 +42,7 @@ const requests = [
     },
     {
         img:"https://i.redd.it/cairo-egypt-v0-st0vbse97bj91.jpg?width=960&format=pjpg&auto=webp&s=f204038cef22aa559c756acb7336c285f506d7fc",
-        name:"Dark Crows III",
+        name:"Bellah 3alek ya 7ag",
         description:"A group of friends who play games  A group of friends who play games together A group of friends who play games together",
     }
 ];
