@@ -137,10 +137,10 @@ const [interim, setInterim] = useState({
     toast.info("Driver has Arrived");}
     return (
         
-        <div className="min-h-screen w-screen">
+        <div className="min-h-screen w-screen mt-[200px]">
             
             <TheBAR/>
-            <div className="flex flex-row ml-[0.5%]">
+            <div className="flex flex-row mx-auto w-[1200px]">
 
                 <div className="mx-auto">
                 <div>
