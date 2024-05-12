@@ -39,6 +39,7 @@ function App() {
             <Route path='/Register' element={<RegisterPage />} /> 
             <Route path="/DonorMainPage" element={<Home />} />
             <Route path='/Donor' element={<Donor />} />
+            <Route path='/OrgProfile' element={<Donor />} />
             <Route path='/DonationPage' element={<DonationPage />} />
             <Route path='/MAP' element={<TheMAP/>}/>
             <Route path='/AdminSubmission' element={<AdminSubmission />} />
@@ -56,7 +57,6 @@ function App() {
            <Route path='/OrgDonationPost3' element={<OrgDonationPost3 />}/>
            <Route path='/OrgHomePage' element={<App2/>} />
            <Route path='/ViewDonorProfile' element={<ViewDonorProfileAsOrg/>} />
-           <Route path='/OrgProfile' element={<OrgProfile/>} />
            <Route path='/AdminRequests' element={<AdminRequests/>} />
           </Routes>
       </Router>
