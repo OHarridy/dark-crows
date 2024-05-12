@@ -59,11 +59,7 @@ function Record(org){
                 </div>
             </div>
             
-            <a className="Btn mt-2" href="./../MS2 SE" download="MS2 SE">
-                <svg className="svgIcon" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg>
-                <span className="icon2"></span>
-                <span className="tooltip">Download</span>
-            </a>
+            
             <div className=" w-1/4 flex-1 flex justify-center">
                 <button onClick={setAccept} className="ml-3 h-12 mt-2 mr-4 text-xs inline-block bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded">Accept</button>
                 <button onClick={setReject} className="h-12 mt-2 text-xs inline-block bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Reject</button>
@@ -90,11 +86,7 @@ function Record(org){
                         <button className="border-2 text-xl font-light hover:font-normal w-24 h-16 mr-5 border-green-500 hover:border-green-700 p-2 rounded-xl" onClick={togglePopup}>
                         Close
                         </button>
-                        <a className="Btn " style={{width:'60px',height:'60px'}} href="./../MS2 SE" download="MS2 SE">
-                            <svg className="svgIcon" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg>
-                            <span className="icon2"></span>
-                            <span className="tooltip">Download</span>
-                        </a>
+                        
                     </div>
                 </div>   
                 
@@ -136,11 +128,7 @@ function Record(org){
                         <button className="border-2 text-xl font-light hover:font-normal w-24 h-16 mr-5 border-green-500 hover:border-green-700 p-2 rounded-xl" onClick={togglePopup}>
                         Close
                         </button>
-                        <a className="Btn " style={{width:'60px',height:'60px'}} href="./../MS2 SE" download="MS2 SE">
-                            <svg className="svgIcon" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg>
-                            <span className="icon2"></span>
-                            <span className="tooltip">Download</span>
-                        </a>
+                        
                     </div>
                 </div>   
                 
