@@ -1,7 +1,7 @@
 
 // import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import Button from "./generalButton";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {Select, SelectItem, Avatar} from "@nextui-org/react";
 import {RadioGroup, Radio} from "@nextui-org/react";
 import { useState } from 'react';
@@ -58,7 +58,10 @@ const RegistrationForm = () => {
   
 
   setUploadtext('');
-  toast.success('Request Updated Successfully! 🎉🥳');
+  toast.success('Request Updated Successfully!');
+  setTimeout(() => {
+    navigate('/OrgHomePage');
+  }, 1000);
 
 
 console.log("ALL REGISTERED USERS", localStorage.getItem("posts"));
@@ -84,9 +87,10 @@ function handleFileChange(event) {
 
 const fileInputRef = React.useRef();
 
-
+const navigate = useNavigate();
 
 const [uploadText, setUploadtext] = useState('');
+
 
 
 
@@ -99,7 +103,7 @@ const [uploadText, setUploadtext] = useState('');
     <div className="reg-parent flex flex-col">
 <div className="h-[500px]"></div>
 <div className="register-image flex justify-center items-center">
-
+<ToastContainer/>
         <img
             className=""
             src={photoUrl}
