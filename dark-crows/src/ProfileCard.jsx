@@ -4,12 +4,12 @@ import { PencilSquareIcon  } from '@heroicons/react/20/solid'
 
 const ProfileCard = (props) => {
     ProfileCard.propTypes = {
-        drivernidda: PropTypes.array.required,
+        driverinfo: PropTypes.array.required,
         loggedInUser: PropTypes.array.required,
         changethis: PropTypes.func,
       }
 const loggedInUser = props.loggedInUser;
-const drivernidda = props.drivernidda;
+const driverinfo = props.driverinfo;
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -86,8 +86,8 @@ function capitalizeFirstLetter(string) {
                     <div className="relative px-4">
                         
 
-                    {drivernidda.map(sn => (
-                    <div key={drivernidda.ETA}> 
+                    {driverinfo.map(sn => (
+                    <div key={driverinfo.ETA}> 
                     
                     <div className="flex items-center w-full my-6 -ml-1.5">
                             <div className="w-1/12 z-10">

@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import {Textarea} from "@nextui-org/react";
 const Donor = () => {
     let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")); 
-    var [nidda, setnidda] = useState(
+    var [info, setinfo] = useState(
         {username: loggedInUser.username, password:loggedInUser.password ,first_name: loggedInUser.first_name,last_name: loggedInUser.last_name, email: loggedInUser.email, contact_number: loggedInUser.contact_number,
              address: loggedInUser.address, country: loggedInUser.country,
              role: loggedInUser.role, gender: loggedInUser.gender, longitude:+loggedInUser.longitude, latitude:+loggedInUser.latitude, 
@@ -17,7 +17,7 @@ const Donor = () => {
              org_name: loggedInUser.org_name, org_type: loggedInUser.org_type, about: loggedInUser.about, city: loggedInUser.city, 
              state: loggedInUser.state, address_selection: loggedInUser.address_selection, specialty: loggedInUser.specialty, clinic_area: loggedInUser.clinic_area, clinic_governorate: loggedInUser.clinic_governorate}
 );
-    var [drivernidda] = useState(
+    var [driverinfo] = useState(
         [{ETA: '2024-05-10 19:57:00', driverName: "Ahmed 3andaleeb", driver: "01092408287"},
          {ETA: '2024-04-26 19:45:00', driverName: "Omar 3andaleeb", driver: "01022608212"},
          {ETA: '2024-09-10 07:17:00', driverName: "Shazly 3andaleeb", driver: "01092285549"},
@@ -123,7 +123,7 @@ const [interim, setInterim] = useState({
     setChangeMode(!changeMode)
     localStorage.setItem('loggedInUser', JSON.stringify(interim));
     loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")); 
-    setnidda(loggedInUser);
+    setinfo(loggedInUser);
 
   }
   function capitalizeFirstLetter(string) {
@@ -157,24 +157,24 @@ const [interim, setInterim] = useState({
                    <div className="flex flex-col items-center -mt-20">
                        <img src={photoSrc} className="w-40 border-4 h-40 border-white rounded-full"/>
                        <div className="flex items-center space-x-2 mt-2">
-                           <p className="text-2xl">{nidda.username}</p>
+                           <p className="text-2xl">{info.username}</p>
                        </div>
-                       { nidda.org_name === '' ?
+                       { info.org_name === '' ?
     <>
-        <p className="text-gray-500">{capitalizeFirstLetter(nidda.role)}</p>
+        <p className="text-gray-500">{capitalizeFirstLetter(info.role)}</p>
     </>
     :
     <>
-        <p className="text-gray-500">{capitalizeFirstLetter(nidda.org_type)}</p>
+        <p className="text-gray-500">{capitalizeFirstLetter(info.org_type)}</p>
     </>
 }
                        
-                   {!changeMode?<p className="text-sm">{nidda.about}</p>:<Textarea variant="faded" onChange={handleInputChange}
+                   {!changeMode?<p className="text-sm">{info.about}</p>:<Textarea variant="faded" onChange={handleInputChange}
                     label="Description"
                     name="about"
                     placeholder="Enter your description"
                     description="Edit your Bio."
-                    className="max-w-xs" defaultValue={nidda.about}/>}
+                    className="max-w-xs" defaultValue={info.about}/>}
                    </div>
                    <div className="flex-1 flex flex-col items-center lg:items-end justify-end px-8 mt-2">
                    </div>
@@ -193,82 +193,82 @@ const [interim, setInterim] = useState({
                            <ul className="mt-2 text-gray-700">
                               <li className="flex border-y border-t-2 py-2">
                                 <span className="font-bold flex-1 my-auto">First name:</span>
-                                {!changeMode ? <span className="text-gray-700">{nidda.first_name}</span> : <Input className="max-w-[420px]" type="text" name="first_name" onChange={handleInputChange}  id="first_name" defaultValue={nidda.first_name} variant="underlined" size="sm" />}
+                                {!changeMode ? <span className="text-gray-700">{info.first_name}</span> : <Input className="max-w-[420px]" type="text" name="first_name" onChange={handleInputChange}  id="first_name" defaultValue={info.first_name} variant="underlined" size="sm" />}
                               </li>
                               <li className="flex border-y py-2">
                                 <span className="font-bold flex-1 my-auto">Last name:</span>
-                                {!changeMode ? <span className="text-gray-700">{nidda.last_name}</span> : <Input className="max-w-[420px]" onChange={handleInputChange}  type="text" name="last_name" id="last_name" defaultValue={nidda.last_name} variant="underlined" size="sm" />}
+                                {!changeMode ? <span className="text-gray-700">{info.last_name}</span> : <Input className="max-w-[420px]" onChange={handleInputChange}  type="text" name="last_name" id="last_name" defaultValue={info.last_name} variant="underlined" size="sm" />}
                               </li>
                                <li className="flex border-y py-2">
                                   <span className="font-bold flex-1 my-auto">Phone:</span>
-                                  {!changeMode ? <span className="text-gray-700">{nidda.contact_number}</span> : <Input className="max-w-[420px]" name="contact_number" onChange={handleInputChange} variant="underlined" size="sm" defaultValue={nidda.contact_number} />}
+                                  {!changeMode ? <span className="text-gray-700">{info.contact_number}</span> : <Input className="max-w-[420px]" name="contact_number" onChange={handleInputChange} variant="underlined" size="sm" defaultValue={info.contact_number} />}
                                </li>
                                <li className="flex border-y py-2">
                                   <span className="font-bold flex-1 my-auto">Email:</span>
-                                  {!changeMode ? <span className="text-gray-700">{nidda.email}</span> : <Input className="max-w-[420px]"  id="email" name="email" onChange={handleInputChange}  defaultValue={nidda.email} variant="underlined" size="sm"/>}
+                                  {!changeMode ? <span className="text-gray-700">{info.email}</span> : <Input className="max-w-[420px]"  id="email" name="email" onChange={handleInputChange}  defaultValue={info.email} variant="underlined" size="sm"/>}
                                </li>
                                <li className="flex border-y py-2">
                                    <span className="font-bold flex-1 my-auto">Gender:</span>
-                                   <span className="text-gray-700 ">{capitalizeFirstLetter(nidda.gender)}</span>
+                                   <span className="text-gray-700 ">{capitalizeFirstLetter(info.gender)}</span>
                                </li>
                                <li className="flex border-y py-2">
                                    <span className="font-bold flex-1 my-auto">Area:</span>
-                                   {!changeMode?<span className="text-gray-700">{nidda.city}</span>:<Input className="max-w-[420px]"  id="city" name="city" onChange={handleInputChange}  variant="underlined" size="sm" defaultValue={nidda.city}/>}
+                                   {!changeMode?<span className="text-gray-700">{info.city}</span>:<Input className="max-w-[420px]"  id="city" name="city" onChange={handleInputChange}  variant="underlined" size="sm" defaultValue={info.city}/>}
                                </li>
                                <li className="flex border-y py-2">
                                    <span className="font-bold flex-1 my-auto">Country:</span>
-                                   {!changeMode?<span className="text-gray-700">{capitalizeFirstLetter(nidda.country)}</span>:<Input className="max-w-[420px]" onChange={handleInputChange}  name="country" id="country" variant="underlined" size="sm" defaultValue={capitalizeFirstLetter(nidda.country)}/>}
+                                   {!changeMode?<span className="text-gray-700">{capitalizeFirstLetter(info.country)}</span>:<Input className="max-w-[420px]" onChange={handleInputChange}  name="country" id="country" variant="underlined" size="sm" defaultValue={capitalizeFirstLetter(info.country)}/>}
                                </li>
                                <li className="flex border-y py-2">
                                    <span className="font-bold flex-1 my-auto">Address:</span>
-                                   {!changeMode?<span className="text-gray-700 ">{nidda.address}</span>:<Input className="max-w-[420px]" name="address" id="address" onChange={handleInputChange}  defaultValue={nidda.address} variant="underlined" size="sm"/>}
+                                   {!changeMode?<span className="text-gray-700 ">{info.address}</span>:<Input className="max-w-[420px]" name="address" id="address" onChange={handleInputChange}  defaultValue={info.address} variant="underlined" size="sm"/>}
                                </li>
 
-{nidda.role === "teacher" ? <>
+{info.role === "teacher" ? <>
                                <li className="flex border-y py-2">
                                    <span className="font-bold flex-1 my-auto">Subjects:</span>
-                                   {!changeMode?<span className="text-gray-700 ">{nidda.subjects}</span>:<Input className="max-w-[420px]" name="subjects" id="subjects" onChange={handleInputChange}  defaultValue={nidda.subjects} variant="underlined" size="sm"/>}
+                                   {!changeMode?<span className="text-gray-700 ">{info.subjects}</span>:<Input className="max-w-[420px]" name="subjects" id="subjects" onChange={handleInputChange}  defaultValue={info.subjects} variant="underlined" size="sm"/>}
                                </li>
 
                                
                                <li className="flex border-y py-2">
                                    <span className="font-bold flex-1 my-auto">Students:</span>
-                                   {!changeMode?<span className="text-gray-700 ">{nidda.no_students}</span>:<Input className="max-w-[420px]" name="no_students" id="no_students" onChange={handleInputChange}  defaultValue={nidda.no_students} variant="underlined" size="sm"/>}
+                                   {!changeMode?<span className="text-gray-700 ">{info.no_students}</span>:<Input className="max-w-[420px]" name="no_students" id="no_students" onChange={handleInputChange}  defaultValue={info.no_students} variant="underlined" size="sm"/>}
                                </li>
 
                                
                                <li className="flex border-y py-2">
                                    <span className="font-bold flex-1 my-auto">Sessions:</span>
-                                   {!changeMode?<span className="text-gray-700 ">{nidda.no_sessions}</span>:<Input className="max-w-[420px]" name="no_sessions" id="no_sessions" onChange={handleInputChange}  defaultValue={nidda.no_sessions} variant="underlined" size="sm"/>}
+                                   {!changeMode?<span className="text-gray-700 ">{info.no_sessions}</span>:<Input className="max-w-[420px]" name="no_sessions" id="no_sessions" onChange={handleInputChange}  defaultValue={info.no_sessions} variant="underlined" size="sm"/>}
                                </li>
 
                                </>:<></>}
 
                                
-                               {nidda.role === "doctor" ? <>
+                               {info.role === "doctor" ? <>
                                <li className="flex border-y py-2">
                                    <span className="font-bold flex-1 my-auto">Specialty:</span>
-                                   {!changeMode?<span className="text-gray-700 ">{nidda.specialty}</span>:<Input className="max-w-[420px]" id="specialty" name="specialty" onChange={handleInputChange}  defaultValue={nidda.specialty} variant="underlined" size="sm"/>}
+                                   {!changeMode?<span className="text-gray-700 ">{info.specialty}</span>:<Input className="max-w-[420px]" id="specialty" name="specialty" onChange={handleInputChange}  defaultValue={info.specialty} variant="underlined" size="sm"/>}
                                </li>
 
                                
                                <li className="flex border-y py-2">
                                    <span className="font-bold flex-1 my-auto">Appointments:</span>
-                                   {!changeMode?<span className="text-gray-700 ">{nidda.no_appointments}</span>:<Input className="max-w-[420px]" id="no_appointments" name="no_appointments" onChange={handleInputChange}  defaultValue={nidda.no_appointments} variant="underlined" size="sm"/>}
+                                   {!changeMode?<span className="text-gray-700 ">{info.no_appointments}</span>:<Input className="max-w-[420px]" id="no_appointments" name="no_appointments" onChange={handleInputChange}  defaultValue={info.no_appointments} variant="underlined" size="sm"/>}
                                </li>
 
                                
                                <li className="flex border-y border-b-2 py-2">
                                    <span className="font-bold flex-1 my-auto">Clinic Address:</span>
-                                   {!changeMode?<span className="text-gray-700 ">{nidda.clinic_address}</span>:<Input className="max-w-[420px]" id="clinic_address" name="clinic_address" onChange={handleInputChange}  defaultValue={nidda.clinic_address} variant="underlined" size="sm"/>}
+                                   {!changeMode?<span className="text-gray-700 ">{info.clinic_address}</span>:<Input className="max-w-[420px]" id="clinic_address" name="clinic_address" onChange={handleInputChange}  defaultValue={info.clinic_address} variant="underlined" size="sm"/>}
                                </li>
                                <li className="flex border-y border-b-2 py-2">
                                    <span className="font-bold flex-1 my-auto">Clinic Area:</span>
-                                   {!changeMode?<span className="text-gray-700 ">{nidda.clinic_area}</span>:<Input className="max-w-[420px]" id="clinic_area" name="clinic_area" onChange={handleInputChange}  defaultValue={nidda.clinic_area} variant="underlined" size="sm"/>}
+                                   {!changeMode?<span className="text-gray-700 ">{info.clinic_area}</span>:<Input className="max-w-[420px]" id="clinic_area" name="clinic_area" onChange={handleInputChange}  defaultValue={info.clinic_area} variant="underlined" size="sm"/>}
                                </li>
                                <li className="flex border-y border-b-2 py-2">
                                    <span className="font-bold flex-1 my-auto">Clinic Governorate:</span>
-                                   {!changeMode?<span className="text-gray-700 ">{nidda.clinic_governorate}</span>:<Input className="max-w-[420px]" id="clinic_governorate" name="clinic_governorate" onChange={handleInputChange}  defaultValue={nidda.clinic_governorate} variant="underlined" size="sm"/>}
+                                   {!changeMode?<span className="text-gray-700 ">{info.clinic_governorate}</span>:<Input className="max-w-[420px]" id="clinic_governorate" name="clinic_governorate" onChange={handleInputChange}  defaultValue={info.clinic_governorate} variant="underlined" size="sm"/>}
                                </li>
                                </>:<></>}
 
@@ -279,8 +279,8 @@ const [interim, setInterim] = useState({
                            <div className="relative px-4">
                                
        
-                           {drivernidda.map(sn => (
-                           <div key={drivernidda.ETA}> 
+                           {driverinfo.map(sn => (
+                           <div key={driverinfo.ETA}> 
                            
                            <div className="flex items-center w-full my-6 -ml-1.5">
                                    <div className="w-1/12 z-10">
@@ -303,8 +303,8 @@ const [interim, setInterim] = useState({
                </div>
        
                {loggedInUser.longitude?
-                    !changeMode?<iframe src={"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1818.421628697366!2d"+nidda.longitude+"!3d"+nidda.latitude+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714984628638!5m2!1sen!2seg"} className="bg-white rounded-lg shadow-xl "
-                    width="100%" height="600"></iframe>:<TheMAP handleMapChange={handleMapChange} width={"100%"} long={nidda.longitude} lat={nidda.latitude} />:""}
+                    !changeMode?<iframe src={"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1818.421628697366!2d"+info.longitude+"!3d"+info.latitude+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714984628638!5m2!1sen!2seg"} className="bg-white rounded-lg shadow-xl "
+                    width="100%" height="600"></iframe>:<TheMAP handleMapChange={handleMapChange} width={"100%"} long={info.longitude} lat={info.latitude} />:""}
        
                </div>
                </div>
