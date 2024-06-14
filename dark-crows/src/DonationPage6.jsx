@@ -29,11 +29,8 @@ const type = "Clothes";
           [name]: value
         });
 
-  
     }
     
-  
-
   const [posts, setPosts] = useState([]);
 
   function handleSubmit(e){
@@ -42,7 +39,6 @@ const type = "Clothes";
   setPosts(newPosts);
   localStorage.setItem('posts', JSON.stringify(newPosts));
   
-
   setUploadtext('');
   toast.success('Request Updated Successfully! 🎉🥳');
 
@@ -50,10 +46,6 @@ const type = "Clothes";
 console.log("ALL REGISTERED USERS", localStorage.getItem("posts"));
 
   }
-
-
-
-
 
 function handleFileChange(event) {
   const file = event.target.files[0];

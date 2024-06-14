@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import GeneralButton from "./generalButton.jsx";
 const Home = () => {
     
-    const [fa2erniggaalert] = useState(
+    const [fna] = useState(
             [{Type:"Doctoring", Specialty:"Embryology",tag:'', Area:"First Settlement", Governorate:"Cairo", title: 'Healing Hands',                            body: 'Support health: donate medical help today and save lives. We need to make 1000 medical examinations!',                                                                    author: 'chapter', id: 0, donatedAmount: 1000 , maximumAmount: 1000 , get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 9,                                                                                                    source: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRueLkltbO4DL1fACKGvADCMmZdGemIx30sjw&usqp=CAU'},
             {Type:"Food",tag:'Fruits and Vegetables', Area:"Mokattam", Governorate:"Cairo", title: 'Donation meals', body: 'Food is the moral right of all who are born into this world. Help us provide that right to others! We need 1000 lunch meals', author: 'Feeders',   id: 1, donatedAmount: 1000 ,maximumAmount: 10000 , get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 1,                                                       source: 'https://www.efsa.europa.eu/sites/default/files/news/food-donations.jpg'},
             {Type:"Toys",tag:'Dolls', Age:11, Gender:"Female", Area:"First Settlement", Governorate:"Cairo", title: 'Dolls for Joy',                            body: "Bring smiles to little faces! Donate your dolls today and make a child's day brighter.Help us gather a 1000 doll!",                                                                    author: 'chapter', id: 2, donatedAmount: 1000 , maximumAmount: 1000 , get percentage() {return this.donatedAmount / this.maximumAmount;}, donatorCount: 9,                                                                                                    source: 'https://images-cdn.ubuy.co.in/6501fa4388355829ec0221b5-prextex-baby-twin-dolls-set-12-boy.jpg'},
@@ -111,62 +111,62 @@ const Home = () => {
         setSpecial("");
         setType("");
       }
-    const filter3adeyagedan = fa2erniggaalert.filter(fa2erniggaalert => {
+    const filter3adeyagedan = fna.filter(fna => {
 
         switch (TypeTerm.toLowerCase()) {
             case "toys":
-                return (AgeTerm != 0 ? (fa2erniggaalert.Age && fa2erniggaalert.Age == AgeTerm) : true)
-                    && fa2erniggaalert.Gender && fa2erniggaalert.Gender.includes(GenderTerm)
-                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
-                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
-                    && (CategoryTerm.length?fa2erniggaalert.tag && CategoryTerm.some(category => fa2erniggaalert.tag.includes(category)):true)
-                    && fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase());
+                return (AgeTerm != 0 ? (fna.Age && fna.Age == AgeTerm) : true)
+                    && fna.Gender && fna.Gender.includes(GenderTerm)
+                    && fna.Type && (fna.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fna.title.toLowerCase().includes(searchTerm.toLowerCase()))
+                    && (CategoryTerm.length?fna.tag && CategoryTerm.some(category => fna.tag.includes(category)):true)
+                    && fna.Type && fna.Type.toLowerCase().includes(TypeTerm.toLowerCase());
             case "blood":
-                return fa2erniggaalert.Area && fa2erniggaalert.Area.toLowerCase().includes(AreaTerm.toLowerCase())
-                    && fa2erniggaalert.Hospital && fa2erniggaalert.Hospital.toLowerCase().includes(HospitalTerm.toLowerCase())
-                    && fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase())
-                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
-                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
-                    && fa2erniggaalert.Governorate && fa2erniggaalert.Governorate.toLowerCase().includes(GovernorateTerm.toLowerCase());
+                return fna.Area && fna.Area.toLowerCase().includes(AreaTerm.toLowerCase())
+                    && fna.Hospital && fna.Hospital.toLowerCase().includes(HospitalTerm.toLowerCase())
+                    && fna.Type && fna.Type.toLowerCase().includes(TypeTerm.toLowerCase())
+                    && fna.Type && (fna.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fna.title.toLowerCase().includes(searchTerm.toLowerCase()))
+                    && fna.Governorate && fna.Governorate.toLowerCase().includes(GovernorateTerm.toLowerCase());
             case "teaching":
-                return fa2erniggaalert.Area && fa2erniggaalert.Area.toLowerCase().includes(AreaTerm.toLowerCase())
-                    && fa2erniggaalert.Subject && fa2erniggaalert.Subject.some(subject => subject.toLowerCase().includes(SubjectTerm.toLowerCase()))
-                    && fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase())
-                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
-                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
-                    && fa2erniggaalert.Governorate && fa2erniggaalert.Governorate.toLowerCase().includes(GovernorateTerm.toLowerCase());
+                return fna.Area && fna.Area.toLowerCase().includes(AreaTerm.toLowerCase())
+                    && fna.Subject && fna.Subject.some(subject => subject.toLowerCase().includes(SubjectTerm.toLowerCase()))
+                    && fna.Type && fna.Type.toLowerCase().includes(TypeTerm.toLowerCase())
+                    && fna.Type && (fna.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fna.title.toLowerCase().includes(searchTerm.toLowerCase()))
+                    && fna.Governorate && fna.Governorate.toLowerCase().includes(GovernorateTerm.toLowerCase());
             case "doctoring":
-                return fa2erniggaalert.Area && fa2erniggaalert.Area.toLowerCase().includes(AreaTerm.toLowerCase())
-                    && (fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase()))
-                    && (fa2erniggaalert.Specialty && fa2erniggaalert.Specialty.toLowerCase().includes(SpecialTerm.toLowerCase()))
-                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
-                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
-                    && fa2erniggaalert.Governorate && fa2erniggaalert.Governorate.toLowerCase().includes(GovernorateTerm.toLowerCase());
+                return fna.Area && fna.Area.toLowerCase().includes(AreaTerm.toLowerCase())
+                    && (fna.Type && fna.Type.toLowerCase().includes(TypeTerm.toLowerCase()))
+                    && (fna.Specialty && fna.Specialty.toLowerCase().includes(SpecialTerm.toLowerCase()))
+                    && fna.Type && (fna.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fna.title.toLowerCase().includes(searchTerm.toLowerCase()))
+                    && fna.Governorate && fna.Governorate.toLowerCase().includes(GovernorateTerm.toLowerCase());
             case "clothes":
-                return (AgeTerm != 0 ? (fa2erniggaalert.Age && fa2erniggaalert.Age == AgeTerm) : true)
-                    && (fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase()))
-                    && fa2erniggaalert.Gender && fa2erniggaalert.Gender.includes(GenderTerm)
-                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
-                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
-                    && fa2erniggaalert.Season && fa2erniggaalert.Season.toLowerCase().includes(SeasonTerm.toLowerCase());
+                return (AgeTerm != 0 ? (fna.Age && fna.Age == AgeTerm) : true)
+                    && (fna.Type && fna.Type.toLowerCase().includes(TypeTerm.toLowerCase()))
+                    && fna.Gender && fna.Gender.includes(GenderTerm)
+                    && fna.Type && (fna.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fna.title.toLowerCase().includes(searchTerm.toLowerCase()))
+                    && fna.Season && fna.Season.toLowerCase().includes(SeasonTerm.toLowerCase());
             case "food":
-                return (fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase()))
-                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
-                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
-                    && (CategoryTerm.length?fa2erniggaalert.tag && CategoryTerm.some(category => fa2erniggaalert.tag.includes(category)):true);
+                return (fna.Type && fna.Type.toLowerCase().includes(TypeTerm.toLowerCase()))
+                    && fna.Type && (fna.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fna.title.toLowerCase().includes(searchTerm.toLowerCase()))
+                    && (CategoryTerm.length?fna.tag && CategoryTerm.some(category => fna.tag.includes(category)):true);
             case "school":
-                return fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase())
-                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
-                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
-                    && (CategoryTerm.length?fa2erniggaalert.tag && CategoryTerm.some(category => fa2erniggaalert.tag.includes(category)):true);
+                return fna.Type && fna.Type.toLowerCase().includes(TypeTerm.toLowerCase())
+                    && fna.Type && (fna.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fna.title.toLowerCase().includes(searchTerm.toLowerCase()))
+                    && (CategoryTerm.length?fna.tag && CategoryTerm.some(category => fna.tag.includes(category)):true);
             case "medical":
-                return fa2erniggaalert.Type && fa2erniggaalert.Type.toLowerCase().includes(TypeTerm.toLowerCase())
-                    && fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
-                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()))
-                    && (CategoryTerm.length?fa2erniggaalert.tag && CategoryTerm.some(category => fa2erniggaalert.tag.includes(category)):true);
+                return fna.Type && fna.Type.toLowerCase().includes(TypeTerm.toLowerCase())
+                    && fna.Type && (fna.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fna.title.toLowerCase().includes(searchTerm.toLowerCase()))
+                    && (CategoryTerm.length?fna.tag && CategoryTerm.some(category => fna.tag.includes(category)):true);
             default:
-                return fa2erniggaalert.Type && (fa2erniggaalert.Type.toLowerCase().includes(searchTerm.toLowerCase())
-                    |fa2erniggaalert.title.toLowerCase().includes(searchTerm.toLowerCase()));
+                return fna.Type && (fna.Type.toLowerCase().includes(searchTerm.toLowerCase())
+                    |fna.title.toLowerCase().includes(searchTerm.toLowerCase()));
         }
     });
 
@@ -186,7 +186,7 @@ const Home = () => {
                                                      
                         >X</button>
             <div className="home h-screen grid place-items-center mt-20 ml-[63px] w-[1000px]">
-                <ThisThing  fa2erniggaalert={filter3adeyagedan}/>
+                <ThisThing  fna={filter3adeyagedan}/>
             </div>  
         </div>
     </div>

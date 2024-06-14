@@ -12,12 +12,12 @@ var thisp = "text-3xl w-[100px]";
 
 const OrgProfile = () => {
     let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")); 
-    var [nigga, setNigga] = useState(
+    var [nidda, setNidda] = useState(
         {username: loggedInUser.username, password:loggedInUser.password ,first_name: loggedInUser.first_name,last_name: loggedInUser.last_name, email: loggedInUser.email, contact_number: loggedInUser.contact_number,
              address: loggedInUser.address, country: loggedInUser.country,
              role: loggedInUser.role, gender: loggedInUser.gender, longitude:+loggedInUser.longitude, latitude:+loggedInUser.latitude}
 );
-    var [drivernigga] = useState(
+    var [drivernidda] = useState(
         [{ETA: '2024-11-07T07:45:00Z', driverName: "Ahmed 3andaleeb", driver: "01092408287"},
          {ETA: '2024-12-10T07:28:00Z', driverName: "Omar 3andaleeb", driver: "01022608212"},
          {ETA: '2024-09-10T07:17:00Z', driverName: "Shaz 3andaleeb", driver: "01092285549"},
@@ -88,7 +88,7 @@ const [interim, setInterim] = useState({
     setChangeMode(!changeMode)
     localStorage.setItem('loggedInUser', JSON.stringify(interim));
     loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")); 
-    setNigga(loggedInUser);
+    setNidda(loggedInUser);
       console.log("ay7agacapitalneshofhaaaahhhh",JSON.parse(localStorage.getItem('loggedInUser')));
 
   }
@@ -123,10 +123,10 @@ const [interim, setInterim] = useState({
                 <div className>
                     <div className="text-4xl font-bold px-3"> Pending Deliveries </div>
                     <div>
-                    {drivernigga.map(drivernigga => (
-                    <div key={drivernigga.ETA}> 
-                    <div className="text-2xl w-52 mx-auto">{drivernigga.driverName}</div>
-                        <DateInput startContent="⠀⠀⠀⠀" endContent="⠀⠀⠀⠀" defaultValue={parseAbsoluteToLocal(drivernigga.ETA)} isReadOnly/>
+                    {drivernidda.map(drivernidda => (
+                    <div key={drivernidda.ETA}> 
+                    <div className="text-2xl w-52 mx-auto">{drivernidda.driverName}</div>
+                        <DateInput startContent="⠀⠀⠀⠀" endContent="⠀⠀⠀⠀" defaultValue={parseAbsoluteToLocal(drivernidda.ETA)} isReadOnly/>
                     </div>
                     ))}
                     </div>
@@ -138,21 +138,21 @@ const [interim, setInterim] = useState({
                     <div className="grid grid-cols-3 gap-4 items-center">   
                         <Avatar className="row-span-5 w-[300px] h-[300px] mx-auto" 
                         src={fileDataUrl}/>
-                    {changeMode?<Input id="first_name" name="first_name" onChange={handleInputChange} size="lg" type="text" variant={"flat"} placeholder="Name" defaultValue={nigga.first_name} />:<p className={thisp}>{nigga.first_name}</p>}
-                    {changeMode?<Input id="last_name" name="last_name" onChange={handleInputChange} size="lg" type="text" variant={"flat"} placeholder="Name" defaultValue={nigga.last_name} />:<p className={thisp}>{nigga.last_name}</p>}
-                    {changeMode?<Input id="email" name="email" onChange={handleInputChange} isRequired size="lg" type="email" variant={"flat"} placeholder="Email" defaultValue={nigga.email} />:<p className={thisp}>{nigga.email}</p>}
-                    {changeMode?<Input id="gender" name="gender" onChange={handleInputChange} size="lg" type="text" variant={"flat"} placeholder="Gender" defaultValue={nigga.gender} />:<p className={thisp}>{nigga.gender}</p>}
-                    {changeMode?<Input id="contact_number" name="contact_number" onChange={handleInputChange} size="lg" type="tel" variant={"flat"} placeholder="Phone" defaultValue={nigga.contact_number} />:<p className={thisp}>{nigga.contact_number}</p>}
-                    {changeMode?<Input id="role" name="role" onChange={handleInputChange} isRequired size="lg" type="text" variant={"flat"} placeholder="Type" defaultValue={nigga.role} />:<p className={thisp}>{nigga.role}</p>}
-                    {changeMode?<Input id="address" name="address" onChange={handleInputChange} isRequired size="lg" type="text" variant={"flat"} placeholder="Address" defaultValue={nigga.address} />:<p className={thisp}>{nigga.address}</p>}
+                    {changeMode?<Input id="first_name" name="first_name" onChange={handleInputChange} size="lg" type="text" variant={"flat"} placeholder="Name" defaultValue={nidda.first_name} />:<p className={thisp}>{nidda.first_name}</p>}
+                    {changeMode?<Input id="last_name" name="last_name" onChange={handleInputChange} size="lg" type="text" variant={"flat"} placeholder="Name" defaultValue={nidda.last_name} />:<p className={thisp}>{nidda.last_name}</p>}
+                    {changeMode?<Input id="email" name="email" onChange={handleInputChange} isRequired size="lg" type="email" variant={"flat"} placeholder="Email" defaultValue={nidda.email} />:<p className={thisp}>{nidda.email}</p>}
+                    {changeMode?<Input id="gender" name="gender" onChange={handleInputChange} size="lg" type="text" variant={"flat"} placeholder="Gender" defaultValue={nidda.gender} />:<p className={thisp}>{nidda.gender}</p>}
+                    {changeMode?<Input id="contact_number" name="contact_number" onChange={handleInputChange} size="lg" type="tel" variant={"flat"} placeholder="Phone" defaultValue={nidda.contact_number} />:<p className={thisp}>{nidda.contact_number}</p>}
+                    {changeMode?<Input id="role" name="role" onChange={handleInputChange} isRequired size="lg" type="text" variant={"flat"} placeholder="Type" defaultValue={nidda.role} />:<p className={thisp}>{nidda.role}</p>}
+                    {changeMode?<Input id="address" name="address" onChange={handleInputChange} isRequired size="lg" type="text" variant={"flat"} placeholder="Address" defaultValue={nidda.address} />:<p className={thisp}>{nidda.address}</p>}
                     {changeMode?<Input id="country" name="country" 
                     onChange={handleInputChange} isRequired size="lg" 
                     type="text" variant={"flat"} placeholder="Country" 
-                    defaultValue={nigga.country} />:<p className={thisp}>{nigga.country}</p>}
-                    {<p className={thisp}>{nigga.username}</p>}
+                    defaultValue={nidda.country} />:<p className={thisp}>{nidda.country}</p>}
+                    {<p className={thisp}>{nidda.username}</p>}
                     {changeMode?<Input id="password" name="password" isRequired onChange={handleInputChange}
       placeholder="Password"
-      defaultValue={nigga.password}
+      defaultValue={nidda.password}
       endContent={
         <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
           {isVisible ? (
@@ -167,8 +167,8 @@ const [interim, setInterim] = useState({
     />:<p className={thisp}>*****</p>}
                 </div>
 
-                {nigga.donorType === "Doctor" ? <div className="flex flex-row">
-                {loggedInUser && loggedInUser.longitude?<iframe src={"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1818.421628697366!2d"+nigga.longitude+"!3d"+nigga.latitude+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714984628638!5m2!1sen!2seg"} 
+                {nidda.donorType === "Doctor" ? <div className="flex flex-row">
+                {loggedInUser && loggedInUser.longitude?<iframe src={"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1818.421628697366!2d"+nidda.longitude+"!3d"+nidda.latitude+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714984628638!5m2!1sen!2seg"} 
                     width="600" height="450"></iframe>:""}
 
                     <div className="flex flex-col gap-12 my-auto">
@@ -182,8 +182,8 @@ const [interim, setInterim] = useState({
                             No. of free appointments per week: 69
                         </p>
                     </div>
-                </div> : nigga.donorType === "Teacher"?<div className="flex flex-row">
-                    {loggedInUser && loggedInUser.longitude?<iframe src={"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1818.421628697366!2d"+nigga.longitude+"!3d"+nigga.latitude+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714984628638!5m2!1sen!2seg"} 
+                </div> : nidda.donorType === "Teacher"?<div className="flex flex-row">
+                    {loggedInUser && loggedInUser.longitude?<iframe src={"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1818.421628697366!2d"+nidda.longitude+"!3d"+nidda.latitude+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714984628638!5m2!1sen!2seg"} 
                     width="600" height="450"></iframe>:""}
                     <div className="grid grid-col-1 my-auto gap-24">
                         <p className="w-54 text-3xl">
@@ -198,7 +198,7 @@ const [interim, setInterim] = useState({
                         
                     </div>
                     </div> : <div className="flex flex-row">
-                    {loggedInUser && loggedInUser.longitude?<iframe src={"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1818.421628697366!2d"+nigga.longitude+"!3d"+nigga.latitude+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714984628638!5m2!1sen!2seg"} 
+                    {loggedInUser && loggedInUser.longitude?<iframe src={"https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1818.421628697366!2d"+nidda.longitude+"!3d"+nidda.latitude+"!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1714984628638!5m2!1sen!2seg"} 
                     width="600" height="450"></iframe>:""}
                 </div> }
                 <div className="w-full h-12 pl-[1100px]">

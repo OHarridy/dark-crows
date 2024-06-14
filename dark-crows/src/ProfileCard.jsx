@@ -86,7 +86,7 @@ function capitalizeFirstLetter(string) {
                     <div className="relative px-4">
                         
 
-                    {drivernidda.map(supanigga => (
+                    {drivernidda.map(sn => (
                     <div key={drivernidda.ETA}> 
                     
                     <div className="flex items-center w-full my-6 -ml-1.5">
@@ -94,8 +94,8 @@ function capitalizeFirstLetter(string) {
                                 <div className="w-3.5 h-3.5 bg-green-500 rounded-full"></div>
                             </div>
                             <div className="w-11/12">
-                                <p className="text-sm">{supanigga.driverName}</p>
-                                <p className="text-xs text-gray-500">{supanigga.ETA}</p>
+                                <p className="text-sm">{sn.driverName}</p>
+                                <p className="text-xs text-gray-500">{sn.ETA}</p>
                             </div>
                         </div>
                     
